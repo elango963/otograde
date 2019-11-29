@@ -1,0 +1,110 @@
+[
+	{
+		"href" : "/dashboard",
+		"text" : "Dashboard",
+		"active" : "dashboard",
+		"class": "fa-tachometer-alt",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/create",
+		"text" : "New Lead",
+		"active" : "create",
+		"class": "fa-plus",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/inbox",
+		"text" : "Lead Inbox",
+		"active" : "inbox",
+		"class": "fa-envelope",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/assigned-list",
+		"text" : "Assigned Lead",
+		"active" : "assigned",
+		"class": "fa-envelope",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/re-assigned-list",
+		"text" : "Re Assigned Lead",
+		"active" : "re-assigned",
+		"class": "fa-file-prescription fa-2x",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/ro-confirmation-list",
+		"text" : "RO Confirmation",
+		"active" : "ro-confirmation",
+		"class": "fa-thumbs-up",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/lead-confirmation-list",
+		"text" : "Lead Confirmation",
+		"active" : "lead-confirmation",
+		"class": "fa-check-circle",
+		"hasSubmenu" : false,
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/qc-hold-list",
+		"text" : "QC HOLD",
+		"active" : "qc-hold",
+		"class": "fa-pause-circle",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/pricing-list",
+		"text" : "Pricing",
+		"active" : "pricing",
+		"class": "fa-rupee-sign",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/inspection-completed-list",
+		"text" : "Inspection Completed",
+		"active" : "inspection-completed",
+		"class": "fa-bookmark",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "/lead/rejected-list",
+		"text" : "Rejected",
+		"active" : "rejected",
+		"class": "fa-trash",
+		"submenuAvailable" : false
+	},
+	{
+		"href" : "#",
+		"text" : "Lead Management",
+		"class": "far fa-envelope",
+		"submenuAvailable" : true,
+		"submenuKey" : ["add", "bulk", "download"],
+		"submenuList" : [
+			{
+				"href" : "/lead/add",
+				"text" : "New Lead",
+				"active" : "add",
+				"class": "fa-plus",
+				"submenuAvailable" : false
+			},
+			{
+				"href" : "/lead/inbox",
+				"text" : "Bulk Lead",
+				"active" : "bulk",
+				"class": "fa-book",
+				"submenuAvailable" : false
+			},
+			{
+				"href" : "/lead/download",
+				"text" : "Download",
+				"active" : "download",
+				"class": "fa-download",
+				"submenuAvailable" : false
+			}
+		]
+	}
+]
