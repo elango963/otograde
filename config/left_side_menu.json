@@ -24,7 +24,7 @@
 		"href" : "/lead/assigned-list",
 		"text" : "Assigned Lead",
 		"active" : "assigned",
-		"class": "fa-envelope",
+		"class": "fa fa-assistive-listening-systems",
 		"submenuAvailable" : false
 	},
 	{

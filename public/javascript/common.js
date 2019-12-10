@@ -160,6 +160,9 @@ $(function () {
 	$(document).on('focus', '.select2', function() {
     	$(this).siblings('select').select2('open');
 	});
+	$(document).on('change', '.select2', function() {
+    	$(this).valid();
+	});
 	$("#js_lead_creation_form").submit(function(e) {
         //prevent Default functionality
         e.preventDefault();

@@ -395,3 +395,14 @@ table.dataTable {
 .dataTables_wrapper .row {
 	margin: 0px !important;
 }
+.action_sub_table_td a {
+	color: #24346f !important;
+	cursor: pointer;
+}
+.action_sub_table_td a:hover {
+	color: #fc6118 !important;
+	cursor: pointer;
+}
+.action_sub_table_td a span {
+	font-size: 10px;
+}
