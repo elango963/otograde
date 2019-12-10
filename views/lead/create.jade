@@ -1,170 +1,198 @@
 extends ../layout/layout 
 block content
 	.content-wrapper
-		section.content
-			.row
-				.col-md-12
-					&emsp;
-			.row
-				.col-md-12
-					.col-md-6
+		.row.m-0
+			.col-md-12
+				form#js_lead_creation_form(role='form', class="form-horizontal")
+					section.content
 						.col-md-12
-							.card.card-lightgreen.client-details-form
-								.card-header
-									h3.card-title 
-										i.fas.fa-bars
-										| &emsp; 
-										b Client Details
-									// button.btn.btn-block.btn-default.btn-flat.btn-save(type='button') Save
-									.card-tools
-										button.btn.btn-tool(type='button', data-card-widget='collapse')
-											i.fas.fa-minus
-										button.btn.btn-tool(type='button', data-card-widget='remove')
-											i.fas.fa-remove
-								.card-body(style='display: block;')
-									.row
-										.col-md-12
-											form(role='form')
-												.form-group
-													input.form-control(type='text', placeholder='Enter Client Company')
-												.form-group.col-md-6.pl-0
-													select.form-control.select2(style='width: 100%;',  data-placeholder="Select a State")
-														option
-														each stateText, stateValue in data.statelist
-															option(value='#{stateValue}') #{stateText}
-												.form-group.col-md-6.pr-0
-													select.form-control.select2(style='width: 100%;',  data-placeholder="Select Client City")
-														option
-												.col-md-12.form-group.p-0.m-0
-													label.col-form-label(for='city')
-														span Vehicle Category
-													.col-md-12.form-control.height-unset.p-0.checkbox-group
-														.icheck-primary.d-inline.col-md-4.pl-3.pt-3
-															input#2wheeler(type='checkbox', name='vehicleCategory', value='2wheeler')
-															label(for='2wheeler')
-																| 2 Wheeler
-														.icheck-primary.d-inline.col-md-8.pl-3.pt-3
-															input#fe(type='checkbox', name='vehicleCategory', value='fe')
-															label(for='fe')
-																| Farm Equipment
-														.icheck-primary.d-inline.col-md-4.pl-3.pt-2
-															input#3wheeler(type='checkbox', name='vehicleCategory', value='3wheeler')
-															label(for='3wheeler')
-																| 3 Wheeler
-														.icheck-primary.d-inline.col-md-8.pl-3.pt-2
-															input#cv(type='checkbox', name='vehicleCategory', value='cv')
-															label(for='cv')
-																| Commercial Vehicle
-														.icheck-primary.d-inline.col-md-4.pl-3.pt-2.pb-3
-															input#4wheeler(type='checkbox', name='vehicleCategory', value='4wheeler')
-															label(for='4wheeler')
-																| 4 Wheeler
-														.icheck-primary.d-inline.col-md-8.pl-3.pt-2.pb-3
-															input#ce(type='checkbox', name='vehicleCategory', value='ce')
-															label(for='ce')
-																| Construction Equipment
-					.col-md-6
+							&emsp;
 						.col-md-12
-							.card.card-lightgreen.vehicle-details-form
-								.card-header
-									h3.card-title 
-										i.fas.fa-bars
-										| &emsp; 
-										b Vehicle Details
-									.card-tools
-										button.btn.btn-tool(type='button', data-card-widget='collapse')
-											i.fas.fa-minus
-										button.btn.btn-tool(type='button', data-card-widget='remove')
-											i.fas.fa-remove
-								.card-body(style='display: block;')
-									.row
-										.col-md-12
-											form(role='form')
-												.form-group.col-md-6.pl-0
-													select.form-control.select2(style='width: 100%;',  data-placeholder="Select Registration Status")
-														option
-														option(value='avail') Available
-														option(value='notAvail') Not Available
-												.form-group.col-md-6.pr-0
-													input.form-control(type='text', placeholder='Enter Registration No.')
-												.form-group.col-md-6.pl-0
-													input.form-control(type='text', placeholder='Enter Loan Agreement/Prospect No.')
-												.form-group.col-md-6.pr-0
-													input.form-control(type='text', placeholder='Enter Model Variant')
-												.form-group.col-md-6.pl-0
-													input.form-control(type='text', placeholder='Enter Engine Type')
-												.form-group.col-md-6.pr-0
-													input.form-control(type='text', placeholder='Enter Chassis No')
-												.form-group.col-md-6.pl-0
-													select.form-control.select2(style='width: 100%;',  data-placeholder="Select No. Of Owners")
-														option
-														- for (var i = 0; i < 10; ++i) {
-															option(value='#{i}') #{i}
-														- }
-												.form-group.col-md-6.pr-0
-													select.form-control.select2(style='width: 100%;',  data-placeholder="Select Registration Status")
-														option
-														option(value='original') Original
-														option(value='duplicate') Duplicate
-														option(value='xerox') Xerox Copy
-														option(value='available') Available
-														option(value='notinhand') Not In Hand
-														option(value='notAvailable') Not Available
-												.form-group.col-md-6.pl-0
-													.input-group.col-md-12.p-0
-														.input-group-prepend
-															input.datepicker.form-control.float-right.js-monthyearmask(type='text', pattern="(1[0-2]|0[1-9])\/(1[5-9]|4\d)", placeholder='MFG.Date(MM/YYYY)')
-												.form-group.col-md-6.pr-0
-													.input-group.col-md-12.p-0
-														.input-group-prepend
-															input.datepicker.form-control.float-right.js-monthyearmask(type='text', pattern="(1[0-2]|0[1-9])\/(1[5-9]|4\d)", placeholder='Reg.Date(MM/YYYY)')
-				.col-md-12
-					.col-md-12
-						.col-md-12
-							.card.card-lightgreen.customer-details-form
-									.card-header
-										h3.card-title 
-											i.fas.fa-bars
-											| &emsp; 
-											b Customer Details
-										.card-tools
-											button.btn.btn-tool(type='button', data-card-widget='collapse')
-												i.fas.fa-minus
-											button.btn.btn-tool(type='button', data-card-widget='remove')
-												i.fas.fa-remove
-									.card-body(style='display: block;')
-										.row
-											.col-md-12
-												form(role='form')
-													.col-md-6
+							.col-md-6
+								.col-md-12
+									.card.card-lightgreen.client-details-form
+										.card-header
+											h3.card-title 
+												i.fas.fa-bars
+												| &emsp; 
+												b Client Details
+											// button.btn.btn-block.btn-default.btn-flat.btn-save(type='button') Save
+											.card-tools
+												button.btn.btn-tool(type='button', data-card-widget='collapse')
+													i.fas.fa-minus
+												button.btn.btn-tool(type='button', data-card-widget='remove')
+													i.fas.fa-remove
+										.card-body(style='display: block;')
+											.row
+												.col-md-12
+													.form-group
+														input.form-control(type='text', name= 'client_name', placeholder='Enter Client Company')
+													.form-group.col-md-6.pl-0
+														select.form-control.select2(style='width: 100%;',  data-placeholder="Select a State", name='client_state')
+															option
+															each stateText, stateValue in data.statelist
+																option(value='#{stateValue}') #{stateText}
+													.form-group.col-md-6.pr-0
+														select.form-control.select2(style='width: 100%;',  data-placeholder="Select Client City", name='client_city')
+															option
+													.col-md-12.form-group.p-0.m-0
+														label.col-form-label(for='inspectionType')
+															span Type Of Inspection
+														.checkbox-group
+															.icheck-primary.d-inline.col-md-2.p-0
+																input#retail(type='radio', name='inspectionType', value='retail')
+																label(for='retail')
+																	| Retail
+															.icheck-primary.d-inline.col-md-2.p-0
+																input#repo(type='radio', name='inspectionType', value='repo')
+																label(for='repo')
+																	| Repo
+															.icheck-primary.d-inline.col-md-2.p-0
+																input#c2c(type='radio', name='inspectionType', value='c2c')
+																label(for='c2c')
+																	| C2C
+													.col-md-12.form-group.p-0.m-0
+														label.col-form-label(for='vehicleCategory')
+															span Vehicle Category
+														.col-md-12.form-control.height-unset.p-0.checkbox-group
+															.icheck-primary.d-inline.col-md-4.pl-3.pt-3
+																input#2wheeler(type='checkbox', name='vehicleCategory', value='2wheeler')
+																label(for='2wheeler')
+																	| 2 Wheeler
+															.icheck-primary.d-inline.col-md-8.pl-3.pt-3
+																input#fe(type='checkbox', name='vehicleCategory', value='fe')
+																label(for='fe')
+																	| Farm Equipment
+															.icheck-primary.d-inline.col-md-4.pl-3.pt-2
+																input#3wheeler(type='checkbox', name='vehicleCategory', value='3wheeler')
+																label(for='3wheeler')
+																	| 3 Wheeler
+															.icheck-primary.d-inline.col-md-8.pl-3.pt-2
+																input#cv(type='checkbox', name='vehicleCategory', value='cv')
+																label(for='cv')
+																	| Commercial Vehicle
+															.icheck-primary.d-inline.col-md-4.pl-3.pt-2.pb-3
+																input#4wheeler(type='checkbox', name='vehicleCategory', value='4wheeler')
+																label(for='4wheeler')
+																	| 4 Wheeler
+															.icheck-primary.d-inline.col-md-8.pl-3.pt-2.pb-3
+																input#ce(type='checkbox', name='vehicleCategory', value='ce')
+																label(for='ce')
+																	| Construction Equipment
+							.col-md-6
+								.col-md-12
+									.card.card-lightgreen.vehicle-details-form
+										.card-header
+											h3.card-title 
+												i.fas.fa-bars
+												| &emsp; 
+												b Vehicle Details
+											.card-tools
+												button.btn.btn-tool(type='button', data-card-widget='collapse')
+													i.fas.fa-minus
+												button.btn.btn-tool(type='button', data-card-widget='remove')
+													i.fas.fa-remove
+										.card-body(style='display: block;')
+											.row
+												.col-md-12
 														.form-group.col-md-6.pl-0
-															input.form-control(type='text', placeholder='Enter Customer Name')
-															span.error-info
+															select.form-control.select2(style='width: 100%;',  data-placeholder="Select Registration Status", name="registrationType")
+																option
+																option(value='avail') Registered
+																option(value='notAvail') Un Registered
 														.form-group.col-md-6.pr-0
-															input.form-control(type='text', placeholder='Enter Mobile No')
-															span.error-info
-														.form-group.col-md-12.p-0
-															input.form-control(type='text', placeholder='Enter Address1(Street)')
-															span.error-info
-														.form-group.col-md-12.p-0
-															input.form-control(type='text', placeholder='Enter Area')
-															span.error-info
-													.col-md-6
+															input.form-control(type='text', placeholder='Enter Registration No.', name="registrationNumber")
 														.form-group.col-md-6.pl-0
-															select.form-control.select2(style='width: 100%;',  data-placeholder="Select City")
-																option
-															span.error-info
+															input.form-control(type='text', placeholder='Enter Loan Agreement/Prospect No.', name="loanAgreementNumber")
 														.form-group.col-md-6.pr-0
-															select.form-control.select2(style='width: 100%;',  data-placeholder="Select State")
+															input.form-control(type='text', placeholder='Enter Make And Model', name="modelNumber")
+														.form-group.col-md-6.pl-0
+															input.form-control(type='text', placeholder='Enter Engine No', name="engineNumber")
+														.form-group.col-md-6.pr-0
+															input.form-control(type='text', placeholder='Enter Chassis No', name="chassisNumber")
+														.form-group.col-md-6.pl-0
+															select.form-control.select2(style='width: 100%;',  data-placeholder="Select No. Of Owners", name="numberOfOwners")
 																option
-																each stateText, stateValue in data.statelist
-																	option(value='#{stateValue}') #{stateText}
-															span.error-info
-														.form-group.col-md-6.p-0
-															input.form-control(type='text', placeholder='Enter 6 Digit Pincode')
-															span.error-info
-			.row
-				.col-md-12
-					.col-md-12
-						.col-md-2
-							button.btn.btn-block.btn-default.btn-flat.btn-create(type='button') Create
+																- for (var i = 0; i < 10; ++i) {
+																	option(value='#{i}') #{i}
+																- }
+														.form-group.col-md-6.pr-0
+															select.form-control.select2(style='width: 100%;',  data-placeholder="Select Registration Status", name="registrationStatus")
+																option
+																option(value='original') Original
+																option(value='duplicate') Duplicate
+																option(value='xerox') Xerox Copy
+																option(value='available') Available
+																option(value='notinhand') Not In Hand
+																option(value='notAvailable') Not Available
+														.form-group.col-md-6.pl-0
+															.input-group.col-md-12.p-0
+																.input-group-prepend
+																	input.datepicker.form-control.float-right.js-monthyearmask(type='text', placeholder='MFG.Date(MM/YYYY)', name="mfgDate")
+														.form-group.col-md-6.pr-0
+															.input-group.col-md-12.p-0
+																.input-group-prepend
+																	input.datepicker.form-control.float-right.js-datemonthyearmask(type='text', placeholder='Reg.Date(DD/MM/YYYY)', name="regDate")
+						.col-md-12
+							.col-md-12
+								.col-md-12
+									.card.card-lightgreen.customer-details-form
+											.card-header
+												h3.card-title 
+													i.fas.fa-bars
+													| &emsp; 
+													b Customer Details
+												.card-tools
+													button.btn.btn-tool(type='button', data-card-widget='collapse')
+														i.fas.fa-minus
+													button.btn.btn-tool(type='button', data-card-widget='remove')
+														i.fas.fa-remove
+											.card-body(style='display: block;')
+												.row
+													.col-md-12.p-0
+															.col-md-5
+																.form-group.col-md-6.pl-0
+																	input.form-control(type='text', placeholder='Enter Customer Name', name="customerName")
+																	span.error-info
+																.form-group.col-md-6.pr-0
+																	input.form-control(type='text', placeholder='Enter Mobile No', name="customerMobileNumber")
+																	span.error-info
+																.form-group.col-md-12.p-0
+																	input.form-control(type='text', placeholder='Enter Address1(Street)', name="customerAddress1")
+																	span.error-info
+																.form-group.col-md-12.p-0
+																	input.form-control(type='text', placeholder='Enter Area', name="customerAddress2")
+																	span.error-info
+															.col-md-3
+																.col-md-12
+																	.form-group.col-md-12.pl-0
+																		select.form-control.select2(style='width: 100%;',  data-placeholder="Select City", name="customerCity")
+																			option
+																		span.error-info
+																.col-md-12
+																	.form-group.col-md-12.pl-0
+																		select.form-control.select2(style='width: 100%;',  data-placeholder="Select State", name="customerState")
+																			option
+																			each stateText, stateValue in data.statelist
+																				option(value='#{stateValue}') #{stateText}
+																		span.error-info
+																.col-md-12
+																	.form-group.col-md-12.pl-0
+																		input.form-control(type='text', placeholder='Enter 6 Digit Pincode', name="customerZipcode")
+																		span.error-info
+															.col-md-4
+																.col-md-12
+																	.form-group.col-md-12.pl-0
+																		input.form-control(type='text', placeholder='Enter Executive Detail', name="executiveName")
+																		span.error-info
+																.col-md-12
+																	.form-group.col-md-12.pl-0
+																		input.form-control(type='text', placeholder='Enter Executive Mobile No.	', name="executiveNumber")
+																		span.error-info
+						.col-md-12
+							.col-md-2
+								input.btn.btn-block.btn-default.btn-flat.btn-create.js_lead_creation_submit_btn(type="submit", value= "Create")
+			.col-md-12
+				&emsp;
+				&emsp;
+				&emsp;

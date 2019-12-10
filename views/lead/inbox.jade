@@ -1,0 +1,40 @@
+extends ../layout/layout 
+block content
+	.content-wrapper
+		section.content
+			.row
+				.col-md-12 &emsp;
+			.col-md-12.js_table_inbox
+				.card
+					.card-header
+						h3.card-title DataTable with default features
+					.card-body
+						table.js_lead_show.table.table-bordered.table-striped
+							thead
+								tr
+									th Client & Exec. Detail
+									th CR Id
+									th Veh. Detail
+									th Created On
+									th Remarks & Actions
+							each listValue, listKey in data.inboxlist
+								tbody
+									tr
+										td 
+											b #{listValue.client_name} 
+											<br>
+											b [
+											#{listValue.exec_number}, #{listValue.exec_name}
+											b ]
+										td #{listValue.lead_id}
+										td #{listValue.veh_modal}, #{listValue.model_lunching_year} <br> #{listValue.veh_number}
+										td #{listValue.created_at}
+										td.action_sub_table_td
+											table
+												tbody
+													tr
+														td Remarks
+														td Edit
+														td Assign
+														td Reject
+														td History
