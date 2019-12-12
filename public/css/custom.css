@@ -7,6 +7,7 @@ body {
 	min-height: 1px;
 	max-height: 100%;
 }
+.hide { display: none; }
 .col-xs-12, .col-sm-12, .col-md-12 {width:100%}
 .col-xs-11, .col-sm-11, .col-md-11 {width:91.66666667%}
 .col-xs-10, .col-sm-10, .col-md-10 {width:83.33333333%}
@@ -293,6 +294,11 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
  }
  .error-info, .error {
  	color: #d80404;
+ 	font-size: 12px;
+ 	font-weight: 600;
+ }
+  .warning-info {
+ 	color: #fb830a;
  	font-size: 12px;
  	font-weight: 600;
  }
