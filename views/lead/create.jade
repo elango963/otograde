@@ -1,6 +1,10 @@
 extends ../layout/layout 
 block content
-	- console.log(data);
+	if (typeof data.formData == "undefined")
+		- data.formData = {}
+		- data.formData.clients = {}
+		- data.formData.customer = {}
+		- data.formData.executive = {}
 	.content-wrapper
 		.row.m-0
 			.col-md-12
@@ -9,7 +13,7 @@ block content
 						.col-md-12
 							&emsp;
 						.col-md-12
-							.col-md-6
+							.col-md-6.col-xs-12
 								.col-md-12
 									.card.card-lightgreen.client-details-form
 										.card-header
@@ -30,23 +34,27 @@ block content
 														select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Enter Client Company", name='client_name')
 															option
 															each clientValue, clientKey in data.clientName
-																option(value='#{clientValue}') #{clientValue}
+																option(value='#{clientValue}' , selected= clientValue === data.formData.clients.clientName) #{clientValue}
 													.form-group.col-md-6.pl-0
 														p.hide.statelist #{JSON.stringify(data.state)}
 														select.form-control.select2(style='width: 100%;',  data-placeholder="Select a State", name='client_state')
 															option
 															each stateValue, stateKey in data.state
-																option(value='#{stateKey}') #{stateKey}
+																option(value='#{stateKey}', selected= stateKey === data.formData.clients.clientState) #{stateKey}
 													.form-group.col-md-6.pr-0
 														select.form-control.select2(style='width: 100%;',  data-placeholder="Select Client City", name='client_city')
 															option
+																if (data.formData.clients.clientCity)
+																	- var cityList = data.state[data.formData.clients.clientState]
+																	each cityValue, cityKey in cityList
+																		option(value='#{cityValue}', selected= cityValue === data.formData.clients.clientCity) #{cityValue}
 													.col-md-12.form-group.p-0.m-0
 														label.col-form-label(for='inspectionType')
 															span Type Of Inspection
 														.checkbox-group
 															each inspectionValue, inspectionKey in data.inspectionType
 																.icheck-primary.d-inline.col-md-3.p-0
-																	input(type='radio', name='inspectionType', value='#{inspectionKey}', id='#{inspectionKey}')
+																	input(type='radio', name='inspectionType', value='#{inspectionKey}', id='#{inspectionKey}', checked= inspectionKey === data.formData.inspectionType)
 																	label(for='#{inspectionKey}')
 																		| #{inspectionValue}
 													.col-md-12.form-group.p-0.m-0
@@ -56,14 +64,14 @@ block content
 															- var odd = 0;
 															each vehicleValue, vehicleKey in data.vehicleCategory
 																.icheck-primary.d-inline.pl-3.pt-3(class = odd == 0 ? 'col-md-4' : 'col-md-8')
-																	input(type='checkbox', name='vehicleCategory', value='#{vehicleKey}', id='#{vehicleKey}')
+																	input(type='checkbox', name='vehicleCategory', value='#{vehicleKey}', id='#{vehicleKey}', checked= vehicleKey === data.formData.vehicleCategory)
 																	label(for='#{vehicleKey}')
 																		| #{vehicleValue}
 																if (odd == 1) 
 																	- odd = 0
 																else
 																	- odd++
-							.col-md-6
+							.col-md-6.col-xs-12
 								.col-md-12
 									.card.card-lightgreen.vehicle-details-form
 										.card-header
@@ -83,31 +91,33 @@ block content
 															select.form-control.select2(style='width: 100%;',  data-placeholder="Select Registration Status", name="registrationStatus")
 																option
 																each registrationValue, registrationKey in data.registrationStatus
-																	option(value='#{registrationKey}') #{registrationValue}
+																	option(value='#{registrationKey}', selected = registrationKey === data.formData.registrationStatus) #{registrationValue}
 														.form-group.col-md-6.pr-0
-															input.form-control(type='text', placeholder='Enter Registration No.', name="registrationNumber")
+															input.form-control(type='text', placeholder='Enter Registration No.', name="registrationNumber", value = data.formData.registrationNumber ? '#{data.formData.registrationNumber}' : '')
 														.form-group.col-md-6.pl-0
-															input.form-control(type='text', placeholder='Enter Loan Agreement/Prospect No.', name="loanAgreementNumber")
+															input.form-control(type='text', placeholder='Enter Loan Agreement/Prospect No.', name="loanAgreementNumber", value = data.formData.loanAgreementNumber ? '#{data.formData.loanAgreementNumber}' : '')
 														.form-group.col-md-6.pr-0
-															input.form-control(type='text', placeholder='Enter Make And Model', name="modelNumber")
+															input.form-control(type='text', placeholder='Enter Make', name="make", value = data.formData.modelNumber ? '#{data.formData.modelNumber}' : '')
+														.form-group.col-md-6.pr-0
+															input.form-control(type='text', placeholder='Enter Model', name="modelNumber", value = data.formData.modelNumber ? '#{data.formData.modelNumber}' : '')
 														.form-group.col-md-6.pl-0
-															input.form-control(type='text', placeholder='Enter Engine No', name="engineNumber")
+															input.form-control(type='text', placeholder='Enter Engine No', name="engineNumber", value = data.formData.engineNumber ? '#{data.formData.engineNumber}' : '')
 														.form-group.col-md-6.pr-0
-															input.form-control(type='text', placeholder='Enter Chassis No', name="chassisNumber")
+															input.form-control(type='text', placeholder='Enter Chassis No', name="chassisNumber", value = data.formData.chassisNumber ? '#{data.formData.chassisNumber}' : '')
 														.form-group.col-md-6.pl-0
 															select.form-control.select2(style='width: 100%;',  data-placeholder="Select No. Of Owners", name="numberOfOwners")
 																option
-																- for (var i = 1; i < data.ownersCountLimit; ++i) {
-																	option(value='#{i}') #{i}
+																- for (var ownerNum = 1; ownerNum < data.ownersCountLimit; ++ownerNum) {
+																	option(value='#{ownerNum}', selected = ownerNum == data.formData.numberOfOwners) #{ownerNum}
 																- }
 														.form-group.col-md-6.pl-0
 															.input-group.col-md-12.p-0
 																.input-group-prepend
-																	input.datepicker.form-control.float-right.js-monthyearmask(type='text', placeholder='MFG.Date(MM/YYYY)', name="mfgDate")
+																	input.datepicker.form-control.float-right.js-monthyearmask(type='text', placeholder='MFG.Date(MM/YYYY)', name="mfgDate", value = data.formData.mfgDate ? '#{data.formData.mfgDate}' : '')
 														.form-group.col-md-6.pr-0
 															.input-group.col-md-12.p-0
 																.input-group-prepend
-																	input.datepicker.form-control.float-right.js-datemonthyearmask(type='text', placeholder='Reg.Date(DD/MM/YYYY)', name="regDate")
+																	input.datepicker.form-control.float-right.js-datemonthyearmask(type='text', placeholder='Reg.Date(DD/MM/YYYY)', name="regDate", value = data.formData.regDate ? '#{data.formData.regDate}' : '')
 						.col-md-12
 							.col-md-12
 								.col-md-12
@@ -127,15 +137,15 @@ block content
 													.col-md-12.p-0
 															.col-md-6
 																.form-group.col-md-12.p-0
-																	input.form-control(type='text', placeholder='Enter Address1(Street)', name="customerAddress1")
+																	input.form-control(type='text', placeholder='Enter Address1(Street)', name="customerAddress1", value = data.formData.customer.customerAddress1 ? '#{data.formData.customer.customerAddress1}' : '')
 																.form-group.col-md-12.p-0
-																	input.form-control(type='text', placeholder='Enter Area', name="customerAddress2")
+																	input.form-control(type='text', placeholder='Enter Area', name="customerAddress2", value = data.formData.customer.customerAddress2 ? '#{data.formData.customer.customerAddress2}' : '')
 																.form-group.col-md-4.pl-0
 																	p.hide.zipcodelist #{JSON.stringify(data.zipcode)}
 																	select.form-control.select2(style='width: 100%;',  data-placeholder="Select pincode", name="customerZipcode")
 																		option
 																		each zipcodeValue, zipcodeKey in data.zipcode
-																			option(value='#{zipcodeKey}') #{zipcodeKey}
+																			option(value='#{zipcodeKey}', selected = zipcodeKey == data.formData.customer.customerZipcode) #{zipcodeKey}
 																.form-group.col-md-4.pl-0
 																	input.form-control(type='text', placeholder='Enter City', name="customerCity", readonly)
 																.form-group.col-md-4.pr-0
@@ -143,22 +153,24 @@ block content
 																.span.warning-info * Based on zipcode, state and city autofilled
 															.col-md-3
 																.form-group.col-md-12.pr-0
-																	input.form-control(type='text', placeholder='Enter Customer Name', name="customerName")
+																	input.form-control(type='text', placeholder='Enter Customer Name', name="customerName", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '')
 																.form-group.col-md-12.pr-0
-																	input.form-control(type='text', placeholder='Enter Mobile No', name="customerMobileNumber")
+																	input.form-control(type='text', placeholder='Enter Mobile No', name="customerMobileNumber", value = data.formData.customer.customerMobileNumber ? '#{data.formData.customer.customerMobileNumber}' : '')
 																	
 															.col-md-3
 																.col-md-12
 																	.form-group.col-md-12.pl-0
-																		input.form-control(type='text', placeholder='Enter Executive Detail', name="executiveName")
+																		input.form-control(type='text', placeholder='Enter Executive Detail', name="executiveName", value = data.formData.executive.executiveName ? '#{data.formData.executive.executiveName}' : '')
 																		
 																.col-md-12
 																	.form-group.col-md-12.pl-0
-																		input.form-control(type='text', placeholder='Enter Executive Mobile No.	', name="executiveNumber")
+																		input.form-control(type='text', placeholder='Enter Executive Mobile No.	', name="executiveNumber", value = data.formData.executive.executiveNumber ? '#{data.formData.executive.executiveNumber}' : '')
 																		
 						.col-md-12
 							.col-md-2
 								input.btn.btn-block.btn-default.btn-flat.btn-create.js_lead_creation_submit_btn(type="submit", value= "Create")
+							.col-md-2
+								a.btn.btn-block.btn-default.btn-flat.btn-cancel(href="/lead/inbox") Cancel
 			.col-md-12
 				&emsp;
 				&emsp;

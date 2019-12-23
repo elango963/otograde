@@ -3,35 +3,49 @@ new Common();
 */
 $(function () {
 	//Initialize Select2 Elements
+	var uploadObject = $(".uploadObject").data("value");
 	var statelist = $(".statelist").text();
-	var zipcodeList = $(".zipcodelist").text();
-	statelist = JSON.parse(statelist);
-	zipcodeList = JSON.parse(zipcodeList);
-	$(".statelist, .zipcodelist").remove();
-
-	$('.select2').select2()
-	$(".select2.addtag").select2({
-		tags: true,
-    	createTag: function(params) {
-			var term = $.trim(params.term);
-			if(term) {
-				term = term.toUpperCase();
-			}
-			return {id: term, text: term};
+	if (!statelist) {
+		var zipcodeList = $(".zipcodelist").text();
+		if (statelist) {
+			statelist = JSON.parse(statelist);
+			zipcodeList = JSON.parse(zipcodeList);
 		}
-	})
-	//Initialize Select2 Elements
-	$('.select2bs4').select2({
-		theme: 'bootstrap4'
-	})
-	$(".js-monthyearmask").datepicker({
-		format: "mm-yyyy",
-		viewMode: "months", 
-		minViewMode: "months"
-	})
-	$(".js-datemonthyearmask").datepicker({ format: "dd-mm-yyyy" })
-	$('.js-monthyearmask').inputmask('99/9999', { 'placeholder': 'MM/YYYY' })
-	$('.js-datemonthyearmask').inputmask('99/99/9999', { 'placeholder': 'DD/MM/YYYY' })
+		$(".statelist, .zipcodelist").remove();
+
+		$('.select2').select2()
+		$(".select2.addtag").select2({
+			tags: true,
+	    	createTag: function(params) {
+				var term = $.trim(params.term);
+				if(term) {
+					term = term.toUpperCase();
+				}
+				return {id: term, text: term};
+			}
+		})
+		//Initialize Select2 Elements
+		$('.select2bs4').select2({
+			theme: 'bootstrap4'
+		})
+		$(".js-monthyearmask").datepicker({
+			format: "mm-yyyy",
+			viewMode: "months",
+			autoclose: true,
+			minViewMode: "months"
+		})
+		$(".js-yearmask").datepicker({
+			format: "yyyy",
+			viewMode: "years", 
+			minViewMode: "years",
+			autoclose: true
+		})
+		$(".js-datemonthyearmask").datepicker({ format: "dd-mm-yyyy", autoclose: true })
+		$('.js-yearmask').inputmask('9999', { 'placeholder': 'YYYY' })
+		$('.js-monthyearmask').inputmask('99/9999', { 'placeholder': 'MM/YYYY' })
+		$('.js-datemonthyearmask').inputmask('99/99/9999', { 'placeholder': 'DD/MM/YYYY' })
+	}
+	
 	var table = $('.js_lead_show').DataTable({
 		"paging": true,
 		"lengthChange": true,
@@ -65,30 +79,95 @@ $(function () {
         $('[name="customerCity"]').val(splitText[0]).valid();
         $('[name="customerState"]').val(splitText[1]).valid();
 	});
+	$(document).on('click', '.js_remarks_mdl_popup', function(e) {
+		var $this = $(e.currentTarget);
+		var targetId = $this.find("i").attr("data-target");
+		targetId = targetId.substring(1, targetId.length);
+		$(".remarks_mdl_popup").attr("id", targetId);
+		$(`#${targetId}`).modal('show');
+		$(`#${targetId}`).find(".select2").select2();
+	});
+	$(document).on('click', '.js_assign_mdl_popup', function(e) {
+		var $this = $(e.currentTarget);
+		var targetId = $this.find("i").attr("data-target");
+		targetId = targetId.substring(1, targetId.length);
+		$(".assign_mdl_popup").attr("id", targetId);
+		$(`#${targetId}`).modal('show');
+		$(`#${targetId}`).find(".select2").select2();
+	});
+
+	if ($('[name="customerZipcode"]').val()) {
+		$('[name="customerZipcode"]').trigger("change");
+	}
 
 	$.validator.addMethod("alphanumeric", function(value, element) {
 	    return this.optional(element) || /^[\w.]+$/i.test(value);
 	}, "Letters, numbers, and underscores only allowed");
 
-	jQuery.validator.addMethod("validDate", function(value, element) {
+	$.validator.addMethod("validDate", function(value, element) {
 		return this.optional(element) || moment(value,"DD/MM/YYYY").isValid();
 	}, "Please enter a valid date format DD/MM/YYYY");
 
-	jQuery.validator.addMethod("validMonthYear", function(value, element) {
+	$.validator.addMethod("validMonthYear", function(value, element) {
 		return this.optional(element) || moment(value,"MM/YYYY").isValid();
 	}, "Please enter a valid format MM/YYYY");
 
+	$.validator.addMethod("numbers", function(value, element) {
+        var re = new RegExp("^[1-9][0-9,]*$");
+        return this.optional(element) || re.test(value);
+    }, "Invalid input (numbers only)");
+
+	$(document).on("keydown", ".js-number-only, .js-rupeesformat", function(e) {
+		-1 !== $.inArray(e.keyCode, [46,8,9,27,13,110,190]) || /65|67|86|88/.test(e.keyCode) 
+		&& (!0 === e.ctrlKey || !0 === e.metaKey) || 35 <= e.keyCode && 40 >= e.keyCode 
+		|| (e.shiftKey || 48 > e.keyCode || 57 < e.keyCode) && (96 > e.keyCode || 
+		105 < e.keyCode) && e.preventDefault();
+	});
+
+	$(document).on("keyup", ".js-rupeesformat", function(e) {
+		var $this = $(e.currentTarget);
+		var number = $this.val().replace(new RegExp(",", "g"), "");
+
+		if (isNaN(number) === false) {
+			$this.val(numberFormat(number));
+		}
+	});
+
+	function numberFormat(number) {
+		if (!number)
+			return number;
+		
+		number = Math.round(number).toString();
+
+		var x = number;
+		var lastThree = x.substring(x.length - 3);
+		var otherNumbers = x.substring(0, x.length - 3);
+		
+		if (otherNumbers != "")
+		    lastThree = "," + lastThree;
+
+		return otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+	}
+
 	var validationSettings = {
-		errorElement: "span",
 		errorPlacement: function ( error, element ) {
-			error.addClass("error-block col-sm-12");
-			$(element).closest(".form-group").append(error);
+			if ($(element).closest(".form-group").find(".error").length) {
+				$(element).closest(".form-group").find(".error")
+					.text(error.text()).show();
+			} else {
+				error.addClass("error-block col-sm-12");
+				$(element).closest(".form-group").append(error);
+			}			
 		},
 		highlight: function ( element, errorClass, validClass ) {
 			$(element).closest(".form-group").addClass("has-error").removeClass("has-success");
+			
 		},
 		unhighlight: function (element, errorClass, validClass) {
 			$(element).closest(".form-group").addClass("has-success").removeClass("has-error");
+			if ($(element).closest(".form-group").find(".error").length) {
+				$(element).closest(".form-group").find(".error").text(" ");
+			}
 		}
 	}
 	var errorElement = {
@@ -178,7 +257,15 @@ $(function () {
 			}
 		}
 	};
-	$("#js_lead_creation_form").validate(Object.assign({}, errorElement, validationSettings));
+	if ($("#js_lead_creation_form").length)
+		$("#js_lead_creation_form").validate(Object.assign({}, errorElement, validationSettings));
+	
+	if ($("#validator_parivahan_detail_form").length)
+		$("#validator_parivahan_detail_form").validate(Object.assign({}, validationSettings));
+	if ($("#validator_test_drive_form").length)
+		$("#validator_test_drive_form").validate(Object.assign({}, validationSettings));
+	if ($("#validator_reviews_form").length)
+		$("#validator_reviews_form").validate(Object.assign({}, validationSettings));
 	var tabindex = 1;
 	$('input, select').each(function(e) {
 		$(this).attr("tabindex", tabindex);
@@ -190,6 +277,88 @@ $(function () {
 	$(document).on('change', '.select2', function() {
     	$(this).valid();
 	});
+	$(document).on('change', '.select2.imageUpload', function(e) {
+    	e.preventDefault();
+        var $this = $(e.currentTarget);
+        if ($this.val()) {
+       		if (checkDuplicateFound($this)) {
+       			imageUploadValidation();
+       		}
+        }
+	});
+
+	function checkDuplicateFound($this) {
+		var duplicateCount = 0;
+		var selectedObj = [];
+		$('.select2.imageUpload:visible').each(function(i, v) {
+			$(v).closest(".form-group").find(".error").text("");
+			if ($(v).val()) {
+				if (!selectedObj.includes($(v).val())) {
+					selectedObj.push($(v).val());
+				} else {
+					$(v).closest(".form-group").find(".error").text("Duplicate found!");
+					duplicateCount++;
+				}
+			}
+		});
+		
+		return duplicateCount;
+	}
+
+	function imageUploadValidation() {
+		var emptyCount = 1;
+		var selectedObj = {};
+		$('.imageElement').each(function(i, v) {
+			if (!$(v).val()) {
+				emptyCount++;
+			} else {
+				var selectBoxText = $(".select2.imageUpload").find('option:selected').text();
+				var selectBoxVal = $(".select2.imageUpload").find('option:selected').val();
+				selectedObj[selectBoxVal] = selectBoxText;
+			}
+		}).promise().done(function() {
+			if (emptyCount === 1) {
+				return true;
+			} else {
+				var errorMsg = "Upload below images <br> ";
+				var missedUpload = [];
+				var errorCount = 1;
+				Object.keys(uploadObject).forEach(function(key) {
+					if (!selectedObj.hasOwnProperty(key)) {
+						errorMsg += "<span> "+errorCount+". "+uploadObject[key]+"</span> </br>";
+						errorCount++;
+					}
+				});
+				$(".uploadImageErrorMsg").html(errorMsg);
+				return false;
+			}
+		});
+	}
+	$("#validator_image_upload_form").submit(function(e) {
+        //prevent Default functionality
+        e.preventDefault();
+        var $this = $(e.currentTarget);
+        if (imageUploadValidation()) {
+			// imageUpload();
+		}
+    });
+
+	$("#validator_test_drive_form").submit(function(e) {
+        //prevent Default functionality
+        e.preventDefault();
+        var $this = $(e.currentTarget);
+        if ($this.valid()) {
+			$.ajax({
+				url: '/ajax/testdrive',
+				type: 'post',
+				dataType: 'application/json',
+				data: $("#js_lead_creation_form").serialize(),
+				success: function(response) {
+					alert(response);
+				}
+			});
+		}
+    });
 
 	$("#js_lead_creation_form").submit(function(e) {
         //prevent Default functionality
@@ -201,10 +370,84 @@ $(function () {
 				type: 'post',
 				dataType: 'application/json',
 				data: $("#js_lead_creation_form").serialize(),
-				success: function(data) {
-					alert(data);
+				success: function(response) {
+					alert(response);
 				}
 			});
 		}
     });
+
+	$(".js_lead_edit").click(function(e) {
+        //prevent Default functionality
+        e.preventDefault();
+        var $this = $(e.currentTarget);
+		$.ajax({
+			url: $this.attr("href"),
+			type: 'get',
+			data: {},
+			success: function(response) {
+				var $modelPopup = $(`.lead_edit_mdl_popup .modal-body`);
+				$modelPopup.html(response);
+				$(`.lead_edit_mdl_popup`).find(".select2").select2();
+				$(".js-monthyearmask").datepicker({
+					format: "mm-yyyy",
+					viewMode: "months", 
+					minViewMode: "months"
+				})
+				$(".js-datemonthyearmask").datepicker({ format: "dd-mm-yyyy" })
+				$('.js-monthyearmask').inputmask('99/9999', { 'placeholder': 'MM/YYYY' })
+				$('.js-datemonthyearmask').inputmask('99/99/9999', { 'placeholder': 'DD/MM/YYYY' })
+
+				$(`.lead_edit_mdl_popup`).modal('show');
+			}
+		});
+    });
+    $(document).on("change", "input.upload-input", function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		var $this = $(e.currentTarget);
+		if ($this.val()) {
+			
+        	var filesAmount = this.files.length;
+            for (i = 0; i < filesAmount; i++) {
+            	var emptyObjElem = $('input.imageElement[value=""]').first();
+            	ImagePreview(emptyObjElem, this.files[i])
+            }
+            imageUploadValidation()
+		}
+	});
+	function ImagePreview (emptyObjElem, fileObj) {
+    	var parentElem = emptyObjElem.closest(".image-preview-section");
+    	parentElem.find(".image_name").text(fileObj.name);
+       	parentElem.find(".image-preview").removeClass("hide");
+        parentElem.find(".image-display-hint").addClass("hide").removeClass("image-display-hint");
+        parentElem.removeClass("hide");
+    	emptyObjElem.val(fileObj);
+    	if (ImageSetPreview (parentElem, fileObj)) {
+    		return true;
+    	}
+        
+        return;
+	}
+	function ImageSetPreview (parentElem, fileObj) {
+		var reader = new FileReader();
+        reader.onload = function(event) {
+        	parentElem.find(".image-preview").attr('src', event.target.result);
+        }
+        reader.readAsDataURL(fileObj);
+
+        return true;
+	}
+	/*$(document).on("change", ".rating-checkbox-group input[type=radio]", function(e) {
+		e.preventDefault();
+		if ($(this).prop('checked')==true){
+			alert($(this).val());
+		}
+	});*/
+	$('#lightgallery').lightGallery({
+		download: false,
+		share: false,
+		actualSize: false,
+		autoplayControls: false,
+	});
 })

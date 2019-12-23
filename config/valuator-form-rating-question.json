@@ -1,0 +1,2503 @@
+{
+  "reviews": {
+    "gril": {
+      "label": "Grill",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-orange",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "headLight": {
+      "label": "Head Light",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "operational": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Operational"
+        },
+        "not_operational": {
+          "class": "bg-red",
+          "label": "Not Operational"
+        },
+        "cracked": {
+          "class": "bg-red",
+          "label": "Cracked"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "hood": {
+      "label": "Hood",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-orange",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        }
+      }
+    },
+    "front_bumber": {
+      "label": "Front Bumber",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "V.Good"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "chips_full_bumber_minor": {
+          "class": "bg-orange",
+          "label": "Chips Full Bumber Minor"
+        },
+        "poor_colour_match_full_bumber": {
+          "class": "bg-orange",
+          "label": "Poor Colour Match Full Bumber"
+        },
+        "scuffed_corner_bumber": {
+          "class": "bg-orange",
+          "label": "Scuffed Corner Bumber"
+        },
+        "cracked_need_attentions": {
+          "class": "bg-red",
+          "label": "Cracked Need Attentions"
+        },
+        "aligned_not_good": {
+          "class": "bg-red",
+          "label": "Aligned Not Good"
+        },
+        "chips_full_bumber_major": {
+          "class": "bg-red",
+          "label": "Chips Full Bumber Major"
+        },
+        "broken_need_attentions": {
+          "class": "bg-red",
+          "label": "Broken Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "rear_bumber": {
+      "label": "Rear Bumber",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "V.Good"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "chips_full_bumber_minor": {
+          "class": "bg-orange",
+          "label": "Chips Full Bumber Minor"
+        },
+        "poor_colour_match_full_bumber": {
+          "class": "bg-orange",
+          "label": "Poor Colour Match Full Bumber"
+        },
+        "scuffed_corner_bumber": {
+          "class": "bg-orange",
+          "label": "Scuffed Corner Bumber"
+        },
+        "cracked_need_attentions": {
+          "class": "bg-red",
+          "label": "Cracked Need Attentions"
+        },
+        "aligned_not_good": {
+          "class": "bg-red",
+          "label": "Aligned Not Good"
+        },
+        "chips_full_bumber_major": {
+          "class": "bg-red",
+          "label": "Chips Full Bumber Major"
+        },
+        "broken_need_attentions": {
+          "class": "bg-red",
+          "label": "Broken Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "left_fender": {
+      "label": "Left Fender",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "right_fender": {
+      "label": "Right Fender",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "right_quarter": {
+      "label": "Right Quarter",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "left_quarter": {
+      "label": "Left Quarter",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "right_front_door": {
+      "label": "Right Front Door",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "left_front_door": {
+      "label": "Left Front Door",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "right_rear_door": {
+      "label": "Right Rear Door",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "left_rear_door": {
+      "label": "Left Rear Door",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "roof": {
+      "label": "Roof",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "acceptable": {
+          "class": "bg-gray",
+          "label": "Acceptable"
+        },
+        "average": {
+          "class": "bg-gray",
+          "label": "Average"
+        },
+        "scratched_through_paint": {
+          "class": "bg-yellow",
+          "label": "Scratched through Paint"
+        },
+        "dent_minor_paint_dmg_need_attention": {
+          "class": "bg-yellow",
+          "label": "Dent Minor Paint Dmg Need Attention"
+        },
+        "chips_minor": {
+          "class": "bg-yellow",
+          "label": "Chips Minor"
+        },
+        "chips_major_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips Major Need Attention"
+        },
+        "chips_and_dent_need_attention": {
+          "class": "bg-orange",
+          "label": "Chips & Dent Need Attentions"
+        },
+        "small_dent": {
+          "class": "bg-yellow",
+          "label": "Small Dent"
+        },
+        "full_scratch_need_attentions": {
+          "class": "bg-red",
+          "label": "Full Scratch Need Attentions"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "multi_dent_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Dent Minor Paint Dmg"
+        },
+        "multi_scratch_minor_paint_dmg": {
+          "class": "bg-yellow",
+          "label": "Multi Scratch Minor Paint Dmg"
+        },
+        "multi_dent_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Dent Major Paint Dmg"
+        },
+        "multi_scratch_major_paint_dmg": {
+          "class": "bg-orange",
+          "label": "Multi Scratch Major Paint Dmg"
+        }
+      }
+    },
+    "rear_windshield": {
+      "label": "Rear Windshield",
+      "class": "col-sm-6 col-xs-12",
+      "type": "radio",
+      "values": {
+        "original": {
+          "class": "bg-gray",
+          "label": "Original"
+        },
+        "replaced": {
+          "class": "bg-yellow",
+          "label": "Replaced"
+        },
+        "crack": {
+          "class": "bg-red",
+          "label": "Crack"
+        },
+        "scratch": {
+          "class": "bg-yellow",
+          "label": "Scratch"
+        },
+        "not_available": {
+          "class": "bg-yellow",
+          "label": "Not Available"
+        }
+      }
+    },
+    "front_windshield": {
+      "label": "Front Windshield",
+      "class": "col-sm-6 col-xs-12",
+      "type": "radio",
+      "values": {
+        "original": {
+          "class": "bg-gray",
+          "label": "Original"
+        },
+        "replaced": {
+          "class": "bg-orange",
+          "label": "Replaced"
+        },
+        "crack": {
+          "class": "bg-red",
+          "label": "Crack"
+        },
+        "scratch": {
+          "class": "bg-yellow",
+          "label": "Scratch"
+        },
+        "not_available": {
+          "class": "bg-white",
+          "label": "Not Available"
+        }
+      }
+    },
+    "rear_tail_light": {
+      "label": "Rear Tail Light",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "operational": {
+          "class": "bg-gray",
+          "label": "Operational"
+        },
+        "not_operational": {
+          "class": "bg-orange",
+          "label": "Not Operational"
+        },
+        "Cracked": {
+          "class": "bg-red",
+          "label": "cracked"
+        },
+        "scrap": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "body_paints": {
+      "label": "Body Paints",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "very_good": {
+          "class": "bg-gray",
+          "label": "V.Good"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-yellow",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-orange",
+          "label": "Average"
+        },
+        "scrap": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "deck_lid": {
+      "label": "Deck LID",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "very_good": {
+          "class": "bg-gray",
+          "label": "V.Good"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-yellow",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-orange",
+          "label": "Average"
+        },
+        "scrap": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "number_of_tires": {
+      "label": "No. Of Tires",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10",
+        "11": "11",
+        "12": "12",
+        "13": "13",
+        "14": "14",
+        "15": "15",
+        "16": "16"
+      }
+    },
+    "front_left_wheel": {
+      "label": "FRONT LEFT WHEEL",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "alloy": {
+          "label": "Alloy"
+        },
+        "rim": {
+          "label": "Rim"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "front_right_wheel": {
+      "label": "FRONT RIGHT WHEEL",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "alloy": {
+          "label": "Alloy"
+        },
+        "rim": {
+          "label": "Rim"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "back_right_wheel": {
+      "label": "BACK RIGHT WHEEL",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "alloy": {
+          "label": "Alloy"
+        },
+        "rim": {
+          "label": "Rim"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "back_left_wheel": {
+      "label": "BACK LEFT WHEEL",
+      "class": "col-sm-6 col-xs-12",
+      "type": "radio",
+      "values": {
+        "alloy": {
+          "label": "Alloy"
+        },
+        "rim": {
+          "label": "Rim"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "spare_wheel": {
+      "label": "SPARE WHEEL",
+      "class": "col-sm-6 col-xs-12",
+      "type": "radio",
+      "values": {
+        "alloy": {
+          "label": "Alloy"
+        },
+        "rim": {
+          "label": "Rim"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "front_left_tyres": {
+      "label": "FRONT LEFT TYRES",
+      "class": "col-sm-3 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "Need Attention": {
+          "label": "Need Attention"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "front_left_tyre_units": {
+      "label": "Units",
+      "class": "col-sm-9 col-xs-12",
+      "type": "radio",
+      "values": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40",
+        "45": "45",
+        "50": "50",
+        "55": "55",
+        "60": "60",
+        "65": "65",
+        "70": "70",
+        "75": "75",
+        "80": "80",
+        "85": "85",
+        "90": "90",
+        "95": "95",
+        "missing": {
+          "label": "Missing"
+        },
+        "broken": {
+          "label": "Broken"
+        }
+      }
+    },
+    "front_right_tyres": {
+      "label": "FRONT RIGHT TYRES",
+      "class": "col-sm-3 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "Need Attention": {
+          "label": "Need Attention"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "front_right_tyre_units": {
+      "label": "Units",
+      "class": "col-sm-9 col-xs-12",
+      "type": "radio",
+      "values": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40",
+        "45": "45",
+        "50": "50",
+        "55": "55",
+        "60": "60",
+        "65": "65",
+        "70": "70",
+        "75": "75",
+        "80": "80",
+        "85": "85",
+        "90": "90",
+        "95": "95",
+        "missing": {
+          "label": "Missing"
+        },
+        "broken": {
+          "label": "Broken"
+        }
+      }
+    },
+    "back_right_tyres": {
+      "label": "BACK RIGHT TYRES",
+      "class": "col-sm-3 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "Need Attention": {
+          "label": "Need Attention"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "back_right_tyre_units": {
+      "label": "Units",
+      "class": "col-sm-9 col-xs-12",
+      "type": "radio",
+      "values": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40",
+        "45": "45",
+        "50": "50",
+        "55": "55",
+        "60": "60",
+        "65": "65",
+        "70": "70",
+        "75": "75",
+        "80": "80",
+        "85": "85",
+        "90": "90",
+        "95": "95",
+        "missing": {
+          "label": "Missing"
+        },
+        "broken": {
+          "label": "Broken"
+        }
+      }
+    },
+    "back_left_tyres": {
+      "label": "BACK LEFT TYRES",
+      "class": "col-sm-3 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "Need Attention": {
+          "label": "Need Attention"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "back_left_tyre_units": {
+      "label": "Units",
+      "class": "col-sm-9 col-xs-12",
+      "type": "radio",
+      "values": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40",
+        "45": "45",
+        "50": "50",
+        "55": "55",
+        "60": "60",
+        "65": "65",
+        "70": "70",
+        "75": "75",
+        "80": "80",
+        "85": "85",
+        "90": "90",
+        "95": "95",
+        "missing": {
+          "label": "Missing"
+        },
+        "broken": {
+          "label": "Broken"
+        }
+      }
+    },
+    "spare_tyres": {
+      "label": "SPARE TYRES",
+      "class": "col-sm-3 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "class": "tooGood",
+          "label": "Acceptable"
+        },
+        "Need Attention": {
+          "class": "acceptable",
+          "label": "Need Attention"
+        },
+        "missing": {
+          "class": "tooBad",
+          "label": "Missing"
+        }
+      }
+    },
+    "spare_tyre_units": {
+      "label": "Units",
+      "class": "col-sm-9 col-xs-12",
+      "type": "radio",
+      "values": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40",
+        "45": "45",
+        "50": "50",
+        "55": "55",
+        "60": "60",
+        "65": "65",
+        "70": "70",
+        "75": "75",
+        "80": "80",
+        "85": "85",
+        "90": "90",
+        "95": "95",
+        "missing": {
+          "label": "Missing"
+        },
+        "broken": {
+          "label": "Broken"
+        }
+      }
+    },
+    "dashboard_condition": {
+      "label": "DASH BOARD CONDITIONS",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        },
+        "removed": {
+          "class": "bg-red",
+          "label": "Removed"
+        },
+        "broken": {
+          "class": "bg-red",
+          "label": "Broken"
+        }
+      }
+    },
+    "dashboard_warning_lights_and_gauges": {
+      "label": "DASHBOARD WARNING LIGHTS & GAUGES",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "class": "acceptable",
+          "label": "Acceptable"
+        },
+        "no_warning_lights_on": {
+          "class": "bg-gray",
+          "label": "No Warning Lights ON"
+        },
+        "scrap_conditions": {
+          "class": "bg-orange",
+          "label": "Scrap"
+        },
+        "not_working": {
+          "class": "bg-yellow",
+          "label": "Not Working"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "front_left_seat": {
+      "label": "FRONT LEFT SEAT",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "front_right_seat": {
+      "label": "FRONT RIGHT SEAT",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "rear_left_seat": {
+      "label": "REAR LEFT SEAT",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "rear_right_seat": {
+      "label": "REAR RIGHT SEAT",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "3rd_row_seat_condition": {
+      "label": "3RD ROW SEAT CONDITIONS",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "not_applicable": {
+          "class": "bg-gray",
+          "label": "Not Applicable"
+        },
+        "excellent": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-yellow",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-red",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "trunk_cargo": {
+      "label": "TRUNK CARGO",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "good": {
+          "class": "bg-gray",
+          "default": true,
+          "label": "Good"
+        },
+        "satisfactory": {
+          "class": "bg-gray",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-yellow",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "sunroof_condition": {
+      "label": "SUNROOF CONDITION",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "available": {
+          "class": "bg-gray",
+          "label": "Available"
+        },
+        "not_available": {
+          "class": "bg-yellow",
+          "default": true,
+          "label": "Not Available"
+        },
+        "not_applicable": {
+          "class": "bg-red",
+          "label": "Not Applicable"
+        },
+        "broken": {
+          "class": "bg-red",
+          "label": "Broken"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "air_bag": {
+      "label": "AIR BAG",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "available": {
+          "class": "bg-gray",
+          "label": "Available"
+        },
+        "not_available": {
+          "class": "bg-yellow",
+          "label": "Not Available"
+        }
+      }
+    },
+    "carpets_and_floor_mats": {
+      "label": "CARPETS & FLOOR MATS",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "class": "bg-gray",
+          "label": "Very Good"
+        },
+        "satisfactory": {
+          "class": "bg-yellow",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-red",
+          "label": "Average"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "power_windows": {
+      "label": "POWER WINDOWS",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "class": "bg-gray",
+          "label": "Excellent"
+        },
+        "very_good": {
+          "class": "bg-gray",
+          "label": "Very Good"
+        },
+        "good": {
+          "class": "bg-gray",
+          "label": "Good"
+        },
+        "fair": {
+          "class": "bg-yellow",
+          "label": "Fair"
+        },
+        "satisfactory": {
+          "class": "bg-orange",
+          "label": "Satisfactory"
+        },
+        "average": {
+          "class": "bg-orange",
+          "label": "Average"
+        },
+        "scrap_conditions": {
+          "class": "bg-red",
+          "label": "Scrap"
+        },
+        "very_poor": {
+          "class": "bg-red",
+          "label": "Very Poor"
+        },
+        "missing": {
+          "class": "bg-red",
+          "label": "Missing"
+        }
+      }
+    },
+    "ac_heater_blower_fan_condition": {
+      "label": "A/C / HEATER / BLOWER FAN",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "label": "Good"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "cooling_system_radiator_condition": {
+      "label": "COOLING SYSTEM / RADIATOR",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "label": "Good"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "electric_cooling_fan_condition": {
+      "label": "ELECTRIC COOLING FAN",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "label": "Good"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "engine_condition": {
+      "label": "Engine Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good_working_condition": {
+          "default": true,
+          "label": "Good Working Condition"
+        },
+        "average_working_condition": {
+          "label": "Average Working Condition"
+        },
+        "bad_condition_with_age_kms": {
+          "label": "Bad Condition Consistent with the age and KMS"
+        },
+        "engine_not_available": {
+          "label": "Engine Not Available"
+        },
+        "parts_missing": {
+          "label": "Parts Missing"
+        }
+      }
+    },
+    "engine_running": {
+      "label": "Engine Running",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "yes": {
+          "default": true,
+          "label": "Yes"
+        },
+        "no": {
+          "label": "No"
+        }
+      }
+    },
+    "engine_oil_level": {
+      "label": "Engine Oil Level",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "default": true,
+          "label": "Acceptable"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        }
+      }
+    },
+    "engine_oil_functions": {
+      "label": "Engine Oil Functions",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "acceptable": {
+          "default": true,
+          "label": "Acceptable"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        }
+      }
+    },
+    "transmission_gear_box_conditions": {
+      "label": " Transmission / Gear Box Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "original_condition_with_no_noise": {
+          "default": true,
+          "label": "Original Conditions, No Noise Detected"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "not_available": {
+          "label": "Not Available"
+        },
+        "scrap_conditions": {
+          "label": "Scrap"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "transmission_working_conditions": {
+      "label": "Transmission Working Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "original_condition_with_no_noise": {
+          "default": true,
+          "label": "Original Conditions, No Noise Detected"
+        },
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        }
+      }
+    },
+    "gear_shift_conditions": {
+      "label": "Gear Shift Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "original_condition_with_no_noise": {
+          "default": true,
+          "label": "Original Conditions, No Noise Detected"
+        },
+        "acceptable": {
+          "label": "Acceptable"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        }
+      }
+    },
+    "front_suspension_conditions": {
+      "label": "Front Suspension Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good_condition_with_age_kms": {
+          "label": "Good Condition Consistent with the age and KMS",
+          "default": true
+        },
+        "original_condition_with_no_noise": {
+          "label": "Original Conditions, No Noise Detected"
+        },
+        "average_condition_with_age_kms": {
+          "label": "Average Conditions Consistent with the Age and Kms"
+        },
+        "bad_condition_with_age_kms": {
+          "label": "Bad Condition Consistent with the age and KMS"
+        },
+        "broken": {
+          "label": "Broken"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "rear_suspension_conditions": {
+      "label": "Rear Suspension Conditions",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good_condition_with_age_kms": {
+          "default": true,
+          "label": "Good Condition Consistent with the age and KMS"
+        },
+        "original_condition_with_no_noise": {
+          "label": "Original Conditions, No Noise Detected"
+        },
+        "average_condition_with_age_kms": {
+          "label": "Average Conditions Consistent with the Age and Kms"
+        },
+        "bad_condition_with_age_kms": {
+          "label": "Bad Condition Consistenet with the age and KMS"
+        },
+        "broken": {
+          "label": "Broken"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "steering_play": {
+      "label": "Steering Play",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "no_play": {
+          "default": true,
+          "label": "No Play"
+        },
+        "excessive_play": {
+          "label": "Excessive Play"
+        }
+      }
+    },
+    "power_steering": {
+      "label": "Power Steering",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "working": {
+          "default": true,
+          "label": "Working"
+        },
+        "not_working": {
+          "label": "Not Working"
+        },
+        "noise": {
+          "label": "Noise"
+        }
+      }
+    },
+    "steering": {
+      "label": "Steering",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "power": {
+          "default": true,
+          "label": "Power"
+        },
+        "manual": {
+          "label": "Manual"
+        }
+      }
+    },
+    "steering_condition": {
+      "label": "Steering Condition",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "excellent": {
+          "default": true,
+          "label": "Excellent"
+        },
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "label": "Good"
+        },
+        "satisfactory": {
+          "label": "Satisfactory"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "very_poor": {
+          "label": "Very Poor"
+        },
+        "scrap_conditions": {
+          "label": "Scrap Conditions"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "electrical_condition": {
+      "label": "Electrical Condition",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap Conditions"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "Battery_condition": {
+      "label": "Battery Condition",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap Conditions"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "ac_cooling_condition": {
+      "label": "AC Cooling Condition",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "very_good": {
+          "label": "Very Good"
+        },
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "need_attention": {
+          "label": "Need Attention"
+        },
+        "scrap_conditions": {
+          "label": "Scrap Conditions"
+        },
+        "missing": {
+          "label": "Missing"
+        }
+      }
+    },
+    "purchased_year": {
+      "label": "Year Purchased",
+      "class": "col-sm-12 col-xs-12",
+      "type": "radio",
+      "values": {
+        "2005": "2005",
+        "2006": "2006",
+        "2007": "2007",
+        "2008": "2008",
+        "2009": "2009",
+        "2010": "2010",
+        "2011": "2011",
+        "2012": "2012",
+        "2013": "2013",
+        "2014": "2014",
+        "2015": "2015",
+        "2016": "2016",
+        "2017": "2017",
+        "2018": "2018",
+        "no_data": "No Data"
+      }
+    }
+  },
+  "testDrive": {
+    "engine_start_condition": {
+      "label": "Engine Start Condition",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good_start": {
+          "default": true,
+          "label": "Good Start"
+        },
+        "bad_start": {
+          "label": "Bad Start"
+        },
+        "not_starting": {
+          "label": "Not Starting"
+        }
+      }
+    },
+    "gear_shift_ratios": {
+      "label": "Gear Shift Ratios",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "bad": {
+          "label": "Bad"
+        }
+      }
+    },
+    "clutch": {
+      "label": "Clutch",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "bad": {
+          "label": "Bad"
+        }
+      }
+    },
+    "stearing": {
+      "label": "Stearing",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "default": true,
+          "label": "Good Play"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "bad": {
+          "label": "Bad"
+        }
+      }
+    },
+    "accelator": {
+      "label": "Accelator",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "default": true,
+          "label": "Good Play"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "bad": {
+          "label": "Bad"
+        }
+      }
+    },
+    "braking": {
+      "label": "Braking",
+      "class": "col-sm-4 col-xs-12",
+      "type": "radio",
+      "values": {
+        "good": {
+          "default": true,
+          "label": "Good"
+        },
+        "average": {
+          "label": "Average"
+        },
+        "bad": {
+          "label": "Bad"
+        }
+      }
+    }
+  },
+  "parivahan_details" : {
+    "Owner_name" : {
+      "label" : "Owner Name",
+      "type": "text",
+      "placeholder": "Enter Owner Name",
+      "class" : ""
+    },
+    "purchase_deivery_date": {
+      "label": "Purchase Deivery Date",
+      "type": "date",
+      "placeholder": "Enter Deivery Date",
+      "class" : "js-datemonthyearmask"
+    },
+    "maker": {
+      "label": "Maker",
+      "type": "text",
+      "placeholder": "Enter Maker",
+      "class" : ""
+    },
+    "maker_model": {
+      "label": "Maker Model",
+      "type": "text",
+      "placeholder": "Enter Maker Model",
+      "class" : ""
+    },
+    "laden_weight": {
+      "label": "Laden Weight (kG)",
+      "type": "text",
+      "placeholder": "Enter Laden Weight (kG)",
+      "class" : ""
+    },
+    "sleeper_capacity": {
+      "label": "Sleeper Capacity",
+      "type": "text",
+      "placeholder": "Enter Sleeper Capacity",
+      "class" : ""
+    },
+    "registration_date": {
+      "label": "Registration Date",
+      "type": "date",
+      "placeholder": "Enter Sleeper Capacity",
+      "class" : "js-datemonthyearmask"
+    },
+    "engine_number": {
+      "label": "Engine Number",
+      "type": "text",
+      "placeholder": "Enter Engine Number",
+      "class" : ""
+    },
+    "body_type": {
+      "label": "Body Type",
+      "type": "text",
+      "placeholder": "Enter Body Type",
+      "class" : ""
+    },
+    "unladen_weight": {
+      "label": "Unladen Weight",
+      "type": "text",
+      "placeholder": "Enter Unladen Weight",
+      "class" : ""
+    },
+    "mfg_year": {
+      "label": "Mfg Year",
+      "type": "year",
+      "placeholder": "Enter Mfg Year",
+      "class" : ""
+    },
+    "chassis_number": {
+      "label": "Chassis Number",
+      "type": "text",
+      "placeholder": "Enter Chassis NO",
+      "class" : ""
+    },
+    "vehicle_category": {
+      "label": "Vehicle Category",
+      "type": "text",
+      "placeholder": "Enter Vehicle Category",
+      "class" : ""
+    },
+    "fitness_valid_upto": {
+      "label": "Fitness Valid upto",
+      "type": "date",
+      "placeholder": "Enter Fitness Valid",
+      "class" : "js-datemonthyearmask"
+    },
+    "insurance_type": {
+      "label": "Insurance Type",
+      "type": "text",
+      "placeholder": "Enter Insurance Type",
+      "class" : ""
+    },
+    "insurance_from": {
+      "label": "Insurance From",
+      "type": "date",
+      "placeholder": "Enter Insurance From",
+      "class" : "js-datemonthyearmask"
+    },
+    "insurance_to": {
+      "label": "Insurance To",
+      "type": "date",
+      "placeholder": "Enter Insurance To",
+      "class" : "js-datemonthyearmask"
+    },
+    "policy_number": {
+      "label": "Policy Number",
+      "type": "text",
+      "placeholder": "Enter Policy Number",
+      "class" : ""
+    },
+    "insurance_value": {
+      "label": "Insurance Declared Value",
+      "type": "text",
+      "placeholder": "Enter Insurance Value",
+      "class" : ""
+    },
+    "tax_paid_date": {
+      "label": "Tax Paid Date",
+      "type": "date",
+      "placeholder": "Enter Tax Paid Dt.",
+      "class" : "js-datemonthyearmask"
+    },
+    "receipt_date": {
+      "label": "Receipt Date",
+      "type": "date",
+      "placeholder": "Enter Receipt Date",
+      "class" : "js-datemonthyearmask"
+    },
+    "amount": {
+      "label": "Tax Amount",
+      "type": "text",
+      "placeholder": "Enter Amount",
+      "class" : "js-rupeesformat"
+    },
+    "fc_issue_date": {
+      "label": "FC Issue dt.",
+      "type": "date",
+      "placeholder": "Enter FC Issue dt.",
+      "class" : "js-datemonthyearmask"
+    },
+    "tax_clear_upto": {
+      "label": "Tax Clear Upto",
+      "type": "date",
+      "placeholder": "Enter Tax Clear Upto",
+      "class" : "js-datemonthyearmask"
+    },
+    "fc_valid_upto": {
+      "label": "FC Valid Upto",
+      "type": "date",
+      "placeholder": "Enter FC Valid Upto",
+      "class" : "js-datemonthyearmask"
+    },
+    "permit_type": {
+      "label": "Permit Type",
+      "type": "date",
+      "placeholder": "Enter Permit Type",
+      "class" : "js-datemonthyearmask"
+    },
+    "route_length": {
+      "label": "Route Length",
+      "type": "text",
+      "placeholder": "Enter Route Length",
+      "class" : "js-number-only"
+    },
+    "permit_category": {
+      "label": "Permit Category",
+      "type": "text",
+      "placeholder": "Enter Permit Category",
+      "class" : "js-number-only"
+    },
+    "number_of_trips": {
+      "label": "Number of Trips",
+      "type": "text",
+      "placeholder": "Enter No. of Trips",
+      "class" : "js-number-only"
+    },
+    "service_type": {
+      "label": "Service Type",
+      "type": "text",
+      "placeholder": "Enter Service Type",
+      "class" : ""
+    },
+    "permit_domain": {
+      "label": "Permit Domain",
+      "type": "text",
+      "placeholder": "Enter Permit Domain",
+      "class" : ""
+    },
+    "insurer_name": {
+      "label": "Insurer Name",
+      "type": "text",
+      "placeholder": "Enter Insurer Name",
+      "class" : ""
+    },
+    "total_claim_amount": {
+      "label": "Total Claim Amount",
+      "type": "text",
+      "placeholder": "Enter Claim Amt",
+      "class" : "js-rupeesformat"
+    },
+    "registration_number": {
+      "label": "Registration Number",
+      "type": "text",
+      "placeholder": "Enter Registration No",
+      "class" : ""
+    },
+    "claim_intimation_date": {
+      "label": "Claim Intimation Date",
+      "type": "date",
+      "placeholder": "Enter Claim Intimation Dt",
+      "class" : "js-datemonthyearmask"
+    },
+    "accident_loss_date": {
+      "label": "Accident Loss Date",
+      "type": "date",
+      "placeholder": "Enter Accident Loss Dt",
+      "class" : "js-datemonthyearmask"
+    },
+    "expense_paid": {
+      "label": "Expense Paid",
+      "type": "text",
+      "placeholder": "Enter Expense Paid",
+      "class" : "js-rupeesformat"
+    }
+  }
+}

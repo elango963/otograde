@@ -1,0 +1,74 @@
+.modal.fade.assign_mdl_popup(role="dialog" data-backdrop="static" data-keyboard="false")
+    .modal-dialog
+        // Modal content
+        form#remarks_mdl_popup_form(role='form', class="form-horizontal")
+            .modal-content
+                .modal-header
+                    h4.modal-title Assign
+                    button.close.align-right(type='button', data-dismiss='modal') ×
+                .modal-body
+                    .row
+                        input#remarks_lead_id(type='hidden', name='remarks_lead_id')
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='city')
+                                    span Choose City
+                            .col-md-8.p-0
+                                .form-group
+                                    select.form-control.select2(style='width: 100%;',  data-placeholder="Select Client City", name='client_city')
+                                        option
+                                        option(value='1') ADILABAD
+                                        option(value='522') AGRA
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='valuator')
+                                    span Choose Valuator
+                            .col-md-8.p-0
+                                .form-group
+                                    select.form-control.select2(style='width: 100%;',  data-placeholder="Select Valuator", name='valuator_name')
+                                        option
+                                        option(value='1') ADILABAD
+                                        option(value='522') AGRA
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='remarks')
+                                    span Remarks
+                            .col-md-8.p-0
+                                .form-group
+                                    textarea.form-control(rows='2', id = '#{data.title}')
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='extraKmStatus')
+                                    span Extra Km
+                            .col-md-8.p-0
+                                .form-group
+                                    .checkbox-group
+                                        .icheck-primary.d-inline.col-md-3.p-0
+                                            input(type='radio', name='extrakm_status', id='idExtrakmYes', value='yes', checked)
+                                            label(for='idExtrakmYes') Yes
+                                        .icheck-primary.d-inline.col-md-3.p-0
+                                            input(type='radio', name='extrakm_status', id='idExtrakmNo', value='no')
+                                            label(for='idExtrakmNo') No
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='extraKmRange')
+                                    span Extra Km Range
+                            .col-md-8.p-0
+                                .col-md-6.pl-0
+                                    .form-group
+                                        input.form-control(type='text', placeholder='Enter Start', name="extrakm_from")
+                                .col-md-6.pr-0
+                                    .form-group
+                                        input.form-control(type='text', placeholder='Enter To', name="extrakm_to")
+                        .col-md-12
+                            .col-md-4
+                                label.col-form-label(for='extraKm')
+                                    span Extra Km
+                            .col-md-8.p-0
+                                .form-group
+                                    input.form-control(type='text', placeholder='Enter extra km', name="extrakm")
+                        .col-md-12.pt-4.pl-0
+                            .col-md-4
+                                input.btn.btn-block.btn-default.btn-flat.btn-create.js_lead_creation_submit_btn(type="submit", value= "Create")
+                            .col-md-4
+                                a.btn.btn-block.btn-default.btn-flat.btn-cancel(href="/lead/inbox", data-dismiss='modal') Cancel

@@ -9,7 +9,11 @@ const express = require('express'),
     middleware = require('./middleware')(),
     index = require('./routes/index'),
     lead = require('./routes/lead'),
-    ajax = require('./routes/ajax')();
+    flash = require('connect-flash'),
+    ajax = require('./routes/ajax')(),
+    session = require('express-session');
+
+require('express-group-routes');
 
 const app = express(),
     env = process.env.NODE_ENV;
@@ -33,13 +37,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
+app.use(flash());
 
+app.use(session({ cookie: { maxAge: 60000 }, 
+                  secret: process.env.SESSION_SECRET,
+                  resave: false, 
+                  saveUninitialized: false}));
+app.use((req, res, next) => {
+    res.locals.flashMessage = req.flash('flashMessage');
+    next();
+});
 app.use('/', index);
 app.use('/lead', lead);
 console.log("coming here");
 app.post('/ajax/leadcreate',
     middleware.verifyAjaxRequest,
     ajax.leadCreation
+);
+app.get('/ajax/lead/edit/:id',
+    middleware.verifyAjaxRequest,
+    ajax.leadEditPage
 );
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

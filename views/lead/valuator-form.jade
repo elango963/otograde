@@ -1,0 +1,59 @@
+extends ../layout/layout 
+block content
+	if (typeof data.formData == "undefined")
+		- data.formData = {}
+		- data.formData.clients = {}
+		- data.formData.customer = {}
+		- data.formData.executive = {}
+	.content-wrapper
+		.row.m-0
+			.col-md-12
+					section.content
+						.col-md-12
+							&emsp;
+						.col-md-12
+							.col-md-12.col-xs-12
+								.col-sm-12
+									h4.mt-5 Valuator Reports Form Page
+									ul#valuator-report-form-tab.nav.nav-tabs(role='tablist')
+										li.nav-item
+											a#valuator-report-form-upload-tab.nav-link(data-toggle='pill', href='#valuator-report-form-upload', role='tab', aria-controls='valuator-report-form-upload', aria-selected='true') 
+												| &emsp;Upload Form
+										li.nav-item
+											a#valuator-report-form-general-input-tab.nav-link(data-toggle='pill', href='#valuator-report-form-general-input', role='tab', aria-controls='valuator-report-form-general-input', aria-selected='false')
+												| &emsp;General
+										li.nav-item
+											a#valuator-report-form-ratings-tab.nav-link(data-toggle='pill', href='#valuator-report-form-ratings', role='tab', aria-controls='valuator-report-form-ratings', aria-selected='false') 
+												| &emsp;Reviews
+										li.nav-item
+											a#valuator-report-form-test-drive-tab.nav-link(data-toggle='pill', href='#valuator-report-form-test-drive', role='tab', aria-controls='valuator-report-form-test-drive-tab', aria-selected='false') 
+												| &emsp;Test Drive
+										li.nav-item
+											a#valuator-report-form-parivahan-detail-tab.nav-link.active(data-toggle='pill', href='#valuator-report-form-parivahan-detail', role='tab', aria-controls='valuator-report-form-parivahan-detail-tab', aria-selected='false') 
+												| &emsp;PARIVAHAN Details
+									#valuator-report-form-tabContent.tab-content
+										#valuator-report-form-upload.tab-pane.fade(role='tabpanel', aria-labelledby='valuator-report-form-upload-tab')
+											.col-md-12.card-lightgreen.card-body
+												.card.card-lightgreen
+													.row.image-block-group
+														include ./valuator-form-upload
+										#valuator-report-form-general-input.tab-pane.fade(role='tabpanel', aria-labelledby='valuator-report-form-general-input-tab')
+											.col-md-12.card-lightgreen.card-body
+												.card.card-lightgreen
+													.row.image-block-group
+														include ./valuator-form-general-input
+										#valuator-report-form-ratings.tab-pane.fade.col-md-12.p-0(role='tabpanel', aria-labelledby='valuator-report-form-ratings-tab')
+											.card-lightgreen.card-body
+												.card.card-lightgreen
+													.row.image-block-group
+														include ./valuator-form-reviews
+										#valuator-report-form-test-drive.tab-pane.fade.col-md-12.p-0(role='tabpanel', aria-labelledby='valuator-report-form-test-drive-tab')
+											.card-lightgreen.card-body
+												.card.card-lightgreen
+													.row.image-block-group
+														include ./valuator-form-test-drive
+										#valuator-report-form-parivahan-detail.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='valuator-report-form-parivahan-detail-tab')
+											.col-md-12.card-lightgreen.card-body
+												.card.card-lightgreen
+													.row.image-block-group
+														include ./valuator-form-parivahan-detail

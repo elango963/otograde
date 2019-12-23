@@ -1,0 +1,19 @@
+.modal.fade.remarks_mdl_popup(role='dialog')
+    .modal-dialog
+        // Modal content
+        form#remarks_mdl_popup_form(role='form', class="form-horizontal")
+            .modal-content
+                .modal-header
+                    h4.modal-title Add Remarks
+                    button.close.align-right(type='button', data-dismiss='modal') ×
+                .modal-body
+                    .row
+                        input#remarks_lead_id(type='hidden', name='remarks_lead_id')
+                        .col-md-12
+                            .form-group
+                                textarea.form-control(rows='3', id = '#{data.title}')
+                        .col-md-12
+                            .col-md-4
+                                input.btn.btn-block.btn-default.btn-flat.btn-create.js_lead_creation_submit_btn(type="submit", value= "Create")
+                            .col-md-4
+                                a.btn.btn-block.btn-default.btn-flat.btn-cancel(href="/lead/inbox", data-dismiss='modal') Cancel

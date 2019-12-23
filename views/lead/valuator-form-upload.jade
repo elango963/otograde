@@ -1,0 +1,36 @@
+- var imageUploadQues = {"front_img":"Front Image","right_side_img":"Right Side","rear_img":"Rear Image","left_side_img":"Left Side","dashboard_img":"Dashboard","seats_img":"Seats","odo_meter_img":"ODO Meter","engine_room_img":"Engine Room","engine_reg_plate_img":"Engine Reg.Plate","chassis_imp_img":"Chassis IMP","chassis_number_img":"Chassis Number","rc_book_front_img":"RC Book Front","rc_book_back_img":"RC Book Back","tyre_img_1":"TYRE 1","tyre_img_2":"TYRE 2","tyre_img_3":"TYRE 3","tyre_img_4":"TYRE 4","selfie_img":"Selfie Image","damage_img_1":"Damage 1 (Optional)","damage_img_2":"Damage 2 (Optional)","damage_img_3":"Damage 3 (Optional)","damage_img_4":"Damage 4 (Optional)"}
+form#validator_image_upload_form.col-md-12.p-0(role='form', class="form-horizontal", enctype="multipart/form-data")
+	.col-md-12.p-0
+		.col-md-12.p-0
+			.col-md-12.image-block.p-0
+				- var initialShow = 2;
+				input.uploadObject(type="hidden", data-value = '#{JSON.stringify(imageUploadQues)}')
+				each value, key in imageUploadQues
+					- var addClass = initialShow > 3 ? "hide" : ""; 
+					.col-sm-4.image-preview-section.pl-0.mg-tp-10(class='#{addClass}')
+						input.imageElement(type="hidden", name='#{key}', data-label='#{value}' value="")
+						.col-md-12.image-preview-block
+							img.image-preview.hide
+							.col-md-12.image-show-block.image-display-hint.p-0
+								h5.mg-tp-10 Image Preview section
+						.col-md-12.p-0
+							p.col-sm-12.col-xs-12.image_name
+						.col-md-12.p-0
+							.form-group
+								select.form-control.select2.imageUpload(style='width: 100%;',  data-placeholder="Choose Image Type", name='select_#{key}')
+									option
+									each clientValue, clientKey in imageUploadQues
+										option(value='#{clientKey}' , selected = key ===clientKey) #{clientValue}
+								span.col-sm-12.error.error-block
+					- initialShow++;
+			.col-md-12.p-0
+				.form-group.pl-0.col-sm-4.col-xs-12
+					.upload-block
+						span.upload-title.btn.upload-round Upload Multiple Image
+							input.upload-input.col-sm-12.col-xs-12.p-0(type="file", name='upload[]', multiple)
+			.col-md-12
+				.col-sm-4.col-xs-12
+					span.uploadImageErrorMsg.error.error-block
+		.col-md-12
+			.col-md-3.mg-tp-20
+				input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_lead_creation_submit_btn(type="submit", value= "Save")

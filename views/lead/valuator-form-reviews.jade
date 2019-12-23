@@ -1,0 +1,29 @@
+form#validator_reviews_form.col-md-12.p-0(role='form', class="form-horizontal")
+	.col-md-12.p-0
+		if (data.question && data.question.rating && data.question.rating.reviews)
+			each inputValue, inputKey in data.question.rating.reviews
+				.border-question(class = '#{inputValue.class}')
+					label.col-form-label(for='#{inputKey}') #{inputValue.label ? inputValue.label : inputValue}
+					if (inputValue.type === "radio")
+						.form-group.rating-checkbox-group
+							each value, key in inputValue.values
+								span
+									input.rating-checkbox(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', checked = value.default === true, required)
+									label.rating-checkbox-label(for='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}') #{value.label ? value.label : value }
+							span.col-sm-12.error.error-block
+					else if (inputValue.type === "select")
+						.form-group
+							select.form-control.select2(style='width: 100%;',  data-placeholder="#{inputValue.placeholder}", name="#{inputKey}", required)
+								option
+								if (inputValue.isIteration)
+									- for (var ownerNum = inputValue.start; ownerNum < inputValue.end; ++ownerNum) {
+										option(value='#{ownerNum}', selected = ownerNum == data.formData.numberOfOwners) #{ownerNum}
+									- }
+							span.col-sm-12.error.error-block
+					else if (inputValue.type === "text")
+						.form-group
+							input.form-control(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '', required)
+							span.col-sm-12.error.error-block
+		.col-md-6
+				.col-md-5.mg-tp-20
+					input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_reviews_submit_btn(type="submit", value= "Save")

@@ -1,0 +1,16 @@
+form#validator_test_drive_form.col-md-12.p-0(role='form', class="form-horizontal")
+	.col-md-12.p-0
+		if (data.question && data.question.rating && data.question.rating.testDrive)
+			each inputValue, inputKey in data.question.rating.testDrive
+				.border-question(class = '#{inputValue.class}')
+					label.col-form-label(for='#{inputKey}') #{inputValue.label ? inputValue.label : inputValue}
+					if (inputValue.type === "radio")
+						.form-group.rating-checkbox-group
+							each value, key in inputValue.values
+								span
+									input.rating-checkbox(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', required)
+									label.rating-checkbox-label(for='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}') #{value.label ? value.label : value }
+							span.col-sm-12.error.error-block
+		.col-md-6
+			.col-md-5.mg-tp-20
+				input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_lead_creation_submit_btn(type="submit", value= "Save")

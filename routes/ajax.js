@@ -6,6 +6,9 @@ const request = require('request'),
 	path = require('path'),
 	_ = require('lodash');
 
+var data = {}
+var menu = fs.readFileSync('config/left_side_menu.json');
+data.menu = JSON.parse(menu);
 
 module.exports = () => {
 	const leadCreation = (req, res) => {
@@ -56,8 +59,41 @@ module.exports = () => {
 			}
 		});
 	};
+	const leadEditPage = (req, res) => {
+		data.active = 'inbox';
+		// req.session.user.auth = "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
+		console.log(`${process.env.LEAD_EDIT_PAGE_API}/${req.params.id}`);
+		request({
+			uri: `${process.env.LEAD_EDIT_PAGE_API}/${req.params.id}`,
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
+			},
+			method: 'GET',
+			body: JSON.stringify({
+				ip: req.clientIp
+			}),
+		}, (err, response, body) => {
+			console.log(err);
+			if (err || response.statusCode !== 200) {
+				req.flash('flashMessage', 'Oops something went wrong! Please try again later.');
+				res.redirect('/lead/inbox');
+			} else {
+				body = JSON.parse(body);
+				var newData = Object.assign(body.data, data);
+				res.render('lead/edit', {
+					data: newData
+				}, (err, html) => {
+					if (err)
+						return next(createError(err));
+					res.send(html);
+				});
+			}
+		});
+	};
 
 	return {
-		leadCreation: leadCreation
+		leadCreation: leadCreation,
+		leadEditPage: leadEditPage
 	};
 };
