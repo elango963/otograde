@@ -264,8 +264,13 @@ $(function () {
 		$("#validator_parivahan_detail_form").validate(Object.assign({}, validationSettings));
 	if ($("#validator_test_drive_form").length)
 		$("#validator_test_drive_form").validate(Object.assign({}, validationSettings));
+
 	if ($("#validator_reviews_form").length)
 		$("#validator_reviews_form").validate(Object.assign({}, validationSettings));
+
+	if ($("#validator_general_input_form").length)
+		$("#validator_general_input_form").validate(Object.assign({}, validationSettings));
+
 	var tabindex = 1;
 	$('input, select').each(function(e) {
 		$(this).attr("tabindex", tabindex);
@@ -279,15 +284,17 @@ $(function () {
 	});
 	$(document).on('change', '.select2.imageUpload', function(e) {
     	e.preventDefault();
-        var $this = $(e.currentTarget);
-        if ($this.val()) {
-       		if (checkDuplicateFound($this)) {
-       			imageUploadValidation();
-       		}
+        if ($(this).val()) {
+       		checkDuplicateFound(function() {
+       			imageUploadValidation(function() {
+		        	console.log("return here");
+					// imageUpload();
+				});
+       		});
         }
 	});
 
-	function checkDuplicateFound($this) {
+	function checkDuplicateFound(callback) {
 		var duplicateCount = 0;
 		var selectedObj = [];
 		$('.select2.imageUpload:visible').each(function(i, v) {
@@ -300,25 +307,26 @@ $(function () {
 					duplicateCount++;
 				}
 			}
+		}).promise().done(function() {
+			callback();
 		});
-		
-		return duplicateCount;
 	}
 
-	function imageUploadValidation() {
+	function imageUploadValidation(callback) {
 		var emptyCount = 1;
 		var selectedObj = {};
 		$('.imageElement').each(function(i, v) {
 			if (!$(v).val()) {
 				emptyCount++;
 			} else {
-				var selectBoxText = $(".select2.imageUpload").find('option:selected').text();
-				var selectBoxVal = $(".select2.imageUpload").find('option:selected').val();
+				var parentElement = $(v).closest(".image-preview-section").find(".select2.imageUpload");
+				var selectBoxText = parentElement.find('option:selected').text();
+				var selectBoxVal = parentElement.find('option:selected').val();
 				selectedObj[selectBoxVal] = selectBoxText;
 			}
 		}).promise().done(function() {
 			if (emptyCount === 1) {
-				return true;
+				callback();
 			} else {
 				var errorMsg = "Upload below images <br> ";
 				var missedUpload = [];
@@ -330,7 +338,6 @@ $(function () {
 					}
 				});
 				$(".uploadImageErrorMsg").html(errorMsg);
-				return false;
 			}
 		});
 	}
@@ -338,11 +345,77 @@ $(function () {
         //prevent Default functionality
         e.preventDefault();
         var $this = $(e.currentTarget);
-        if (imageUploadValidation()) {
+        imageUploadValidation(function() {
+        	console.log("return here");
 			// imageUpload();
-		}
+		});
     });
 
+	 $(document).on("change", "input.upload-input", function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		var $this = $(e.currentTarget);
+		var filelength = this.files.length;
+
+		ImagePreviewSet($this, filelength, this.files, function() {
+			imageUploadValidation(function() {
+				console.log("return here");
+				// imageUpload();
+			});
+		});
+	});
+
+	function ImagePreviewSet (emptyObjElem, filelength, files, callback) {
+		var $this = $(emptyObjElem);
+		if ($this.val()) {
+            for (i = 0; i < filelength; i++) {
+            	var emptyObjElem = $('input.imageElement[value=""]').first();
+            	ImagePreview(emptyObjElem, files[i], function() {
+            		console.log("object updated");
+            	})
+            }
+		}
+		callback();
+	}
+
+	function ImagePreview (emptyObjElem, fileObj, callback) {
+    	var parentElem = emptyObjElem.closest(".image-preview-section");
+    	parentElem.find(".image_name").text(fileObj.name);
+       	parentElem.find(".image-preview").removeClass("hide");
+        parentElem.find(".image-display-hint").addClass("hide").removeClass("image-display-hint");
+        parentElem.removeClass("hide");
+    	emptyObjElem.val(fileObj);
+    	ImageSetPreview(parentElem, fileObj, function() {
+    		callback();
+    	})
+	}
+
+	function ImageSetPreview (parentElem, fileObj, callback) {
+		var reader = new FileReader();
+        reader.onload = function(event) {
+        	parentElem.find(".image-preview").attr('src', event.target.result);
+        }
+        reader.readAsDataURL(fileObj);
+        callback();
+	}
+
+	$("#validator_general_input_form").submit(function(e) {
+        //prevent Default functionality
+        e.preventDefault();
+        var $this = $(e.currentTarget);
+        if ($this.valid()) {
+			$.ajax({
+				url: '/ajax/testdrive',
+				type: 'post',
+				dataType: 'application/json',
+				data: $("#js_lead_creation_form").serialize(),
+				success: function(response) {
+					alert(response);
+				}
+			});
+		}
+    });
+    
 	$("#validator_test_drive_form").submit(function(e) {
         //prevent Default functionality
         e.preventDefault();
@@ -402,42 +475,7 @@ $(function () {
 			}
 		});
     });
-    $(document).on("change", "input.upload-input", function(e) {
-		e.preventDefault();
-		e.stopImmediatePropagation();
-		var $this = $(e.currentTarget);
-		if ($this.val()) {
-			
-        	var filesAmount = this.files.length;
-            for (i = 0; i < filesAmount; i++) {
-            	var emptyObjElem = $('input.imageElement[value=""]').first();
-            	ImagePreview(emptyObjElem, this.files[i])
-            }
-            imageUploadValidation()
-		}
-	});
-	function ImagePreview (emptyObjElem, fileObj) {
-    	var parentElem = emptyObjElem.closest(".image-preview-section");
-    	parentElem.find(".image_name").text(fileObj.name);
-       	parentElem.find(".image-preview").removeClass("hide");
-        parentElem.find(".image-display-hint").addClass("hide").removeClass("image-display-hint");
-        parentElem.removeClass("hide");
-    	emptyObjElem.val(fileObj);
-    	if (ImageSetPreview (parentElem, fileObj)) {
-    		return true;
-    	}
-        
-        return;
-	}
-	function ImageSetPreview (parentElem, fileObj) {
-		var reader = new FileReader();
-        reader.onload = function(event) {
-        	parentElem.find(".image-preview").attr('src', event.target.result);
-        }
-        reader.readAsDataURL(fileObj);
-
-        return true;
-	}
+   
 	/*$(document).on("change", ".rating-checkbox-group input[type=radio]", function(e) {
 		e.preventDefault();
 		if ($(this).prop('checked')==true){

@@ -1,0 +1,252 @@
+.report-view {
+	border: 1px solid #24346f;
+	width: 96%;
+    margin-left: 2%;
+}
+.align-center {
+	text-align: center;
+}
+.align-left {
+	text-align: left;
+}
+.align-right {
+	text-align: right;
+}
+.right {
+	float: right;
+}
+.header-value {
+	font-size: 18px;
+    font-weight: 600;
+    padding-left: 35px;
+    word-break: break-word;
+}
+.description {
+	font-size: 18px;
+    font-weight: 600;
+    padding-left: 15px;
+    word-break: break-word;
+}
+.bg-yellow {
+	color: #000;
+	background-color: yellow;
+}
+.bg-blue {
+	color: #fff;
+	background-color: #24346f;
+}
+.display-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+p {
+	margin: 0px;
+}
+.clr-gray {
+	color: gray;
+}
+.about-me {
+	padding: 0px 20px;
+	font-size: 14px;
+	font-weight: 600;
+	border-right: 2px solid #24346f;
+}
+.about-me:last-child {
+	border: unset;
+}
+.header-info {
+	display: flex;
+	border-bottom: 1px solid #24346f;
+}
+.customer-section {
+	flex-grow: 100;
+}
+.vechile-info {
+	background-color: #f2fafd;
+	border-bottom: 1px solid #ccc;
+}
+.vehicle-description {
+	font-weight: 600;
+	color: #24346f;
+	border-bottom: 1px solid #ccc;
+}
+.vehicle-info-detail span {
+	padding: 5px 20px;
+	border-right: 1px solid #093078;
+}
+.vehicle-info-detail span:last-child {
+	border: unset;
+}
+.vehicle-info-detail {
+	background-color: #f2fafd;
+	padding: 10px 0;
+}
+.bg-light-sky-blue {
+	background-color: #def6ff;
+}
+.align-right {
+	text-align: right;
+}
+.image-view-section {
+	min-height: 480px;
+	max-height: 540%;
+}
+.icon-image {
+	float: left;
+	width: 20%;
+	height: 110px;
+	padding: 10px 0px;
+	text-align: center;
+	color: #24346f;
+	font-weight: 600;
+	font-size: 11px;
+}
+.icon-image img {
+	height: 60px;
+	width: 50px;
+}
+.clr-red {
+	color : #e60606;
+	font-size: 18px;
+	font-weight: 600;
+}
+.deleteicon {
+	border: 1px solid #e60606;
+	border-radius: 15px;
+	padding: 4px 8px;
+	background-color: #e60606;
+	color: #fff;
+}
+.process-ok {
+	background-color: #09a523;
+	color: #fff;
+}
+.process-notok {
+	background-color: #e60606;
+	color: #fff;
+}
+.process-notok .deleteicon {
+	border: 1px solid #fff;
+	border-radius: 15px;
+	padding: 4px 8px;
+	background-color: #fff;
+	color: #e60606;
+}
+.tickicon {
+	border: 1px solid #fff;
+    border-radius: 15px;
+    padding: 4px 5px;
+    background-color: #fff;
+    color: #09a523;
+}
+.rating-image-section {
+	padding: 20px 0px;
+	border: 1px solid #24346f;
+	text-align: center;
+	background-color: #f2fafd;
+	font-weight: 600;
+	font-size: 14px;
+	color : #24346f;
+}
+.rating-image-section img{
+	height: 125px;
+    width: 140px;
+}
+.ownership-detail-section {
+	color: #24346f;
+}
+.ownership-detail-section table h3 {
+	font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 25px;
+    margin: 5px 0px;
+}
+.ownership-detail-section table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+.ownership-detail-section table th {
+	padding: 2px 5px !important;
+	background-color: #def6ff;
+	border: 1px solid #24346f;
+}
+.ownership-detail-section table th p {
+	font-weight: 400;
+	font-size: 14px;
+}
+.ownership-detail-section table td {
+  border: 1px solid #24346f;
+  padding: 8px;
+}
+.ownership-detail-section table tr:nth-child(even){background-color: #f2fafd;}
+.parivahan-detail-header h3 {
+	margin: 0px;
+	font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 6px;
+    height: 40px;
+    background-color: #24346f;
+    color: #fff;
+}
+.br-blue {
+	border: 1px solid #24346f;
+}
+.parivahan-table-section {
+	border: 1px solid #24346f;
+	border-top: unset;
+	padding-bottom: 5px;
+}
+.parivahan-table-section td {
+	padding: 7px 10px;
+    background-color: #f2fafd;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+	border: 5px solid #fff;
+}
+.car-image-section {
+	border: 1px solid #24346f;
+	padding: 5px;
+}
+.car-image-section img {
+	width: 180px;
+	height: 300px;
+}
+.car-image-section span {
+	margin: 10px;
+	height: 20px;
+	width: 20px;
+	margin-bottom: -5px;
+	font-weight: 600;
+}
+.gray-dot {
+	height: 20px;
+	width: 20px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+}
+.yellow-dot {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: yellow;
+}
+.orange-dot {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: orange;
+}
+.red-dot {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: red;
+}

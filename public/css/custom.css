@@ -941,7 +941,7 @@ body {
 	padding: 0px !important;
 }
 .os-theme-light>.os-scrollbar>.os-scrollbar-track>.os-scrollbar-handle, .os-theme-light>.os-scrollbar:hover>.os-scrollbar-track>.os-scrollbar-handle {
-	background-color: unset;
+	background-color: green;
 }
 .nav-link.active {
 	border-radius : unset;
@@ -971,12 +971,29 @@ body {
 	background-color: #3a497e !important;
 }
 .sidebar {
-	-ms-overflow-style: none;
+	-ms-overflow-style: ;
 	padding: 0px !important;
 }
-.sidebar::-webkit-scrollbar {
-	display: none;
+::-webkit-scrollbar {
+	display: block;
+  width: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3a497e; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000; 
+}
+
 .sidebar .nav-item .nav-link p {
 	padding-left: 30px;
 }
@@ -1341,16 +1358,17 @@ textarea {
 }
 .valuator-tab-num {
 	border: 1px solid #31b7ea;
-    background-color: #31b7ea;
-    color: #fff;
-    padding: 4px 10px;
-    border-radius: 15px;
+  background-color: #31b7ea;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 15px;
 }
 #valuator-report-form-tab li {
   width: 20%;
   background-color: #bdebfd;
 	color: #fff;
 	z-index: 9;
+  overflow-wrap: break-word;
 }
 #valuator-report-form-tab li a {
 	border-radius: unset;
@@ -1398,45 +1416,37 @@ textarea {
 .bg-gray {
   border: 1px solid #ccc !important;
   background-color: #ccc !important;
-  font-weight: 400 !important;
 }
 .rating-checkbox-label.bg-gray:hover, .rating-checkbox.bg-gray:checked+label {
   background-color: #6c757d !important;
   border: 1px solid #6c757d !important;
-  font-weight: 600 !important;
   color: #fff;
 }
 .bg-orange {
   border: 1px solid #fbbf68 !important;
   background-color: #fbbf68 !important;
-  font-weight: 400 !important;
 }
 .rating-checkbox-label.bg-orange:hover, .rating-checkbox.bg-orange:checked+label {
   background-color: #fd7e14 !important;
   border: 1px solid #fd7e14 !important;
-  font-weight: 600 !important;
   color: #fff;
 }
 .bg-yellow {
   border: 1px solid #fdfd8a !important;
   background-color: #fdfd8a !important;
-  font-weight: 400 !important;
 }
 .rating-checkbox-label.bg-yellow:hover, .rating-checkbox.bg-yellow:checked+label {
   background-color: yellow !important;
   border: 1px solid yellow !important;
-  font-weight: 600 !important;
   color: #fff;
 }
 .bg-red {
-  border: 1px solid #f56464 !important;
-  background-color: #f56464 !important;
-  font-weight: 400 !important;
+  border: 1px solid #f99191 !important;
+  background-color: #f99191 !important;
 }
 .rating-checkbox-label.bg-red:hover, .rating-checkbox.bg-red:checked+label {
   background-color: #d40505 !important;
   border: 1px solid #d40505 !important;
-  font-weight: 600 !important;
   color: #fff;
 }
 .border-question {

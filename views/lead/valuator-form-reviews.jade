@@ -24,6 +24,9 @@ form#validator_reviews_form.col-md-12.p-0(role='form', class="form-horizontal")
 						.form-group
 							input.form-control(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '', required)
 							span.col-sm-12.error.error-block
-		.col-md-6
-				.col-md-5.mg-tp-20
-					input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_reviews_submit_btn(type="submit", value= "Save")
+	.col-md-12.mg-tp-20.p-0
+		.col-md-3.col-xs-6.p-0
+			include image-slider
+		.col-md-4.col-xs-6.p-0.right
+			.col-md-8.col-xs-12.p-0.right
+				input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_reviews_submit_btn(type="submit", value= "Save")

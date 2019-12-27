@@ -96,11 +96,32 @@ router.get('/assigned-list', function(req, res, next) {
 	res.render('lead/assigned-list', { data: data });
 });
 
+router.get('/re-assigned-list', function(req, res, next) {
+	data.active = 're-assigned';
+	data.inboxlist = [{
+		"id": "1",
+		"client_name": "Cholamandalam",
+		"exec_name": "anand",
+		"exec_number": "9962334455",
+		"lead_id": "CHOLA4W34544",
+		"veh_modal": "Maruti Alto",
+		"model_lunching_year": "2011",
+		"veh_number": "TN20AX5329",
+		"created_at": "05/12/2019 09:30:00"
+	}];
+	res.render('lead/re-assigned-list', { data: data });
+});
+
 router.get('/valuation/:id', function(req, res, next) {
 	data.active = 'assigned';
 	data.question = {};
 	data.question.rating = JSON.parse(fs.readFileSync('config/valuator-form-rating-question.json'));
 	res.render('lead/valuator-form', { data: data });
+});
+
+router.get('/report/preview/:id', function(req, res, next) {
+	data.active = 're-assigned';
+	res.render('lead/report-preview', { data: data });
 });
 
 module.exports = router;

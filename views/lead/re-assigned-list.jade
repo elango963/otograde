@@ -1,0 +1,62 @@
+extends ../layout/layout 
+block content
+	.content-wrapper
+		section.content
+			.row
+				.col-md-12 &emsp;
+			.col-md-12.js_table_inbox
+				.card
+					.card-header
+						h3.card-title DataTable with default features
+					.card-body
+						table.js_lead_show.table.table-bordered.table-striped
+							thead
+								tr
+									th Client & Exec. Detail
+									th CR Id
+									th Veh. Detail
+									th Created On
+									th Remarks & Actions
+							each listValue, listKey in data.inboxlist
+								tbody
+									tr
+										td 
+											b #{listValue.client_name} 
+											<br>
+											b [
+											#{listValue.exec_number}, #{listValue.exec_name}
+											b ]
+										td #{listValue.lead_id}
+										td #{listValue.veh_modal}, #{listValue.model_lunching_year} <br> #{listValue.veh_number}
+										td #{listValue.created_at}
+										td.action_sub_table_td
+											table
+												tbody
+													tr
+														td.p-0.pl-1
+															a.js_remarks_mdl_popup(href = 'javascript:void(0)')
+																i(class = 'fa fa-exclamation-triangle', title="Remarks", data-toggle='modal', data-target='##{listValue.lead_id}remarksMdlPopup', data-target-id='#{listValue.id}') 
+																span
+																	| Remarks
+														td.p-0.pl-1
+															a.js_lead_edit(href = '/ajax/lead/edit/#{listValue.id}')
+																i(class = 'fa fa-edit', title="Edit") 
+																span
+																	| Reassign
+														td.p-0.pl-1
+															a.js_assign_mdl_popup(href = '/lead/report/preview/#{listValue.id}', target="_blank")
+																i(class = 'fa fa-assistive-listening-systems', title="Assign", data-toggle='modal', data-target='##{listValue.lead_id}assignMdlPopup', data-target-id='#{listValue.id}') 
+																span
+																	| Valuation
+														td.p-0.pl-1
+															a(href = '/lead/reject/1')
+																i(class = 'fas fa-trash', title="Reject") 
+																span
+																	| Reject
+														td.p-0.pl-1
+															a(href = '/lead/history/1')
+																i(class = 'fas fa-history', title="Reject") 
+																span
+																	| History
+			include ./remarks-mdl-popup
+			include ./assign-mdl-popup

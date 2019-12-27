@@ -2175,7 +2175,7 @@
   "testDrive": {
     "engine_start_condition": {
       "label": "Engine Start Condition",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good_start": {
@@ -2192,7 +2192,7 @@
     },
     "gear_shift_ratios": {
       "label": "Gear Shift Ratios",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good": {
@@ -2209,7 +2209,7 @@
     },
     "clutch": {
       "label": "Clutch",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good": {
@@ -2226,7 +2226,7 @@
     },
     "stearing": {
       "label": "Stearing",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good": {
@@ -2243,7 +2243,7 @@
     },
     "accelator": {
       "label": "Accelator",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good": {
@@ -2260,7 +2260,7 @@
     },
     "braking": {
       "label": "Braking",
-      "class": "col-sm-4 col-xs-12",
+      "class": "col-sm-6 col-xs-12",
       "type": "radio",
       "values": {
         "good": {

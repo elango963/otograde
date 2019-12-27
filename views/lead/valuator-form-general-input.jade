@@ -5,67 +5,77 @@ if (typeof data.formData == "undefined")
 		- data.formData.executive = {}
 if (typeof data.clientName == "undefined")
 	- data.clientName = {}
-form#validator_image_upload_form(role='form', class="form-horizontal")
+form#validator_general_input_form(role='form', class="form-horizontal")
 	.col-md-12.p-0
-		.col-sm-4.col-xs-12
+		.col-sm-4.col-xs-12.border-question
 			label(for='report_type') Report Type
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Report Type", name='report_type')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Report Type", name='report_type', required)
 					option
 					option(value='taxi') Retail
 					option(value='private') Repo
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_type') Vehicle Type
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Type", name='vehicle_type')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Type", name='vehicle_type', required)
 					option
 					option(value='taxi') Taxi
 					option(value='private') Private
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_make_type') Make
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Make Type", name='vehicle_make_type')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Make Type", name='vehicle_make_type', required)
 					option
 					option(value='taxi') Honda
 					option(value='private') Maruti
 					option(value='private') Renault
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_make_type') Model
 			.form-group
-				input.form-control(type='text', placeholder='Enter Model', name="model_name")
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Model', name="model_name", required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_variant_type') Variant
 			.form-group
-				input.form-control(type='text', placeholder='Enter Variant', name="vehicle_variant_type")
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Variant', name="vehicle_variant_type", required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='transmission') Transmission
 			.form-group
 				input.form-control(type='text', name="transmission", value="Manual", readonly)
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='mfgDate') Manufacture Year / Month
-			.form-group.input-group.col-md-12.p-0
-				.input-group-prepend
-					input.datepicker.form-control.float-right.js-monthyearmask(type='text', placeholder='MFG.Date(MM/YYYY)', name="mfgDate", value = data.formData.mfgDate ? '#{data.formData.mfgDate}' : '')
-		.col-sm-4.col-xs-12
+			.form-group
+				input.datepicker.form-control.float-right.js-monthyearmask(type='text', placeholder='MFG.Date(MM/YYYY)', name="mfgDate", value = data.formData.mfgDate ? '#{data.formData.mfgDate}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='engine_number') Engine No
 			.form-group
-				input.form-control(type='text', placeholder='Enter Engine No', name="engine_number", value = data.formData.engineNumber ? '#{data.formData.engineNumber}' : '')
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Engine No', name="engine_number", value = data.formData.engineNumber ? '#{data.formData.engineNumber}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='chassis_number') Chassis No
 			.form-group
-				input.form-control(type='text', placeholder='Enter Chassis No', name="chassis_number", value = data.formData.chassisNumber ? '#{data.formData.chassisNumber}' : '')
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Chassis No', name="chassis_number", value = data.formData.chassisNumber ? '#{data.formData.chassisNumber}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='odometer_reading') Odometer Reading
 			.form-group
-				input#odo_mtr.form-control(type='text', placeholder='Enter Odometer Reading', name='odometer_reading')
-		.col-sm-4.col-xs-12
+				input#odo_mtr.form-control(type='text', placeholder='Enter Odometer Reading', name='odometer_reading', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='odometer_reading') Registration No
 			.form-group
-				input.form-control(type='text', placeholder='Enter Registration No.', name="registrationNumber", value = data.formData.registrationNumber ? '#{data.formData.registrationNumber}' : '')
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Registration No.', name="registrationNumber", value = data.formData.registrationNumber ? '#{data.formData.registrationNumber}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='rc_book_status') RC Status
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select RCBOOK Status", name='rc_book_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select RCBOOK Status", name='rc_book_status', required)
 					option
 					option(value='yes') Yes
 					option(value='no') No
@@ -73,55 +83,62 @@ form#validator_image_upload_form(role='form', class="form-horizontal")
 					option(value='xerox') Xerox
 					option(value='not_seen') Not Seen
 					option(value='not_available') Data Not Available
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='numberOfOwners') No. Of Owners
 			.form-group
-				select.form-control.select2(style='width: 100%;',  data-placeholder="Select No. Of Owners", name="number_of_owners")
+				select.form-control.select2(style='width: 100%;',  data-placeholder="Select No. Of Owners", name="number_of_owners", required)
 					option
 					- for (var ownerNum = 1; ownerNum < 10; ++ownerNum) {
 						option(value='#{ownerNum}', selected = ownerNum == data.formData.numberOfOwners) #{ownerNum}
 					- }
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='rc_book_status') Roof
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select roof", name='roof')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select roof", name='roof', required)
 					option
 					option(value='hartop') Hartop
 					option(value='sunroof') Sunroof
 					option(value='convertible') Convertible
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='customerName') Applicant Name
 			.form-group
-				input.form-control(type='text', placeholder='Enter Customer Name', name="customer_name", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '')
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Customer Name', name="customer_name", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='customerName') Report Request By
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Client Company", name='client_name')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Client Company", name='client_name', required)
 					option
 					each clientValue, clientKey in data.clientName
 						option(value='#{clientValue}' , selected= clientValue === data.formData.clients.clientName) #{clientValue}
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_condition') Vehicle Condition
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Condition", name='vehicle_condition')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Condition", name='vehicle_condition', required)
 					option
 					option(value='running_condition') Running
 					option(value='battery_na_dk') Battery Not Available / Don’t Know
 					option(value='towing_condition') Towing Conditions
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='vehicle_condition') Engine Condition
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Condition", name='vehicle_condition')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Vehicle Condition", name='vehicle_condition', required)
 					option
 					option(value='starting') Starting
 					option(value='not_starting') Not Starting
 					option(value='not_available') Not Available
 					option(value='parts_missing') Parts Missing
 					option(value='engine_missing') Engine Missing
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='structural_damages') Select Structural Damages
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Structural Damages", name='structural_damages')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Structural Damages", name='structural_damages', required)
 					option
 					option(value='no_damage') No Damage
 					option(value='major_accident') Major Accident
@@ -134,106 +151,120 @@ form#validator_image_upload_form(role='form', class="form-horizontal")
 					option(value='flooded_reported') Flooded Reported
 					option(value='scrap_condition') Scrap Condition
 					option(value='parts_stolen') Parts Stolen
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='fuel_type') Fuel Type
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Fuel Type", name='fuel_type')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Fuel Type", name='fuel_type', required)
 					option
 					option(value='petrol') Petrol
 					option(value='diesel') Diesel
 					option(value='lpg') LPG
 					option(value='cng') CNG
 					option(value='electric') Electric
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='key_status') Key Status
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Key Status", name='key_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Key Status", name='key_status', required)
 					option
 					option(value='available') Available
 					option(value='not_available') Not Available
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='type_condition') Tyre Conditions
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Tyre Conditions", name='type_condition')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Tyre Conditions", name='type_condition', required)
 					option
 					option(value='good') Good
 					option(value='average') Average
 					option(value='bad_conditions') Bad Conditions
 					option(value='missing') Missing
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='battery_status') Battery Status
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Battery Status", name='battery_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Battery Status", name='battery_status', required)
 					option
 					option(value='available') Available
 					option(value='not_available') Not Available
 					option(value='no_charge') No Charge
 					option(value='battery_yes_and_no_charge') Battery Yes - No Charge
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='colours') Colours
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Colours", name='colours')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Colours", name='colours', required)
 					option
 					option(value='white') White
 					option(value='red') Red
 					option(value='silver') Silver
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='valuation_price') Valuation Price
 			.form-group
-				input.form-control(type='text', placeholder='Enter Valuation Price', name="valuation_price")
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Valuation Price', name="valuation_price", required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='ex_show_room_price') Ex Show Room Price
 			.form-group
-				input.form-control(type='text', placeholder='Enter Ex Show Room Price', name="ex_show_room_price")
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Ex Show Room Price', name="ex_show_room_price", required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='period') Period
 			.form-group
-				input.form-control(type='text', placeholder='Enter Period', name="period")
-		.col-sm-4.col-xs-12
+				input.form-control(type='text', placeholder='Enter Period', name="period", required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='registration_status') Registration
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Registration Status", name='registration_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Registration Status", name='registration_status', required)
 					option
 					option(value='yes') Registered
 					option(value='no') Not Registered
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='reg_date') Registration Date
 			.form-group
-				.input-group.col-md-12.p-0
-					.input-group-prepend
-						input.datepicker.form-control.float-right.js-datemonthyearmask(type='text', placeholder='Reg.Date(DD/MM/YYYY)', name="reg_date", value = data.formData.regDate ? '#{data.formData.regDate}' : '')
-		.col-sm-4.col-xs-12
+				input.datepicker.form-control.float-right.js-datemonthyearmask(type='text', placeholder='Reg.Date(DD/MM/YYYY)', name="reg_date", value = data.formData.regDate ? '#{data.formData.regDate}' : '', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='insurance_status') Insurance Status
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Insurance Status", name='insurance_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select Insurance Status", name='insurance_status', required)
 					option
 					option(value='available') Available
 					option(value='not_available') Not Available
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='insurance_detail') Insurance Details
 			.form-group
-				input#odo_mtr.form-control(type='text', placeholder='Enter Insurance Details', name='insurance_detail')
-		.col-sm-4.col-xs-12
+				input#odo_mtr.form-control(type='text', placeholder='Enter Insurance Details', name='insurance_detail', required)
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='hpa_status') HPA Status
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select HPA Status", name='hpa_status')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select HPA Status", name='hpa_status', required)
 					option
 					option(value='yes') Yes
 					option(value='no') No
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='hpa_status') HPA Bank
 			.form-group
-				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select HPA Status", name='hpa_bank')
+				select.form-control.select2.addtag(style='width: 100%;',  data-placeholder="Select HPA Status", name='hpa_bank', required)
 					option
 					option(value='cholamandalam') Cholamandalam
 					option(value='hdfc') HDFC
-		.col-sm-4.col-xs-12
+				span.col-sm-12.error.error-block
+		.col-sm-4.col-xs-12.border-question
 			label(for='period') Inspection Location
 			.form-group
-				input.form-control(type='text', placeholder='Enter Inspection Location', name="inspection_location")
+				input.form-control(type='text', placeholder='Enter Inspection Location', name="inspection_location", required)
+				span.col-sm-12.error.error-block
 		.col-md-12.mg-tp-20.p-0
 			.col-md-3.col-xs-6.p-0
 				include image-slider
-			.col-md-4.col-xs-6.right
-				.col-md-8.col-xs-12.right.p-0
-					input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_lead_creation_submit_btn(type="submit", value= "Next")
+			.col-md-4.col-xs-6.p-0.right
+				.col-md-8.col-xs-12.p-0.right
+					input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_general_input_submit_btn(type="submit", value= "Save")
