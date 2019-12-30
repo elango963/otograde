@@ -12,6 +12,7 @@
 .pd-tp-0{ padding-top: 0; }
 .pd-tp-5{ padding-top: 5px; }
 .pd-tp-10{ padding-top: 10px; }
+.pd-tp-13{ padding-top: 13px; }
 .pd-tp-15{ padding-top: 15px; }
 .pd-tp-20{ padding-top: 20px; }
 .pd-tp-25{ padding-top: 25px; }
@@ -146,3 +147,6 @@
 	}
 }
 .font-wt-6 {font-weight: 600}
+.font-wt-5 {font-weight: 500}
+.font-wt-4 {font-weight: 400}
+.text-uc {text-transform: uppercase;}

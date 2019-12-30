@@ -1,7 +1,14 @@
 .report-view {
-	border: 1px solid #24346f;
-	width: 96%;
-    margin-left: 2%;
+	border: 1px solid #25356f;
+	width: 80%;
+	margin-left: 10%;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: justify;
+}
+.brand-image {
+	width: 99%;
+	height: 99%;
 }
 .align-center {
 	text-align: center;
@@ -17,15 +24,15 @@
 }
 .header-value {
 	font-size: 18px;
-    font-weight: 600;
-    padding-left: 35px;
-    word-break: break-word;
+	font-weight: 600;
+	padding-left: 35px;
+	word-break: break-word;
 }
 .description {
 	font-size: 18px;
-    font-weight: 600;
-    padding-left: 15px;
-    word-break: break-word;
+	font-weight: 600;
+	padding-left: 15px;
+	word-break: break-word;
 }
 .bg-yellow {
 	color: #000;
@@ -33,7 +40,7 @@
 }
 .bg-blue {
 	color: #fff;
-	background-color: #24346f;
+	background-color: #25356f;
 }
 .display-center {
 	display: flex;
@@ -50,48 +57,52 @@ p {
 .about-me {
 	padding: 0px 20px;
 	font-size: 14px;
+	text-align: center;
 	font-weight: 600;
-	border-right: 2px solid #24346f;
+	background-color: #f3fcff;
+	color: #32b6ea !important;
+	border: 5px solid #fff;
+	text-transform: uppercase;
 }
-.about-me:last-child {
-	border: unset;
+.g-blue-clr {
+	color: #25356f !important;
 }
-.header-info {
-	display: flex;
-	border-bottom: 1px solid #24346f;
-}
-.customer-section {
-	flex-grow: 100;
-}
-.vechile-info {
-	background-color: #f2fafd;
-	border-bottom: 1px solid #ccc;
+.header-info, .vechile-info {
+	border-bottom: 1px solid #25356f;
 }
 .vehicle-description {
 	font-weight: 600;
-	color: #24346f;
-	border-bottom: 1px solid #ccc;
+	color: #25356f;
 }
-.vehicle-info-detail span {
-	padding: 5px 20px;
-	border-right: 1px solid #093078;
+.vehicle-info-detail span, .vehicle-info-detail p {
+	padding: 5px 10px;
+	text-align: center;
+	background-color: #f3fcff;
+	color: #32b6ea;
+	border: 5px solid #fffbfb;
 }
-.vehicle-info-detail span:last-child {
-	border: unset;
-}
-.vehicle-info-detail {
-	background-color: #f2fafd;
-	padding: 10px 0;
+.vehicle-info-detail span.g-blue-clr {
+	border: none;
+	padding: unset;
 }
 .bg-light-sky-blue {
-	background-color: #def6ff;
+	background-color: #f3fcff;
 }
-.align-right {
+.image-view-section span {
+	font-weight: 600;
+	font-size: 15px;
+	background-color: #f3fcff;
 	text-align: right;
+	padding: 10px 5px;
+	color: #32b6ea;
 }
-.image-view-section {
-	min-height: 480px;
-	max-height: 540%;
+.image-view-section span.process-notok span {
+	color: #e60606;
+}
+.image-view-section span.process-notok span.deleteicon {
+	background-color: #e60606;
+	border: 1px solid #e60606;
+	color: #fff;
 }
 .icon-image {
 	float: left;
@@ -99,7 +110,7 @@ p {
 	height: 110px;
 	padding: 10px 0px;
 	text-align: center;
-	color: #24346f;
+	color: #25356f;
 	font-weight: 600;
 	font-size: 11px;
 }
@@ -120,10 +131,12 @@ p {
 	color: #fff;
 }
 .process-ok {
+	height: 40px;
 	background-color: #09a523;
 	color: #fff;
 }
 .process-notok {
+	height: 40px;
 	background-color: #e60606;
 	color: #fff;
 }
@@ -136,32 +149,37 @@ p {
 }
 .tickicon {
 	border: 1px solid #fff;
-    border-radius: 15px;
-    padding: 4px 5px;
-    background-color: #fff;
-    color: #09a523;
+	border-radius: 15px;
+	padding: 4px 5px;
+	background-color: #fff;
+	color: #09a523;
 }
 .rating-image-section {
 	padding: 20px 0px;
-	border: 1px solid #24346f;
+	border: 1px solid #25356f;
 	text-align: center;
 	background-color: #f2fafd;
 	font-weight: 600;
 	font-size: 14px;
-	color : #24346f;
+	color : #25356f;
 }
-.rating-image-section img{
-	height: 125px;
-    width: 140px;
+.rating-image-section img {
+	width: 90%;
+}
+.rating-image-section .title p {
+	font-size: 13px;
+	font-weight: 600;
+	text-align: center;
 }
 .ownership-detail-section {
-	color: #24346f;
+	color: #25356f;
+	overflow: auto;
 }
 .ownership-detail-section table h3 {
 	font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 25px;
-    margin: 5px 0px;
+	letter-spacing: 2px;
+	font-size: 25px;
+	margin: 5px 0px;
 }
 .ownership-detail-section table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -170,50 +188,54 @@ p {
 .ownership-detail-section table th {
 	padding: 2px 5px !important;
 	background-color: #def6ff;
-	border: 1px solid #24346f;
+	border: 1px solid #25356f;
 }
 .ownership-detail-section table th p {
 	font-weight: 400;
 	font-size: 14px;
 }
 .ownership-detail-section table td {
-  border: 1px solid #24346f;
+  border: 1px solid #25356f;
   padding: 8px;
 }
 .ownership-detail-section table tr:nth-child(even){background-color: #f2fafd;}
 .parivahan-detail-header h3 {
 	margin: 0px;
 	font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 25px;
-    text-align: center;
-    padding-top: 6px;
-    height: 40px;
-    background-color: #24346f;
-    color: #fff;
+	letter-spacing: 1px;
+	font-size: 25px;
+	text-align: center;
+	padding: 5px 0;
+	background-color: #25356f;
+	color: #fff;
+	height: 40px;
 }
 .br-blue {
-	border: 1px solid #24346f;
+	border: 1px solid #25356f;
 }
 .parivahan-table-section {
-	border: 1px solid #24346f;
+	border: 1px solid #25356f;
 	border-top: unset;
 	padding-bottom: 5px;
+	padding-left: 3px;
+	color: #32b6ea !important;
 }
-.parivahan-table-section td {
-	padding: 7px 10px;
-    background-color: #f2fafd;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 16px;
+.parivahan-table-section tr {
 	border: 5px solid #fff;
 }
-.car-image-section {
-	border: 1px solid #24346f;
+.parivahan-table-section td {
+	padding: 3px 10px;
+	background-color: #f2fafd;
+	font-size: 12px;
+	font-weight: 600;
+}
+.car-image-section, .car-disclaimer-section {
+	border: 1px solid #25356f;
 	padding: 5px;
 }
 .car-image-section img {
 	width: 180px;
-	height: 300px;
+	height: 200px;
 }
 .car-image-section span {
 	margin: 10px;
@@ -249,4 +271,182 @@ p {
 	border-radius: 50%;
 	display: inline-block;
 	background-color: red;
+}
+.border-none {
+	border: none;
+	padding: unset;
+}
+.car-remark-section {
+	margin-top: 10px;
+	padding: 0px 10px 10px 10px;
+	border: 1px solid #25356f;
+	min-height: 50px;
+}
+.car-parts-section, .car-graph-section {
+	margin-top: 20px;
+	padding: 0px 10px 10px 10px;
+	border: 1px solid #25356f;
+	border-radius: 20px;
+}
+.car-parts-section p {
+	padding: 3px 10px;
+	background-color: #f2fafd;
+	font-size: 14px;
+	font-weight: 600;
+	color: #25356f;
+	border: 3px solid #fff;
+}
+.car-parts-section .header, .car-graph-section .header {
+	position: relative;
+	margin-top: 0px;
+	bottom: 15px;
+	background-color: #fff;
+	font-size: 20px;
+	left: 25px;
+	padding: 5px 10px;
+	font-weight: 600;
+	color: #25356f;
+}
+.car-parts-section p span {
+	float: right;
+	color: #32b6ea;
+}
+.a-gear {
+	height: 100%;
+}
+.rating-details {
+	position: relative;
+	bottom: 105px;
+	height: 0px;
+}
+.height-130 {
+	height: 130px;
+}
+.height-100 {
+	height: 100%;
+}
+.g-h5 {
+	font-size: 26px;
+	line-height: 32px;
+}
+.p5 {
+	font-size: 10px;
+	line-height: 16px;
+}
+.p4 {
+	font-size: 12px;
+	line-height: 18px;
+}
+.a-unit {
+	position: relative;
+	top: 30px;
+	left: 5px;
+}
+.good, .excellent {
+	color: green;
+	font-weight: 600;
+	margin-right: 15px;
+}
+.average, .fair {
+	color: orange;
+	font-weight: 600;
+	margin-right: 15px;
+}
+.poor, .scrap {
+	color: red;
+	font-weight: 600;
+	margin-right: 15px;
+}
+
+.diamond {
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #25356f;
+	position: relative;
+	top: -10px;
+	float: left;
+}
+.diamond:after {
+	content: '';
+	position: absolute;
+	left: -10px;
+	top: 10px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-top-color: #25356f;
+}
+.orange-diamond {
+	border-bottom-color: orange;
+}
+.orange-diamond:after {
+	border-top-color: orange;
+}
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 360px; 
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+
+.highcharts-legend, .highcharts-a11y-proxy-button {
+	display: none;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+.additional-images {
+	border: 5px solid #fff;
+	height: 200px;
+}
+.additional-images img {
+	height: 100%;
+}
+
+@media (max-width:480px)  {
+	.report-view {
+		width: 100%;
+		margin: 0px;
+	}
+	.about-me {
+		border: 3px solid #fff;
+	}
+	.about-me:last-child {
+		border: 3px solid #fff;
+	}
+	.image-view-section {
+		min-height: unset;
+	}
+	.image-view-section span {
+		font-size: 13px;
+		padding: 10px 0px;
+	}
+	.height-130 {
+		height: unset;
+	}
 }

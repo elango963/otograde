@@ -1,0 +1,80 @@
+script(src='/plugins/jquery/jquery.min.js')
+script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+script(src='/dist/js/adminlte.js')
+
+script(src='/plugins/manual-plugins/jquery.validate.min.js')
+script(src='/plugins/manual-plugins/image-slider.js')
+script(src='/plugins/lightgallery/lightgallery-all.min.js')
+script(src='/plugins/lightgallery/jquery.mousewheel.min.js')
+script(src='https://code.highcharts.com/highcharts.js')
+script(src='https://code.highcharts.com/modules/exporting.js')
+script(src='https://code.highcharts.com/modules/export-data.js')
+script(src='https://code.highcharts.com/modules/accessibility.js')
+script.
+	Highcharts.chart('container', {
+		chart: {
+			type: 'scatter',
+			zoomType: 'xy'
+		},
+		title: {
+			text: 'KM Vs Price'
+		},
+		xAxis: {
+			title: {
+				text: 'Price'
+			},
+			startOnTick: true,
+			endOnTick: true,
+			showLastLabel: true
+		},
+		yAxis: {
+			title: {
+				text: 'KMs'
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 10000,
+			y: 1000,
+			floating: true,
+			backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
+			borderWidth: 1
+		},
+		plotOptions: {
+			scatter: {
+				marker: {
+					states: {
+						hover: {
+							enabled: true,
+							lineColor: 'rgb(100,100,100)'
+						}
+					}
+				},
+				states: {
+					hover: {
+						marker: {
+							enabled: false
+						}
+					}
+				},
+				tooltip: {
+					headerFormat: '<b>{series.name}</b><br>',
+					pointFormat: '{point.x}, {point.y}'
+				}
+			}
+		},
+		series: [
+		{
+			name: 'This Vehicle 2017',
+			color: 'orange',
+			data: [[1700, 50000]]
+
+		}, {
+			name: '2017',
+			color: '#25356f',
+			data: [[8000, 54000]]
+		}]
+	});
+	$(".highcharts-exporting-group").remove();
