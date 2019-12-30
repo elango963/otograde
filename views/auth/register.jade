@@ -1,0 +1,48 @@
+extends ../layout/auth_layout 
+block content 
+	.login-box
+		.login-logo
+			a(href='/')
+				b OTO
+				| GRADE
+		.card
+			.card-body.login-card-body
+				form#register(action='/', method='post')
+					.input-group.mb-3
+						input.form-control(type='email', name="email", placeholder='Email')
+						.input-group-append
+							.input-group-text
+								span.fa.fa-envelope
+					.input-group.mb-3
+						input.form-control(type='text', name="first_name", placeholder='First Name')
+						.input-group-append
+							.input-group-text
+								span.fa.fa-user
+					.input-group.mb-3
+						input.form-control(type='text', name="last_name", placeholder='Last Name')
+						.input-group-append
+							.input-group-text
+								span.fa.fa-user
+					.input-group.mb-3
+						input.form-control(type='password', name="password", placeholder='Password')
+						.input-group-append
+							.input-group-text
+								span.fa.fa-lock
+					.input-group.mb-3
+						input.form-control(type='password', name="confirm_password", placeholder='Confirm Password')
+						.input-group-append
+							.input-group-text
+								span.fa.fa-lock
+					.row
+						.col-8
+							.icheck-primary
+								input#remember(type='checkbox')
+								label(for='remember')
+								| Remember Me
+						.col-4
+						button.btn.btn-primary.btn-block(type='submit') Sign Up
+				p.mb-1
+					a(href='/login') Already a member? Sign In
+
+block script
+	script(src='bundle/js/auth.js')

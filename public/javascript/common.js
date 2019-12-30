@@ -1,8 +1,7 @@
-/*import Common from "./common/helper";
-new Common();
-*/
-$(function () {
 
+import Common from "./common/helper";
+
+const intialize = () => {
 	var uploadedImage = []
 	//Initialize Select2 Elements
 	var uploadObject = $(".uploadObject").data("value");
@@ -535,4 +534,6 @@ $(function () {
 			$(".otograde-loading").addClass("hide");	
 		}, milliSeconds);
 	}
-})
+};
+
+intialize();

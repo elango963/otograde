@@ -12,19 +12,19 @@ const express = require('express'),
     flash = require('connect-flash'),
     ajax = require('./routes/ajax')(),
     session = require('express-session');
-
+    users = require('./routes/users'),
+    ajax = require('./routes/ajax')(),
+    session = require('express-session'),
+    FileStore = require('session-file-store')(session);
+    dotenvExpand = require('dotenv-expand');
 require('express-group-routes');
 
 const app = express(),
     env = process.env.NODE_ENV;
 
 const envConfig = require('dotenv').config();
-for (var parsedJson in envConfig.parsed) {
-    var apiUrl = envConfig.parsed[parsedJson];
-    if (apiUrl.indexOf("API_DOMAIN") !== -1) {
-        process.env[parsedJson] = apiUrl.replace("{API_DOMAIN}", process.env.API_DOMAIN);
-    }
-}
+dotenvExpand(envConfig);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -35,6 +35,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  store: new FileStore({}),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: process.env.ENV === "production" }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
 app.use(flash());
@@ -48,7 +56,9 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/', index);
-app.use('/lead', lead);
+app.use('/', index, users);
+app.use('/lead', middleware.auth, lead);
+
 console.log("coming here");
 app.post('/ajax/leadcreate',
     middleware.verifyAjaxRequest,

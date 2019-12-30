@@ -1,0 +1,13 @@
+{
+  "name" : "otograde",
+  "script" : "bin/www",
+  "watch" : ["./"],
+  "ignore_watch" : ["node_modules", "sessions"],
+  "watch_options" : {
+  	"followSymlinks": false
+  },
+  "env": {
+		"PORT": 3001,
+		"NODE_ENV": "development"
+	},
+}
