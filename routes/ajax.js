@@ -4,6 +4,7 @@ const request = require('request'),
 	jwtDecode = require("jwt-decode"),
 	merge = require('merge'),
 	path = require('path'),
+	multiparty = require('multiparty'),
 	_ = require('lodash');
 
 var data = {}
@@ -92,8 +93,57 @@ module.exports = () => {
 		});
 	};
 
+	const imageUpload = (req, res, next) => {
+	     getFiles(req).then(formData => {
+	     	if (formData[0] && formData[0].originalFileName) {
+	     		formData[0].originalFilename = formData[0].originalFileName;
+	     	}
+
+	    	var requestData = {
+				slug: formData[0].slug && formData[0].slug[0] ? formData[0].slug[0] : "",
+				originalFileName: formData[0].originalFilename && formData[0].originalFilename[0] ? formData[0].originalFilename[0] : formData[1].file[0].originalFilename,
+				file: formData[1].file && formData[1].file[0] && formData[1].file[0].path ? fs.createReadStream(formData[1].file[0].path) : "",
+				reportId: req.session && req.session.user && req.session.user.reportId ? req.session.user.reportId : 1234567
+			};
+
+			if (formData[1].file && formData[1].file[0].path)
+				fs.unlinkSync(formData[1]["file"][0].path);
+			console.log(requestData);
+			request({
+				uri: process.env.IMAGE_UPLOAD_API,
+				headers: {
+					"Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjI2ODY1NTQsImV4cCI6ODgwNTMzMzQ4NzcsImNvbnRleHQiOnsiZW1haWwiOm51bGx9fQ.l0Ku0IUCvkDab98wRNt-gYCUH2GNamG0LV_Vfv6BtEY"
+				},
+				method: "POST",
+				formData: requestData,
+			}, (err, response, body) => {
+				if (!err && response.statusCode == 200) {
+					var body = JSON.parse(body);
+					res.status(200).send({ status: body.status, data: body.data });
+				} else {
+					res.status(200).send({ status: "error" });
+				}
+			});
+		}).catch(err => {
+			console.error(`${req.originalUrl}: ${err}`);
+			res.status(200).send({ status: "error" });
+		});
+	};
+	const getFiles = req => {
+	    return new Promise((resolve, reject) => {
+	        var form = new multiparty.Form();
+
+	        form.parse(req, (err, fields, files) => {
+	        	if (!err)
+	            	resolve([fields ? fields : [], files ? files : []]);
+	            else
+	            	reject(err);
+	        });
+	    });
+	};
 	return {
 		leadCreation: leadCreation,
-		leadEditPage: leadEditPage
+		leadEditPage: leadEditPage,
+		imageUpload: imageUpload
 	};
 };

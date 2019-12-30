@@ -4,5 +4,12 @@ html
 		include preview-header
 	body
 		.col-md-12.col-xs-12.wrapper
+			.otograde-loading.hide
+				.otograde-loading-content
+					.text-center
+						img(src='/images/loader-clock.png')
+					.otograde-loading-text
+						| Processing
+					.otograde-loading-bar
 			block content
 		include report-preview-js

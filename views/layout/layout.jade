@@ -4,6 +4,13 @@ html
 		include header.jade
 	body.hold-transition.sidebar-mini.layout-fixed.layout-navbar-fixed.layout-footer-fixed
 		.wrapper
+			.otograde-loading.hide
+				.otograde-loading-content
+					.text-center
+						img(src='/images/loader-clock.png')
+					.otograde-loading-text
+						| Processing
+					.otograde-loading-bar
 			include navigation.jade
 			include sidebar.jade
 			block content

@@ -58,6 +58,10 @@ app.get('/ajax/lead/edit/:id',
     middleware.verifyAjaxRequest,
     ajax.leadEditPage
 );
+app.post('/ajax/imageUpload',
+    middleware.verifyAjaxRequest,
+    ajax.imageUpload
+);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

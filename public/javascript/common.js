@@ -2,6 +2,8 @@
 new Common();
 */
 $(function () {
+
+	var uploadedImage = []
 	//Initialize Select2 Elements
 	var uploadObject = $(".uploadObject").data("value");
 	var statelist = $(".statelist").text();
@@ -282,19 +284,19 @@ $(function () {
 	$(document).on('change', '.select2', function() {
     	$(this).valid();
 	});
-	$(document).on('change', '.select2.imageUpload', function(e) {
+	$(document).on("change", ".select2.imageUpload", function(e) {
     	e.preventDefault();
         if ($(this).val()) {
-       		checkDuplicateFound(function() {
+        	var latestVal = $(this).closest(".image-preview-section").find(".imageElement").attr("name");
+       		checkDuplicateFound(latestVal, function() {
        			imageUploadValidation(function() {
 		        	console.log("return here");
-					// imageUpload();
 				});
        		});
         }
 	});
 
-	function checkDuplicateFound(callback) {
+	function checkDuplicateFound(prevValue, callback) {
 		var duplicateCount = 0;
 		var selectedObj = [];
 		$('.select2.imageUpload:visible').each(function(i, v) {
@@ -325,7 +327,8 @@ $(function () {
 				selectedObj[selectBoxVal] = selectBoxText;
 			}
 		}).promise().done(function() {
-			if (emptyCount === 1) {
+			console.log(emptyCount);
+			if (emptyCount = 1) {
 				callback();
 			} else {
 				var errorMsg = "Upload below images <br> ";
@@ -345,13 +348,42 @@ $(function () {
         //prevent Default functionality
         e.preventDefault();
         var $this = $(e.currentTarget);
+        console.log("return here");
         imageUploadValidation(function() {
-        	console.log("return here");
-			// imageUpload();
+        	console.log("return heres");
+			imageUploadInit(function(cb) {
+				console.log(cb);
+			});
 		});
     });
 
-	 $(document).on("change", "input.upload-input", function(e) {
+	function imageUploadInit(callback) {
+		$('.image-preview:visible').each(function(i, v) {
+			formData = new FormData();
+			var $fileElem = $(v).closest(".image-preview-section");
+			formData.append("slug", $fileElem.find(".select2.imageUpload").val());
+			formData.append("file", uploadedImage[i]);
+			var fileName = $fileElem.find(".imageElement").data("imagename");
+			formData.append("originalFilename", fileName);
+			$.ajax({
+				url: '/ajax/imageUpload',
+				method: "POST",
+				data: formData,
+				contentType: false,
+				processData: false,
+				success: response => {
+					if (typeof cb === "function")
+						callback(response);
+				},
+				error: err => {
+					if (typeof cb === "function")
+						callback({ status: "error" });  
+				},
+			});
+		});
+	}
+
+	$(document).on("change", "input.upload-input", function(e) {
 		e.preventDefault();
 		e.stopImmediatePropagation();
 		var $this = $(e.currentTarget);
@@ -381,10 +413,14 @@ $(function () {
 	function ImagePreview (emptyObjElem, fileObj, callback) {
     	var parentElem = emptyObjElem.closest(".image-preview-section");
     	parentElem.find(".image_name").text(fileObj.name);
+    	uploadedImage.push(fileObj);
+    	console.log("uploadedImage");
+    	console.log(uploadedImage);
        	parentElem.find(".image-preview").removeClass("hide");
         parentElem.find(".image-display-hint").addClass("hide").removeClass("image-display-hint");
         parentElem.removeClass("hide");
     	emptyObjElem.val(fileObj);
+    	emptyObjElem.data("imagename", fileObj.name);
     	ImageSetPreview(parentElem, fileObj, function() {
     		callback();
     	})
@@ -488,4 +524,15 @@ $(function () {
 		actualSize: false,
 		autoplayControls: false,
 	});
+
+	function showLoading(message) {
+		$(".otograde-loading").find(".otograde-loading-text").text(message);
+		$(".otograde-loading").removeClass("hide");
+	}
+
+	function hideLoading(milliseconds) {
+		setTimeout(() => {
+			$(".otograde-loading").addClass("hide");	
+		}, milliSeconds);
+	}
 })
