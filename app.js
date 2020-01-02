@@ -11,13 +11,10 @@ const express = require('express'),
     lead = require('./routes/lead'),
     flash = require('connect-flash'),
     ajax = require('./routes/ajax')(),
-    session = require('express-session');
-    users = require('./routes/users'),
-    ajax = require('./routes/ajax')(),
     session = require('express-session'),
+    users = require('./routes/users'),
     FileStore = require('session-file-store')(session);
     dotenvExpand = require('dotenv-expand');
-require('express-group-routes');
 
 const app = express(),
     env = process.env.NODE_ENV;
@@ -55,8 +52,8 @@ app.use((req, res, next) => {
     res.locals.flashMessage = req.flash('flashMessage');
     next();
 });
-app.use('/', index);
-app.use('/', index, users);
+app.use('/', users);
+app.use('/', middleware.auth, index);
 app.use('/lead', middleware.auth, lead);
 
 console.log("coming here");

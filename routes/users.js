@@ -5,9 +5,6 @@ var router = express.Router(),
     authController = require('../controller/AuthController')();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
 router.get('/login', function(req, res, next) {
   res.render('auth/login');

@@ -1,5 +1,4 @@
-import Common from "./common/helper";
-import { ajax, snakeToCamel } from "./common/utils";
+import { ajax, snakeToCamel, initAjax } from "./common/utils";
 
 const processLogin = () => {
 	$("#login").on("submit", (e) => {
@@ -41,5 +40,6 @@ const processRegister = () => {
 	});
 };
 
+initAjax();
 processLogin();
 processRegister();

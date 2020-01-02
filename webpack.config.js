@@ -11,7 +11,7 @@ module.exports = {
 
   // https://webpack.js.org/concepts/entry-points/#multi-page-application
   entry: {
-    common: './public/javascript/common.js',
+    home: './public/javascript/home.js',
     auth: './public/javascript/auth.js',
   },
 

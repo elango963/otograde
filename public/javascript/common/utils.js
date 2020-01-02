@@ -1,3 +1,11 @@
+export const initAjax = () => {
+	$.ajaxSetup({
+		cache: true,
+		headers: {
+			"X-CSRF-Token": $("#csrfToken").val(),
+		},
+	});
+}
 
 export const ajax = (url, method, data, successCallBack = () => {}, errorCallBack = () => {}) => {
 	$.ajax({

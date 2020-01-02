@@ -1,5 +1,4 @@
-
-import Common from "./common/helper";
+import { ajax, snakeToCamel, initAjax } from "./common/utils";
 
 const intialize = () => {
 	var uploadedImage = []
@@ -14,7 +13,6 @@ const intialize = () => {
 		}
 		$(".statelist, .zipcodelist").remove();
 
-		$('.select2').select2()
 		$(".select2.addtag").select2({
 			tags: true,
 	    	createTag: function(params) {
@@ -399,7 +397,7 @@ const intialize = () => {
 	function ImagePreviewSet (emptyObjElem, filelength, files, callback) {
 		var $this = $(emptyObjElem);
 		if ($this.val()) {
-            for (i = 0; i < filelength; i++) {
+            for (var i = 0; i < filelength; i++) {
             	var emptyObjElem = $('input.imageElement[value=""]').first();
             	ImagePreview(emptyObjElem, files[i], function() {
             		console.log("object updated");
@@ -536,4 +534,10 @@ const intialize = () => {
 	}
 };
 
+const initSelect2 = () => {
+	$('.select2').select2();
+};
+
+initAjax();
+initSelect2();
 intialize();
