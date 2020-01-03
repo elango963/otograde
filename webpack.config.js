@@ -13,6 +13,7 @@ module.exports = {
   entry: {
     home: './public/javascript/home.js',
     auth: './public/javascript/auth.js',
+    tooltip: './public/javascript/tooltip.js',
   },
 
   output: {
@@ -37,6 +38,14 @@ module.exports = {
           'style-loader',
           'css-loader',
           'sass-loader'
+          // Please note we are not running postcss here
+        ]
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader',
           // Please note we are not running postcss here
         ]
       },

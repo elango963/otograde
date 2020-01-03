@@ -5,6 +5,7 @@ const fs = require('fs');
 var data = {}
 var menu = fs.readFileSync('config/left_side_menu.json');
 data.menu = JSON.parse(menu);
+var wkhtmltopdf = require('wkhtmltopdf');
 
 router.get('/create', function(req, res, next) {
 	data.active = 'create';
@@ -122,6 +123,15 @@ router.get('/valuation/:id', function(req, res, next) {
 router.get('/report/preview/:id', function(req, res, next) {
 	data.active = 're-assigned';
 	res.render('lead/report-preview', { data: data });
+});
+
+router.get('/report/preview/:id/pdf', function(req, res, next) {
+	data.active = 're-assigned';
+	res.render('lead/report-preview', { data: data }, (err, html) => {
+		wkhtmltopdf(html)
+  		.pipe(res);
+	});
+	
 });
 
 module.exports = router;

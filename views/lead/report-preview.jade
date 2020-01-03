@@ -499,7 +499,7 @@ block content
 				section.col-md-12.col-xs-12.mg-tp-10
 					.col-md-12.col-xs-12.car-image-section.pad0
 						.col-md-4.col-xs-6
-							img(src='/images/car-first-image.png')
+							include ../svg/car_parts
 						.col-md-4.col-xs-6
 							img(src='/images/car-second-image.png')
 						.col-md-4.col-xs-6
@@ -763,3 +763,5 @@ block content
 							p.pd-tp-10.font-wt-6 Disclaimer : 
 						.col-md-11.col-xs-12.pad0 
 							p.g-blue-clr.pd-tp-13.font-9  Page disclaimer content will come here
+block script
+	script(src='/bundle/js/tooltip.js')
