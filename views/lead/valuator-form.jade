@@ -2,6 +2,7 @@ extends ../layout/layout
 block content
 	if (typeof data.formData == "undefined")
 		- data.formData = {}
+		- data.formData.leadId = 1
 		- data.formData.clients = {}
 		- data.formData.customer = {}
 		- data.formData.executive = {}
@@ -32,6 +33,7 @@ block content
 											a#valuator-report-form-parivahan-detail-tab.nav-link(data-toggle='pill', href='#valuator-report-form-parivahan-detail', role='tab', aria-controls='valuator-report-form-parivahan-detail-tab', aria-selected='false') 
 												| &emsp;PARIVAHAN Details
 									#valuator-report-form-tabContent.tab-content
+										input.leadId(type="hidden", value= '#{data.leadId}')
 										#valuator-report-form-upload.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='valuator-report-form-upload-tab')
 											.col-md-12.card-lightgreen.card-body
 												.card.card-lightgreen

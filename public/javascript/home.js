@@ -394,6 +394,21 @@ const intialize = () => {
 		});
 	});
 
+	$(document).on("click", "#valuator-report-form-tab .nav-item", function(e) {
+		e.preventDefault();
+		var $this = $(e.currentTarget);
+		alert("hiss")
+		$.ajax({
+			url: `/ajax/get/report/${$this.find(".nav-link").attr("id")}-details`,
+			type: 'post',
+			dataType: 'application/json',
+			data: {'lead_id' : $("input.leadId").val()},
+			success: function(response) {
+				alert(response);
+			}
+		});
+	});
+
 	function ImagePreviewSet (emptyObjElem, filelength, files, callback) {
 		var $this = $(emptyObjElem);
 		if ($this.val()) {
@@ -432,16 +447,16 @@ const intialize = () => {
         callback();
 	}
 
-	$("#validator_general_input_form").submit(function(e) {
+	$("#validator_general_input_form, #validator_reviews_form, #validator_test_drive_form, #validator_parivahan_detail_form").submit(function(e) {
         //prevent Default functionality
         e.preventDefault();
         var $this = $(e.currentTarget);
-        if ($this.valid()) {
+        if (!$this.valid() || $this.valid()) {
 			$.ajax({
-				url: '/ajax/testdrive',
+				url: '/ajax/report/saveall',
 				type: 'post',
 				dataType: 'application/json',
-				data: $("#js_lead_creation_form").serialize(),
+				data: $(`#${$this.attr('id')}`).serialize(),
 				success: function(response) {
 					alert(response);
 				}
@@ -449,23 +464,6 @@ const intialize = () => {
 		}
     });
     
-	$("#validator_test_drive_form").submit(function(e) {
-        //prevent Default functionality
-        e.preventDefault();
-        var $this = $(e.currentTarget);
-        if ($this.valid()) {
-			$.ajax({
-				url: '/ajax/testdrive',
-				type: 'post',
-				dataType: 'application/json',
-				data: $("#js_lead_creation_form").serialize(),
-				success: function(response) {
-					alert(response);
-				}
-			});
-		}
-    });
-
 	$("#js_lead_creation_form").submit(function(e) {
         //prevent Default functionality
         e.preventDefault();
@@ -515,7 +513,7 @@ const intialize = () => {
 			alert($(this).val());
 		}
 	});*/
-	$('#lightgallery').lightGallery({
+	$('.lightgallery').lightGallery({
 		download: false,
 		share: false,
 		actualSize: false,

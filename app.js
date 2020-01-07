@@ -69,6 +69,16 @@ app.post('/ajax/imageUpload',
     middleware.verifyAjaxRequest,
     ajax.imageUpload
 );
+
+app.post('/ajax/report/saveall',
+    middleware.verifyAjaxRequest,
+    ajax.reportSaveAll
+);
+
+app.post('/ajax/get/report/:tabname',
+    middleware.verifyAjaxRequest,
+    ajax.getReportTabData
+);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

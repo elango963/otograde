@@ -1,4 +1,5 @@
 form#validator_parivahan_detail_form.col-md-12.p-0(role='form', class="form-horizontal")
+	input(type='hidden', name='form_type', value='parivahan_detail')
 	.col-md-12.p-0
 		if (data.question && data.question.rating && data.question.rating.parivahan_details)
 			each inputValue, inputKey in data.question.rating.parivahan_details

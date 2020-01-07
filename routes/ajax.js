@@ -59,6 +59,56 @@ const leadCreation = (req, res) => {
 		}
 	});
 };
+
+const reportSaveAll = (req, res) => {
+	req.checkBody('form_type', 'type is required').notEmpty();
+	console.log(JSON.stringify(req.body));
+	req.getValidationResult().then(error => {
+		if (error.isEmpty() === false) res.status(422).send({ status: "error" });
+		else {
+			console.log(JSON.stringify(req.body));
+			request({
+				uri: process.env.REPORT_SAVE_ALL_API,
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify(req.body),
+			}, (err, response, body) => {
+				if (!err && response.statusCode == 200) {
+					res.status(200).send({ status: "success" });
+				} else {
+					res.status(500).send({ status: "error" });
+				}
+			});
+		}
+	});
+};
+
+const getReportTabData = (req, res) => {
+	req.checkBody('lead_id', 'lead details is required').notEmpty();
+	console.log(JSON.stringify(req.params.tabname));
+	req.getValidationResult().then(error => {
+		if (error.isEmpty() === false) res.status(422).send({ status: "error" });
+		else {
+			console.log(`${process.env.REPORT_TAB_DETAIL_API}/${req.body.lead_id}/${req.params.tabname}`);
+			request({
+				uri: `${process.env.REPORT_TAB_DETAIL_API}/${req.body.lead_id}/${req.params.tabname}`,
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify(req.body),
+			}, (err, response, body) => {
+				if (!err && response.statusCode == 200) {
+					res.status(200).send({ status: "success" });
+				} else {
+					res.status(500).send({ status: "error" });
+				}
+			});
+		}
+	});
+};
 const leadEditPage = (req, res) => {
 	data.active = 'inbox';
 	// req.session.user.auth = "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
@@ -146,6 +196,8 @@ module.exports = () => {
 		leadCreation: leadCreation,
 		leadEditPage: leadEditPage,
 		imageUpload: imageUpload,
+		reportSaveAll: reportSaveAll,
+		getReportTabData: getReportTabData,
 		getFiles: getFiles
 	};
 };

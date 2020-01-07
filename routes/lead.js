@@ -115,6 +115,7 @@ router.get('/re-assigned-list', function(req, res, next) {
 
 router.get('/valuation/:id', function(req, res, next) {
 	data.active = 'assigned';
+	data.leadId = req.params.id;
 	data.question = {};
 	data.question.rating = JSON.parse(fs.readFileSync('config/valuator-form-rating-question.json'));
 	res.render('lead/valuator-form', { data: data });

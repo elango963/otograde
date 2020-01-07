@@ -1,4 +1,5 @@
 form#validator_reviews_form.col-md-12.p-0(role='form', class="form-horizontal")
+	input(type='hidden', name='form_type', value='reviews')
 	.col-md-12.p-0
 		if (data.question && data.question.rating && data.question.rating.reviews)
 			each inputValue, inputKey in data.question.rating.reviews

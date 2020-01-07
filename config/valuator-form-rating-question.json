@@ -2103,7 +2103,7 @@
         }
       }
     },
-    "Battery_condition": {
+    "battery_condition": {
       "label": "Battery Condition",
       "class": "col-sm-12 col-xs-12",
       "type": "radio",
@@ -2277,7 +2277,7 @@
     }
   },
   "parivahan_details" : {
-    "Owner_name" : {
+    "owner_name" : {
       "label" : "Owner Name",
       "type": "text",
       "placeholder": "Enter Owner Name",
