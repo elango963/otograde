@@ -129,7 +129,14 @@ router.get('/report/preview/:id', function(req, res, next) {
 router.get('/report/preview/:id/pdf', function(req, res, next) {
 	data.active = 're-assigned';
 	res.render('lead/report-preview', { data: data }, (err, html) => {
-		wkhtmltopdf(html)
+		wkhtmltopdf(html, {
+			viewportSize: "1680x1024",
+			marginBottom: 1,
+			marginTop: 1,
+			marginLeft: 1,
+			marginRight: 1,
+			pageSize: "Letter"
+		})
   		.pipe(res);
 	});
 	
