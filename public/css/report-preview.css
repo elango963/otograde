@@ -339,8 +339,8 @@ p {
 }
 .a-unit {
 	position: relative;
-	top: 30px;
-	left: 5px;
+	top: 35px;
+	left: 2px;
 }
 .good, .excellent {
 	color: green;
@@ -427,11 +427,38 @@ p {
 .additional-images img {
 	height: 100%;
 }
-
+.flat-car .panel-0 {
+    fill: rgb(118, 118, 118);
+    stroke: transparent;
+    stroke-miterlimit: 10;
+    stroke-width: 0.28px;
+}
+.flat-car .panel-0b {
+    fill: rgb(255, 255, 255);
+}
+.flat-car .panel-1, .flat-car .panel-1 .panel-0 {
+    fill: rgb(244, 205, 43);
+}
+.flat-car .panel-1, .flat-car .panel-2, .flat-car .panel-3 {
+    cursor: pointer;
+}
+.flat-car .panel-1.highlight, .flat-car .panel-1.highlight .panel-0, .flat-car .panel-1:hover, .flat-car .panel-1:hover .panel-0 {
+    fill: rgb(244, 225, 146);
+}
+.number-plate {
+	width: 70%;
+}
 @media (max-width:480px)  {
+	.logo {
+		text-align: center;
+	}
+	.brand-image {
+		width: 60%;
+	}
 	.report-view {
 		width: 100%;
 		margin: 0px;
+		font-size: 13px;
 	}
 	.about-me {
 		border: 3px solid #fff;
@@ -448,5 +475,26 @@ p {
 	}
 	.height-130 {
 		height: unset;
+	}
+	.parivahan-detail-header h3 {
+		height: unset;
+	}
+	.a-unit {
+	    position: relative;
+	    top: 45px;
+	    left: 2px;
+	}
+	.a-unit.g-h5 {
+	    font-size: 17px;
+	    line-height: 20px;
+	}
+	.rating-image-section {
+		font-size: 9px;
+	}
+	.car-remark-section img {
+		width: 95%;
+	}
+	.additional-images {
+		text-align: center;
 	}
 }
