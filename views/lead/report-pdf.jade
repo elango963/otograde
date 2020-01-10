@@ -1,767 +1,1551 @@
-extends ../layout/report-preview-layout 
-block content
-	.row.mg-0
-		.col-md-12
-			.report-view.col-md-12.pad0
-				header.header-info.col-md-12.pad0
-					.logo.col-md-3
-						img.brand-image(src='/images/report-logo.png', height="99%", width= '100%', alt='AdminLTE Logo')
-					.customer-section.col-md-9.pad0
-						.header-detail-section.col-md-12.pad0.align-right
-							.col-md-5.bg-yellow
-								p.pd5
-									span ENGINE&emsp;:
-									span.header-value F875MDKSLS65823
-							.col-md-7.bg-blue
-								p.pd5
-									span CHASSIS&emsp;:
-									span.header-value MAKD907NKLDS75MDKSLS65823
-						.header-detail.col-md-12.align-right
-							p.pd5.align-right INSP. DATE &emsp;: &emsp;
-								b 13/11/2019
-							.col-md-3.pad0
-								p.pd5
-									span REPORT ID&emsp;:
-									span.description 45123
-							.col-md-4.pad0
-								p.pd5
-									span LOAN NO &emsp;:
-									span.description DKSLS65823
-							.col-md-5.pad0
-								p.pd5
-									span LOCATION &emsp;:
-									span.description CHENNAI
-				section.vechile-info.col-md-12.pad0
-					.col-md-12
-						p.pd-tp-10
-							span.about-me.col-md-4.pd-5 MR.ARUNKUMAR
-							span.about-me.col-md-4.pd-5 Insurance surveyor
-							span.about-me.col-md-4.pd-5 
-								span.g-blue-clr License No : 
-								| IRDA / IND / SLA - 123456
-					.col-md-12.vehicle-description.align-center
-						h4.font-wt-6.mg-tp-10 Your Otograde Electronic Inspection Report
-				section.vehicle-description.col-md-12.pad0
-					.col-md-12.bg-light-sky-blue.align-center
-						h3.mg-tp-10.font-wt-6.text-uc 2011/03&emsp;&emsp;Maruti Alto&emsp;&emsp;LXI 800cc&emsp;&emsp;TN02 AR 6903
-					.col-md-12.vehicle-info-detail.pad0
-						.col-md-5.pad0
-							span.col-md-3 23079 : 
-								span.g-blue-clr KM
-							span.col-md-2 Manual
-							span.col-md-3 RC : 
-								span.g-blue-clr Yes
-							span.col-md-4 Power Steering
-						.col-md-7.pad0
-							span.col-md-2 Hard Top
-							span.col-md-4 
-								span.g-blue-clr Ins.Dt : 
-								| 23/11/2019
-							span.col-md-4 
-								span.g-blue-clr Reg.Dt : 
-								| 23/11/2019
-							span.col-md-2
-								span.g-blue-clr Retail
-					.col-md-12.vehicle-info-detail.pad0.align-center
-						span.col-md-5
-							span.g-blue-clr Application Name&emsp; : &emsp;
-							| AKKKKKKKKK KUMAR
-						span.col-md-6
-							span.g-blue-clr Lender&emsp; : &emsp;
-							| Mahindra Finance
-						span.col-md-1
-							span.g-blue-clr Private
-				section.report-image-section.col-md-12.pad0
-					.image-view-section.col-md-6.pd-lt-0
-						img(src='/images/sample-image.png', height="100%", width= '100%', alt='AdminLTE Logo')
-					.image-view-section.col-md-6
-						.col-md-12.pad0
-							.icon-image
-								img(src='/images/car-icon.png')
-								p Running Condition
-							.icon-image
-								img(src='/images/car-engine.jfif')
-								p Engine Start
-							.icon-image
-								img(src='/images/car-demage.png')
-								p Major Accident in Front
-							.icon-image
-								img(src='/images/car-icon.png')
-								p No Damages
-							.icon-image
-								img(src='/images/owner.png', alt='AdminLTE Logo')
-								p Single Owner
-							.icon-image
-								img(src='/images/key.jfif', alt='AdminLTE Logo')
-								p Available
-							.icon-image
-								img(src='/images/tyres.jpg', alt='AdminLTE Logo')
-								p Average
-							.icon-image
-								img(src='/images/diesel.png', alt='AdminLTE Logo')
-								p Diesel
-							.icon-image
-								img(src='/images/battery.png', alt='AdminLTE Logo')
-								p Diesel
-							.icon-image
-								img(src='/images/car-paint.jfif', alt='AdminLTE Logo')
-								p Color : Silver
-						.col-md-12.pad0
-							span.col-md-5.g-blue-clr Overall Conditions
-							span.col-md-1.g-blue-clr :
-							span.col-md-6 Good Working Condition
-						.col-md-12.pad0.mg-tp-10
-							span.col-md-5.g-blue-clr Valuation Price
-							span.col-md-1.g-blue-clr :
-							span.col-md-6 10,00,000/-
-						.col-md-12.pad0.mg-tp-10
-							span.col-md-5.g-blue-clr Ex Show Room Price
-							span.col-md-1.g-blue-clr :
-							span.col-md-6 5,00,000/- 
-								span.g-blue-clr@ 
-								| 20/12/2019
-						.col-md-12.pad0.mg-tp-10
-							span.col-md-5.g-blue-clr Police Reocrd
-							span.col-md-1.g-blue-clr :
-							span.col-md-6.process-notok
-									span.clr-red Not Found&emsp;
-									span.deleteicon
-										i.fas.fa-times
-				section.col-md-12
-					.col-md-12.rating-image-section.pad0.mg-tp-10
-						.col-md-6.pd5
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		link(rel='stylesheet', href='http://localhost:3000/public/plugins/fontawesome-free/css/all.min.css')
+		script(src='http://localhost:3000/public/plugins/jquery/jquery.min.js')
+		script(src='http://localhost:3000/public/plugins/jquery/jquery.min.js')
+		script(src='https://code.highcharts.com/highcharts.js')
+		script(src='https://code.highcharts.com/modules/exporting.js')
+		script(src='https://code.highcharts.com/modules/export-data.js')
+		script(src='https://code.highcharts.com/modules/accessibility.js')
+		title OTO GRADE
+	style.
+		.pd5{padding: 5px;}
+		.pd7{padding: 7px;}
+		.pd10{ padding: 10px !important; }
+		.pd15{ padding: 15px; }
+		.pd20{ padding: 20px; }
+		.pd25{ padding: 25px; }
+		.pd30{ padding: 30px; }
+		.pd35{ padding: 35px; }
+		.pd40{ padding: 40px; }
+		.pad0{ padding: 0; }
+		.pad0-imp { padding: 0 !important; }
+		.pd-tp-0{ padding-top: 0; }
+		.pd-tp-5{ padding-top: 5px; }
+		.pd-tp-10{ padding-top: 10px; }
+		.pd-tp-13{ padding-top: 13px; }
+		.pd-tp-15{ padding-top: 15px; }
+		.pd-tp-20{ padding-top: 20px; }
+		.pd-tp-25{ padding-top: 25px; }
+		.pd-tp-30{ padding-top: 30px; }
+		.pd-tp-35{ padding-top: 35px; }
+		.pd-tp-40{ padding-top: 40px; }
+		.pd-bt-0{ padding-bottom: 0; }
+		.pd-bt-5{ padding-bottom: 5px; }
+		.pd-bt-10{ padding-bottom: 10px; }
+		.pd-bt-15{ padding-bottom: 15px; }
+		.pd-bt-20{ padding-bottom: 20px; }
+		.pd-bt-25{ padding-bottom: 25px; }
+		.pd-bt-30{ padding-bottom: 30px; }
+		.pd-bt-35{ padding-bottom: 35px; }
+		.pd-bt-40{ padding-bottom: 40px; }
+
+		.pd-rt-0{ padding-right: 0; }
+		.pd-rt-5{ padding-right: 5px; }
+		.pd-rt-10{ padding-right: 10px; }
+		.pd-rt-15{ padding-right: 15px; }
+		.pd-rt-20{ padding-right: 20px; }
+		.pd-rt-25{ padding-right: 25px; }
+		.pd-rt-30{ padding-right: 30px; }
+		.pd-rt-35{ padding-right: 35px; }
+		.pd-rt-40{ padding-right: 40px; }
+
+		.pd-lt-0{ padding-left: 0; }
+		.pd-lt-5{ padding-left: 5px; }
+		.pd-lt-10{ padding-left: 10px; }
+		.pd-lt-15{ padding-left: 15px; }
+		.pd-lt-20{ padding-left: 20px; }
+		.pd-lt-25{ padding-left: 25px; }
+		.pd-lt-30{ padding-left: 30px; }
+		.pd-lt-35{ padding-left: 35px; }
+		.pd-lt-40{ padding-left: 40px; }
+
+		.pd-tb-10{ padding: 10px 0; }
+
+		.mg-10{ margin: 10px; }
+		.mg-15{ margin: 15px; }
+		.mg-20{ margin: 20px; }
+		.mg-25{ margin: 25px; }
+		.mg-30{ margin: 30px; }
+		.mg-35{ margin: 35px; }
+		.mg-40{ margin: 40px; }
+		.mg-0{ margin: 0;}
+
+		.mg-tp-0{ margin-top: 0; }
+		.mg-tp-2{ margin-top: 2px; }
+		.mg-tp-5{ margin-top: 5px; }
+		.mg-tp-10{ margin-top: 10px; }
+		.mg-tp-15{ margin-top: 15px; }
+		.mg-tp-20{ margin-top: 20px; }
+		.mg-tp-25{ margin-top: 25px; }
+		.mg-tp-30{ margin-top: 30px; }
+		.mg-tp-35{ margin-top: 35px; }
+		.mg-tp-40{ margin-top: 40px; }
+		.mg-tp-45{ margin-top: 45px; }
+		.mg-tp-50{ margin-top: 50px; }
+
+		.mg-bt-0{ margin-bottom: 0; }
+		.mg-bt-5{ margin-bottom: 5px; }
+		.mg-bt-10{ margin-bottom: 10px; }
+		.mg-bt-16{ margin-bottom: 16px; }
+
+		.mg-bt-10-imp { margin-bottom :10px !important; }
+		.mg-bt-15{ margin-bottom: 15px; }
+		.mg-bt-20{ margin-bottom: 20px; }
+		.mg-bt-25{ margin-bottom: 25px; }
+		.mg-bt-30{ margin-bottom: 30px; }
+		.mg-bt-35{ margin-bottom: 35px; }
+		.mg-bt-40{ margin-bottom: 40px; }
+
+		.mg-rt-0{ margin-right: 0; }
+		.mg-rt-5{ margin-right: 5px; }
+		.mg-rt-10{ margin-right: 10px; }
+		.mg-rt-15{ margin-right: 15px; }
+		.mg-rt-20{ margin-right: 20px; }
+		.mg-rt-25{ margin-right: 25px; }
+		.mg-rt-30{ margin-right: 30px; }
+		.mg-rt-35{ margin-right: 35px; }
+		.mg-rt-40{ margin-right: 40px; }
+
+		.mg-lt-0{ margin-left: 0; }
+		.mg-lt-0-imp{ margin-left: 0 !important; }
+		.mg-lt-5{ margin-left: 5px; }
+		.mg-lt-10{ margin-left: 10px; }
+		.mg-lt-15{ margin-left: 15px; }
+		.mg-lt-20{ margin-left: 20px; }
+		.mg-lt-25{ margin-left: 25px; }
+		.mg-lt-30{ margin-left: 30px; }
+		.mg-lt-35{ margin-left: 35px; }
+		.mg-lt-40{ margin-left: 40px; }
+
+		.block{ display: block; }
+		.display-table{ display : table; }
+
+		.font-9 { font-size: 9px; }
+		.font-10 { font-size: 10px; }
+		.font-11 { font-size: 11px; }
+		.font-12 { font-size: 12px; }
+		.font-13 { font-size: 13px; }
+		.font-14 { font-size: 14px; }
+		.font-15 { font-size: 15px; }
+		.font-16 { font-size: 16px; }
+		.font-17 { font-size: 17px; }
+		.font-18 { font-size: 18px; }
+		.font-20 { font-size: 20px; }
+		.font-24 { font-size: 24px; }
+		.font-28 { font-size: 28px; }
+		.font-29 { font-size: 29px; }
+		.font-wt-6 {font-weight: 600}
+		.font-wt-5 {font-weight: 500}
+		.font-wt-4 {font-weight: 400}
+		.text-uc {text-transform: uppercase;}
+		.col-md-1,
+		.col-md-2,
+		.col-md-3,
+		.col-md-4,
+		.col-md-5,
+		.col-md-6,
+		.col-md-7,
+		.col-md-8,
+		.col-md-9,
+		.col-md-10,
+		.col-md-11,
+		.col-md-12 { float: left;}
+		td.col-md-1,
+		th.col-md-1,
+		td.col-md-2,
+		th.col-md-2,
+		td.col-md-3,
+		th.col-md-3,
+		td.col-md-4,
+		th.col-md-4,
+		td.col-md-5,
+		th.col-md-5,
+		td.col-md-6,
+		th.col-md-6,
+		td.col-md-7,
+		th.col-md-7,
+		td.col-md-8,
+		th.col-md-8,
+		td.col-md-9,
+		th.col-md-9,
+		td.col-md-10,
+		th.col-md-10,
+		td.col-md-11,
+		th.col-md-11,
+		th.col-md-12,
+		td.col-md-12 { float: none;}
+		.col-md-12 {
+			width: 1176px;
+		}
+		.col-md-11 {
+			width: 1078px;
+		}
+		.col-md-10 {
+			width: 980px;
+		}
+		.col-md-9 {
+			width: 882px;
+		}
+		.col-md-8 {
+			width: 784px;
+		}
+		.col-md-7 {
+			width: 686px;
+		}
+		.col-md-6 {
+			width: 588px;
+		}
+		.col-md-5 {
+			width: 490px;
+		}
+		.col-md-4 {
+			width: 392px;
+		}
+		.col-md-3 {
+			width: 294px;
+		}
+		.col-md-2 {
+			width: 196px;
+		}
+		.col-md-1 {
+			width: 98px;
+		}
+		h3 { font-size: 24px; margin: 7px 0; }
+		h4 { font-size: 18px; margin: 7px 0; }
+		h5 { font-size: 14px; margin: 7px 0; }
+		.process-notok h4 { margin: 0px; }
+		.number-plate-image, .number-plate-image img {
+			width: 900px;
+			text-align: center;
+		}
+		.additional-images {
+			width: 370px;
+			height: 270px;
+			float: left;
+			border: 5px solid #fff;
+		}
+		.additional-images img {
+			width: 370px;
+			height: 270px;
+		}
+		.number-plate-image {
+			margin: auto;
+		}
+		.report-view {
+			border: 1px solid #25356f;
+			width: 1176px;
+			margin-left: 25px;
+			padding: 1px;
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			text-align: justify;
+			overflow: hidden;
+		}
+		.brand-image {
+			width: 275px;
+			height: 80px;
+		}
+		.align-center {
+			text-align: center;
+		}
+		.align-left {
+			text-align: left;
+		}
+		.align-right {
+			text-align: right;
+		}
+		.right {
+			float: right;
+		}
+		.header-value {
+			font-size: 18px;
+			font-weight: 600;
+			padding-left: 35px;
+			word-break: break-word;
+		}
+		.description {
+			font-size: 18px;
+			font-weight: 600;
+			padding-left: 15px;
+			word-break: break-word;
+		}
+		.bg-yellow {
+			color: #000;
+			background-color: yellow;
+		}
+		.bg-blue {
+			color: #fff;
+			background-color: #25356f;
+		}
+		.display-center {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+		}
+		p {
+			margin: 0px;
+		}
+		.clr-gray {
+			color: gray;
+		}
+		.about-me {
+			padding: 0px 20px;
+			font-size: 14px;
+			text-align: center;
+			font-weight: 600;
+			background-color: #f3fcff;
+			color: #32b6ea !important;
+			border: 5px solid #fff;
+			text-transform: uppercase;
+		}
+		.g-blue-clr {
+			color: #25356f !important;
+		}
+		.header-info, .vechile-info {
+			border-bottom: 1px solid #25356f;
+		}
+		.vehicle-description {
+			font-weight: 600;
+			color: #25356f;
+		}
+		.vehicle-info-detail td {
+			padding: 5px 10px;
+			background-color: #f3fcff;
+			color: #32b6ea;
+			border: 5px solid #fff;
+		}
+		.vehicle-info-detail span.g-blue-clr {
+			border: none;
+		}
+		.bg-light-sky-blue {
+			background-color: #f3fcff;
+		}
+		.image-view-section td {
+			font-weight: 600;
+			font-size: 15px;
+			background-color: #f3fcff;
+			text-align: right;
+			padding: 10px 5px;
+			color: #32b6ea;
+		}
+		.image-view-section td.process-notok td {
+			color: #e60606;
+		}
+		.image-view-section td.process-notok span.deleteicon {
+			background-color: #e60606;
+			border: 1px solid #e60606;
+			color: #fff;
+		}
+		.icon-image {
+			float: left;
+			width: 135px;
+			padding: 10px 0px;
+			text-align: center;
+			color: #25356f;
+			font-weight: 600;
+			font-size: 11px;
+		}
+		.icon-image img {
+			height: 50px;
+			width: 40px;
+		}
+		.clr-red {
+			color : #e60606;
+			font-size: 18px;
+			font-weight: 600;
+		}
+		.deleteicon {
+			background-color: #e60606;
+			border: none;
+			color: white;
+			padding: 5px;
+			text-align: center;
+			display: inline-block;
+			font-size: 20px;
+			border-radius: 50%;
+			position: relative;
+		}
+		.process-ok {
+			height: 40px;
+			background-color: #09a523;
+			color: #fff;
+		}
+		.process-notok {
+			height: 40px;
+			background-color: #e60606;
+			color: #fff;
+		}
+		.process-notok .deleteicon {
+			background-color: #fff;
+			color: #e60606;
+		    border: none;
+		    padding: 5px;
+		    text-align: center;
+		    display: inline-block;
+		    font-size: 20px;
+		    border-radius: 50%;
+		    position: relative;
+		    width: 24px;
+		    top: 3px;
+		}
+		.tickicon {
+			border: 1px solid #fff;
+			border-radius: 15px;
+			padding: 4px 5px;
+			background-color: #fff;
+			color: #09a523;
+		}
+		.rating-image-section {
+			padding: 20px 0px;
+			border: 1px solid #25356f;
+			text-align: center;
+			background-color: #f2fafd;
+			font-weight: 600;
+			font-size: 14px;
+			color : #25356f;
+		}
+		.rating-image-section img {
+			width: 105px;
+		}
+		.rating-image-section .title p {
+			font-size: 13px;
+			font-weight: 600;
+			text-align: center;
+		}
+		.ownership-detail-section {
+			color: #25356f;
+			overflow: auto;
+		}
+		.ownership-detail-section table h3 {
+			font-weight: 600;
+			letter-spacing: 2px;
+			font-size: 25px;
+			margin: 5px 0px;
+		}
+		.ownership-detail-section table {
+		  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		}
+		.ownership-detail-section table th {
+			padding: 2px 5px !important;
+			background-color: #def6ff;
+			border: 1px solid #25356f;
+		}
+		.ownership-detail-section table th p {
+			font-weight: 400;
+			font-size: 14px;
+		}
+		.ownership-detail-section table td {
+		  border: 1px solid #25356f;
+		  padding: 8px;
+		}
+		.ownership-detail-section table tr:nth-child(even){background-color: #f2fafd;}
+		.parivahan-detail-header h3 {
+			margin: 0px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			font-size: 25px;
+			text-align: center;
+			padding: 5px 0;
+			color: #fff;
+		}
+		.br-blue {
+			border: 1px solid #25356f;
+		}
+		.parivahan-table-section {
+			border: 1px solid #25356f;
+			border-top: unset;
+			padding-bottom: 5px;
+			padding-left: 3px;
+			color: #32b6ea !important;
+		}
+		.parivahan-table-section tr {
+			border: 5px solid #fff;
+		}
+		.parivahan-table-section td {
+			padding: 8px 10px;
+			background-color: #f2fafd;
+			font-size: 12px;
+			font-weight: 600;
+		}
+		.car-image-section, .car-disclaimer-section {
+			border: 1px solid #25356f;
+			padding: 5px;
+		}
+		.car-image-section img {
+			width: 180px;
+			height: 200px;
+		}
+		.car-image-section span {
+			margin: 10px;
+			height: 20px;
+			width: 20px;
+			margin-bottom: -5px;
+			font-weight: 600;
+		}
+		.gray-dot {
+			height: 20px;
+			width: 20px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.yellow-dot {
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			display: inline-block;
+			background-color: yellow;
+		}
+		.orange-dot {
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			display: inline-block;
+			background-color: orange;
+		}
+		.red-dot {
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			display: inline-block;
+			background-color: red;
+		}
+		.border-none {
+			border: none;
+			padding: unset;
+		}
+		.car-remark-section {
+			margin-top: 10px;
+			padding: 0px 10px 10px 10px;
+			border: 1px solid #25356f;
+			min-height: 50px;
+			width: 1156px;
+		}
+		.car-parts-section {
+			margin-left: 10px;
+			width: 560px;
+			margin-top: 20px;
+			border: 1px solid #25356f;
+			border-radius: 20px;
+			position: relative;
+			min-height: 1px;
+			float: left;
+			padding: 0px 0px 15px 10px;
+		}
+		.car-graph-section {
+			margin-left: 10px;
+			width: 1150px;
+			margin-top: 20px;
+			border: 1px solid #25356f;
+			border-radius: 20px;
+			position: relative;
+			min-height: 1px;
+			float: left;
+			padding: 0px 0px 15px 10px;
+		}
+		.car-parts-section p {
+			padding: 3px 10px;
+			background-color: #f2fafd;
+			font-size: 14px;
+			font-weight: 600;
+			color: #25356f;
+			border: 3px solid #fff;
+		}
+		.car-parts-data p {
+			width: 250px;
+			float: left;
+		}
+		.car-parts-section .header, .car-graph-section .header {
+			position: relative;
+			margin-top: 0px;
+			bottom: 15px;
+			background-color: #fff;
+			font-size: 20px;
+			left: 25px;
+			padding: 5px 10px;
+			font-weight: 600;
+			color: #25356f;
+		}
+		.car-parts-section p span {
+			float: right;
+			color: #32b6ea;
+		}
+		.a-gear {
+			height: 100%;
+		}
+		.rating-details {
+			position: relative;
+			bottom: 105px;
+			height: 0px;
+		}
+		.height-130 {
+			height: 130px;
+		}
+		.height-100 {
+			height: 100%;
+		}
+		.g-h5 {
+			font-size: 26px;
+			line-height: 32px;
+		}
+		.p5 {
+			font-size: 10px;
+			line-height: 16px;
+		}
+		.p4 {
+			font-size: 12px;
+			line-height: 18px;
+		}
+		.a-unit {
+			position: relative;
+			top: 35px;
+			left: 2px;
+		}
+		.good, .excellent {
+			color: green;
+			font-weight: 600;
+			margin-right: 15px;
+		}
+		.average, .fair {
+			color: orange;
+			font-weight: 600;
+			margin-right: 15px;
+		}
+		.poor, .scrap {
+			color: red;
+			font-weight: 600;
+			margin-right: 15px;
+		}
+
+		.diamond {
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-bottom-color: #25356f;
+			position: relative;
+			top: -10px;
+			float: left;
+		}
+		.diamond:after {
+			content: '';
+			position: absolute;
+			left: -10px;
+			top: 10px;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-top-color: #25356f;
+		}
+		.orange-diamond {
+			border-bottom-color: orange;
+		}
+		.orange-diamond:after {
+			border-top-color: orange;
+		}
+		.highcharts-figure, .highcharts-data-table table {
+			min-width: 360px; 
+			max-width: 950px;
+			margin: 1em auto;
+		}
+
+		.highcharts-data-table table {
+			font-family: Verdana, sans-serif;
+			border-collapse: collapse;
+			border: 1px solid #EBEBEB;
+			margin: 10px auto;
+			text-align: center;
+			width: 100%;
+			max-width: 500px;
+		}
+
+		.highcharts-legend, .highcharts-a11y-proxy-button {
+			display: none;
+		}
+		.highcharts-data-table caption {
+			padding: 1em 0;
+			font-size: 1.2em;
+			color: #555;
+		}
+		.highcharts-data-table th {
+			font-weight: 600;
+			padding: 0.5em;
+		}
+		.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+			padding: 0.5em;
+		}
+		.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+			background: #f8f8f8;
+		}
+		.highcharts-data-table tr:hover {
+			background: #f1f7ff;
+		}
+		.flat-car .panel-0 {
+			fill: rgb(118, 118, 118);
+			stroke: transparent;
+			stroke-miterlimit: 10;
+			stroke-width: 0.28px;
+		}
+		.flat-car .panel-0b {
+			fill: rgb(255, 255, 255);
+		}
+		.flat-car .panel-1, .flat-car .panel-1 .panel-0 {
+			fill: rgb(244, 205, 43);
+		}
+		.flat-car .panel-1, .flat-car .panel-2, .flat-car .panel-3 {
+			cursor: pointer;
+		}
+		.flat-car .panel-1.highlight, .flat-car .panel-1.highlight .panel-0, .flat-car .panel-1:hover, .flat-car .panel-1:hover .panel-0 {
+			fill: rgb(244, 225, 146);
+		}
+		.percentage-icon {
+			width:115px;
+			float: left;
+		}
+		.parivahan-detail-header-h3 {
+			height: 40px;
+			background-color: #25356f;
+		}
+		.svg-car-damege-images {
+			width: 250px;
+			height: 365px;
+		}
+		.imagename-title {
+			padding: 7px 0px;
+			background-color: #f3fcff;
+			color: #32b6ea;
+			position: relative;
+			bottom: 37px;
+			text-align: center;
+			font-size: 18px;
+		}
+	body
+		- var not_available = "<< NULL >>"
+		.col-md-12.col-xs-12.wrapper
+			.row.mg-0
+				.col-md-12
+					.report-view.col-md-12.pad0
+						header.header-info.col-md-12.pad0
+							.logo.col-md-3
+								img.brand-image(src='http://localhost:3000/public/images/report-logo.png', alt='AdminLTE Logo')
+							.customer-section.col-md-9.pad0
+								.header-detail-section.pad0
+									table.col-md-9(cellspacing="0", cellpadding="0", style="border: none")
+										tbody
+											tr
+												td.bg-yellow.pd7.align-right  ENGINES
+												td.bg-yellow  &emsp;: &emsp;
+												td.bg-yellow.align-left  #{data.engine_number ? data.engine_number : not_available}
+												td.bg-blue.align-right CHASSIS
+												td.bg-blue &emsp;: &emsp;
+												td.bg-blue.align-left #{data.chassis_number ? data.chassis_number : not_available}
+								.header-detail.align-right
+									table.col-md-9
+										tbody
+											tr
+												td  REPORT ID
+												td  &emsp;: &emsp;
+												td.description #{data.report_id ? data.report_id : not_available}
+												td  INSP. DATE 
+												td  &emsp;: &emsp;
+												td.description #{data.created_at ? data.created_at : not_available}
+											tr
+												td  LOAN NO
+												td  &emsp;: &emsp;
+												td.description #{data.loan_agreement_number ? data.loan_agreement_number : not_available}
+												td  LOCATION
+												td  &emsp;: &emsp;
+												td.description  #{data.inspection_location ? data.inspection_location : not_available}
+						section.vechile-info.col-md-12.pad0
+							table.col-md-12(cellspacing="0", cellpadding="0", style="border: none")
+								tbody
+									tr
+										td.about-me.pd-5 #{data.customer_detail && data.customer_detail.name ? data.customer_detail.name : not_available}
+										td.about-me.pd-5 Insurance surveyor
+										td.about-me.pd-5 
+											span.g-blue-clr License No :
+											span &emsp; IRDA / IND / SLA - 123456
+							.col-md-12.vehicle-description.align-center
+								h4.font-wt-6.mg-tp-10 Your Otograde Electronic Inspection Report
+						section.vehicle-description.col-md-12.pad0
+							.col-md-12.bg-light-sky-blue.align-center
+								h3.mg-tp-10.font-wt-6.text-uc #{data.mfg_date ? data.mfg_date : not_available}&emsp;&emsp;#{data.model_name ? data.model_name : not_available}&emsp;&emsp;#{data.vehicle_variant_type ? data.vehicle_variant_type : not_available}&emsp;&emsp;TN02 AR 6903
+							.col-md-12.vehicle-info-detail.pad0
+								table.col-md-12
+									tbody
+										tr
+											td.pd-5.align-center
+												span &emsp; #{data.odometer_reading ? data.odometer_reading : not_available} :
+												span.g-blue-clr KM
+											td.pd-5.align-center Manual
+											td.pd-5.align-center
+												span &emsp; RC : 
+												span.g-blue-clr  #{data.rc_book_status ? data.rc_book_status : "Yes"}
+											td.pd-5.align-center #{data.steering ? data.steering : not_available}
+											td.pd-5.align-center #{data.body_type ? data.body_type : not_available}
+											td.pd-5.align-center
+												span.g-blue-clr  Ins.Dt : 
+												span &emsp; #{data.insurance_to ? data.insurance_to : not_available}
+											td.pd-5.align-center
+												span.g-blue-clr  Reg.Dt : 
+												span &emsp; #{data.reg_date ? data.reg_date : not_available}
+											td.pd-5.g-blue-clr.align-right #{data.report_type ? data.report_type : not_available}
+							.col-md-12.vehicle-info-detail.pad0
+								table.col-md-12
+									tbody
+										tr
+											td.pd-5.align-center
+												span.g-blue-clr Application Name&emsp; : &emsp;
+												span &emsp; AKKKKKKKKK KUMAR
+											td.pd-5.align-center
+												span.g-blue-clr Lender&emsp; : &emsp;
+												span Mahindra Finance
+											td.pd-5.g-blue-clr.align-right Private
+						section.report-image-section.col-md-12.pad0
+							.image-view-section.col-md-5.pd-lt-0
+								img(src='http://localhost:3000/public/images/sample-image.png', height="350px", width= '485px', alt='AdminLTE Logo')
+							.image-view-section.col-md-7
+								.col-md-7.pad0
+									.icon-image
+										img(src='http://localhost:3000/public/images/car-icon.png')
+										p Running Condition
+									.icon-image
+										img(src='http://localhost:3000/public/images/car-engine.jfif')
+										p Engine Start
+									.icon-image
+										img(src='http://localhost:3000/public/images/car-demage.png')
+										p Major Acc.in Front
+									.icon-image
+										img(src='http://localhost:3000/public/images/car-icon.png')
+										p No Damages
+									.icon-image
+										img(src='http://localhost:3000/public/images/owner.png', alt='AdminLTE Logo')
+										p Single Owner
+									.icon-image
+										img(src='http://localhost:3000/public/images/key.jfif', alt='AdminLTE Logo')
+										p Available
+									.icon-image
+										img(src='http://localhost:3000/public/images/tyres.jpg', alt='AdminLTE Logo')
+										p Average
+									.icon-image
+										img(src='http://localhost:3000/public/images/diesel.png', alt='AdminLTE Logo')
+										p Diesel
+									.icon-image
+										img(src='http://localhost:3000/public/images/battery.png', alt='AdminLTE Logo')
+										p Diesel
+									.icon-image
+										img(src='http://localhost:3000/public/images/car-paint.jfif', alt='AdminLTE Logo')
+										p Color : Silver
+								table.col-md-7(cellspacing="0", cellpadding="0", style="border: none")
+									tbody
+										tr
+											td.pd-5.g-blue-clr Overall Conditions &emsp; : &emsp;
+											td.pd-5 10,00,000/-
+										tr
+											td.pd-5.g-blue-clr Valuation Price &emsp; : &emsp;
+											td.pd-5 10,00,000/-
+										tr
+											td.pd-5.g-blue-clr Ex Show Room Price &emsp; : &emsp;
+											td.pd-5 5,00,000/- 
+												span.g-blue-clr @ 
+												| 20/12/2019
+										tr
+											td.pd-5.g-blue-clr Police Reocrd &emsp; : &emsp;
+											td.pd-5.process-notok
+												span.clr-red Not Found&emsp;
+												span.deleteicon
+													i.fas.fa-times
+						section.col-md-12
+							.col-md-12.rating-image-section.pad0.mg-tp-10
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-1.0.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-1.0.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 1.0
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Interior
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-1.5.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-1.5.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 1.5
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Exterior
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-2.0.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-2.0.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 2.0
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 AC/Cooling
-							.col-md-3.pad0
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-2.5.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-2.5.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 2.5
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Document
-						.col-md-6.pd5
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-3.0.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-3.0.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 3.0
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Vehicle Condition
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-3.5.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-3.5.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 3.5
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Test Drive
-							.col-md-3.pad0.pd-rt-5
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-4.0.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-4.0.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 4.0
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Tyre
-							.col-md-3.pad0
-								.col-md-12.pad0
+								.percentage-icon
 									.a-gear
-										img(src='/images/gear-5.0.png', alt='Image')
+										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
 									.rating-details
 										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
 										p.a-unit.p5.font-wt-4 Max
 										p.a-unit.p5.font-wt-5 5.0
 									.title
 										p.p4.font-wt-4 Electric Functions
-						.col-md-12.align-left.pd-tp-10
-							p
-								span.excellent Excellent : 5
-								span.good Good : 4  
-								span.average Average :3
-								span.fair Fair : 2 
-								span.poor Very Poor : 1 
-								span.scrap Scrap : S
-				section.col-md-12.mg-tp-10
-					.col-md-12.ownership-detail-section.pad0
-						table.col-md-12
-							thead
-								tr
-									th.col-md-6
-										h4.font-wt-6 OTOgrade Ownership History
-										p The number of owners is estimated
-									th.col-md-2
-										h4.font-wt-6 Owner 1
-									th.col-md-2
-										h4.font-wt-6 Owner 2
-									th.col-md-2 
-										h4.font-wt-6 Owner 3
-							tbody
-								tr
-									td  Year Purchased
-									td  2011
-									td  No Data
-									td  No Data
-								tr
-									td  Type of Owner
-									td  Private
-									td  No Data
-									td  No Data
-								tr
-									td  Estimated years of Ownership
-									td   08 Years
-									td  No Data
-									td  No Data
-								tr
-									td  Hypotheciation Bank Name
-									td  Private
-									td  No Data
-									td  No Data
-				section.col-md-12.mg-tp-10
-					.col-md-12.parivahan-detail-section.pad0
-						.col-md-12.parivahan-detail-header.pad0
-							.col-md-9.parivahan-detail-section.pad0
-								h3 PARIVAHAN details
-							.col-md-3.process-ok.align-right
-								h4
-									span Data Found&emsp;
-									span.tickicon
-										i.fas.fa-check
-							.col-md-12.align-center.pad0.br-blue
-								h5 National Register e Services / Vehicle Details Showing in Registering Authority
-							.col-md-12.parivahan-table-section.pad0
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Owner Name
-												td.g-blue-clr :
-												td SUGUNA SEELA RAO K
-											tr
-												td.g-blue-clr Purchase Deivery Date
-												td.g-blue-clr :
-												td 6/21/2011
-											tr
-												td.g-blue-clr Maker
-												td.g-blue-clr :
-												td MARUTI
-											tr
-												td.g-blue-clr Maker Model
-												td.g-blue-clr :
-												td ALTO LXI
-											tr
-												td.g-blue-clr Laden Weight (kG)
-												td.g-blue-clr :
-												td 0
-											tr
-												td.g-blue-clr Sleeper Capacity
-												td.g-blue-clr :
-												td - 
-											tr
-												td.g-blue-clr Registrations Date
-												td.g-blue-clr :
-												td 6/21/2011
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Engine NO
-												td.g-blue-clr :
-												td SUGUNA SEELA RAO K
-											tr
-												td.g-blue-clr Body Type
-												td.g-blue-clr :
-												td -
-											tr
-												td.g-blue-clr Unladen Weight
-												td.g-blue-clr :
-												td 0
-											tr
-												td.g-blue-clr Mfg Year
-												td.g-blue-clr :
-												td 6/20/2016
-											tr
-												td.g-blue-clr Chassis NO
-												td.g-blue-clr :
-												td 12
-											tr
-												td.g-blue-clr Vehicle  Category
-												td.g-blue-clr :
-												td CAR 
-											tr
-												td.g-blue-clr Fitness Valid upto
-												td.g-blue-clr :
-												td 6/20/2028
-				section.col-md-12.mg-tp-10
-					.col-md-12.parivahan-detail-section.pad0
-						.col-md-12.parivahan-detail-header.pad0
-							.col-md-9.parivahan-detail-section.pad0
-								h3 Insurance Details
-									span.font-12 by parivahan
-							.col-md-3.process-notok.align-right
-								h4
-									span Not Found&emsp;
-									span.deleteicon
-										i.fas.fa-times
-							.col-md-12.parivahan-table-section.pad0
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Insurance Type
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Insurance From
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Policy NO
-												td.g-blue-clr :
-												td  Data Not Found
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Insurance Company Name
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Insurance UPTO
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Insurance Declared Value
-												td.g-blue-clr :
-												td  Data Not Found
-				section.col-md-12.mg-tp-10
-					.col-md-12.parivahan-detail-section.pad0
-						.col-md-12.parivahan-detail-header.pad0
-							.col-md-9.parivahan-detail-section.pad0
-								h3 Tax & FC Details
-									span.font-12 by parivahan
-							.col-md-3.process-notok.align-right
-								h4
-									span Not Found&emsp;
-									span.deleteicon
-										i.fas.fa-times
-							.col-md-12.parivahan-table-section.pad0
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Tax Paid Dt
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Amount
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Tax Clear Upto
-												td.g-blue-clr :
-												td  Data Not Found
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Receipt Date
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr FC Issue dt.
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr FC Valid up To
-												td.g-blue-clr :
-												td  Data Not Found
-				section.col-md-12.mg-tp-10
-					.col-md-12.parivahan-detail-section.pad0
-						.col-md-12.parivahan-detail-header.pad0
-							.col-md-9.parivahan-detail-section.pad0
-								h3 Permit Details
-									span.font-12 by parivahan			
-							.col-md-3.process-notok.align-right
-								h4
-									span Not Found&emsp;
-									span.deleteicon
-										i.fas.fa-times
-							.col-md-12.parivahan-table-section.pad0
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Permit Type
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Permit Category
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Service Type
-												td.g-blue-clr :
-												td  Data Not Found
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Route Length
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr No of Trips
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Permit Domain
-												td.g-blue-clr :
-												td  Data Not Found
-				section.col-md-12.mg-tp-10
-					.col-md-12.parivahan-detail-section.pad0
-						.col-md-12.parivahan-detail-header.pad0
-							.col-md-9.parivahan-detail-section.pad0
-								h3 Claims Details - Insurance History			
-							.col-md-3.process-notok.align-right
-								h4
-									span Not Found&emsp;
-									span.deleteicon
-										i.fas.fa-times
-							.col-md-12.parivahan-table-section.pad0
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Insurer name
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Registration No
-												td  :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Accident Loss Dt
-												td.g-blue-clr :
-												td  Data Not Found
-								.col-md-6.pad0
-									table.col-md-12
-										tbody
-											tr
-												td.g-blue-clr Total Claim Amt
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Claim Intimation Dt
-												td.g-blue-clr :
-												td  Data Not Found
-											tr
-												td.g-blue-clr Expense Paid
-												td.g-blue-clr :
-												td  Data Not Found
-				section.col-md-12.mg-tp-10
-					.col-md-12.car-image-section.pad0
-						.col-md-4
-							include ../svg/car_parts
-						.col-md-4
-							img(src='/images/car-second-image.png')
-						.col-md-4
-							img(src='/images/car-third-image.png')
-						.col-md-12.pad0
-							p
-								span None
-								span.gray-dot
-								span.yellow-dot
-								span.orange-dot
-								span.red-dot
-								span Severe
-				section.col-md-12.pad0
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Exterior Conditions
+								.percentage-icon
+									.a-gear
+										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
+									.rating-details
+										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
+										p.a-unit.p5.font-wt-4 Max
+										p.a-unit.p5.font-wt-5 5.0
+									.title
+										p.p4.font-wt-4 Electric Functions
+								.percentage-icon
+									.a-gear
+										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
+									.rating-details
+										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
+										p.a-unit.p5.font-wt-4 Max
+										p.a-unit.p5.font-wt-5 5.0
+									.title
+										p.p4.font-wt-4 Electric Functions
+								.col-md-12.align-left.pd-tp-10
+									p.pd-lt-30
+										span.excellent Excellent : 5
+										span.good Good : 4  
+										span.average Average :3
+										span.fair Fair : 2 
+										span.poor Very Poor : 1 
+										span.scrap Scrap : S
+						section.col-md-12.mg-tp-10
+							.col-md-12.ownership-detail-section.pad0
+								table.col-md-12
+									thead
+										tr
+											th.col-md-6
+												h4.font-wt-6 OTOgrade Ownership History
+												p The number of owners is estimated
+											th.col-md-2
+												h4.font-wt-6 Owner 1
+											th.col-md-2
+												h4.font-wt-6 Owner 2
+											th.col-md-2 
+												h4.font-wt-6 Owner 3
+									tbody
+										tr
+											td  Year Purchased
+											td  2011
+											td  No Data
+											td  No Data
+										tr
+											td  Type of Owner
+											td  Private
+											td  No Data
+											td  No Data
+										tr
+											td  Estimated years of Ownership
+											td   08 Years
+											td  No Data
+											td  No Data
+										tr
+											td  Hypotheciation Bank Name
+											td  Private
+											td  No Data
+											td  No Data
+						section.col-md-12.mg-tp-10
+							.col-md-12.parivahan-detail-section.pad0
+								.col-md-12.parivahan-detail-header.pad0
+									.col-md-9.parivahan-detail-header-h3.pad0
+										h3 PARIVAHAN details
+									.col-md-3.process-ok.align-right
+										h4
+											span Data Found&emsp;
+											span.tickicon
+												i.fas.fa-check
+									.col-md-12.align-center.pad0.br-blue
+										h5 National Register e Services / Vehicle Details Showing in Registering Authority
+									.col-md-12.parivahan-table-section.pad0
+										.col-md-6.pad0
+											table.col-md-6
+												tbody
+													tr
+														td.g-blue-clr Owner Name
+														td.g-blue-clr :
+														td SUGUNA SEELA RAO K
+													tr
+														td.g-blue-clr Purchase Deivery Date
+														td.g-blue-clr :
+														td 6/21/2011
+													tr
+														td.g-blue-clr Maker
+														td.g-blue-clr :
+														td MARUTI
+													tr
+														td.g-blue-clr Maker Model
+														td.g-blue-clr :
+														td ALTO LXI
+													tr
+														td.g-blue-clr Laden Weight (kG)
+														td.g-blue-clr :
+														td 0
+													tr
+														td.g-blue-clr Sleeper Capacity
+														td.g-blue-clr :
+														td - 
+													tr
+														td.g-blue-clr Registrations Date
+														td.g-blue-clr :
+														td 6/21/2011
+										.col-md-6.pad0
+											table.col-md-6
+												tbody
+													tr
+														td.g-blue-clr Engine NO
+														td.g-blue-clr :
+														td SUGUNA SEELA RAO K
+													tr
+														td.g-blue-clr Body Type
+														td.g-blue-clr :
+														td -
+													tr
+														td.g-blue-clr Unladen Weight
+														td.g-blue-clr :
+														td 0
+													tr
+														td.g-blue-clr Mfg Year
+														td.g-blue-clr :
+														td 6/20/2016
+													tr
+														td.g-blue-clr Chassis NO
+														td.g-blue-clr :
+														td 12
+													tr
+														td.g-blue-clr Vehicle  Category
+														td.g-blue-clr :
+														td CAR 
+													tr
+														td.g-blue-clr Fitness Valid upto
+														td.g-blue-clr :
+														td 6/20/2028
+						section.col-md-12.mg-tp-10
+							.col-md-12.parivahan-detail-header.pad0
+								.col-md-9.parivahan-detail-header-h3.pad0
+									h3 Insurance Details
+										span.font-12 by parivahan
+								.col-md-3.process-notok.align-center
+									h4
+										span Not Found&emsp;
+										span.deleteicon
+											i.fas.fa-times
+								.col-md-12.parivahan-table-section.pad0
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Insurance Type
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Insurance From
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Policy NO
+													td.g-blue-clr :
+													td  Data Not Found
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Insurance Company Name
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Insurance UPTO
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Insurance Declared Value
+													td.g-blue-clr :
+													td  Data Not Found
+						section.col-md-12.mg-tp-10
+							.col-md-12.parivahan-detail-header.pad0
+								.col-md-9.parivahan-detail-header-h3.pad0
+									h3 Tax & FC Details
+										span.font-12 by parivahan
+								.col-md-3.process-notok.align-center
+									h4
+										span Not Found&emsp;
+										span.deleteicon
+											i.fas.fa-times
+								.col-md-12.parivahan-table-section.pad0
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Tax Paid Dt
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Amount
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Tax Clear Upto
+													td.g-blue-clr :
+													td  Data Not Found
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Receipt Date
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr FC Issue dt.
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr FC Valid up To
+													td.g-blue-clr :
+													td  Data Not Found
+						section.col-md-12.mg-tp-10
+							.col-md-12.parivahan-detail-header.pad0
+								.col-md-9.parivahan-detail-header-h3.pad0
+									h3 Permit Details
+										span.font-12 by parivahan			
+								.col-md-3.process-notok.align-center
+									h4
+										span Not Found&emsp;
+										span.deleteicon
+											i.fas.fa-times
+								.col-md-12.parivahan-table-section.pad0
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Permit Type
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Permit Category
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Service Type
+													td.g-blue-clr :
+													td  Data Not Found
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Route Length
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr No of Trips
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Permit Domain
+													td.g-blue-clr :
+													td  Data Not Found
+						section.col-md-12.mg-tp-10
+							.col-md-12.parivahan-detail-header.pad0
+								.col-md-9.parivahan-detail-header-h3.pad0
+									h3 Claims Details - Insurance History			
+								.col-md-3.process-notok.align-center
+									h4
+										span Not Found&emsp;
+										span.deleteicon
+											i.fas.fa-times
+								.col-md-12.parivahan-table-section.pad0
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Insurer name
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Registration No
+													td  :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Accident Loss Dt
+													td.g-blue-clr :
+													td  Data Not Found
+									.col-md-6.pad0
+										table.col-md-6
+											tbody
+												tr
+													td.g-blue-clr Total Claim Amt
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Claim Intimation Dt
+													td.g-blue-clr :
+													td  Data Not Found
+												tr
+													td.g-blue-clr Expense Paid
+													td.g-blue-clr :
+													td  Data Not Found
+						section.col-md-12.mg-tp-10
+							.col-md-12.car-image-section.pad0
+								.col-md-4
+									.svg-car-damege-images
+										include ../svg/car_parts
+								.col-md-4
+									.svg-car-damege-images
+										include ../svg/interior
+								.col-md-4
+									.svg-car-damege-images
+										include ../svg/structure
+								.col-md-12.pad0
+									p
+										span None
+										span.gray-dot
+										span.yellow-dot
+										span.orange-dot
+										span.red-dot
+										span Severe
+						section.col-md-12.pad0
+							.car-parts-section
+								span.header Exterior Conditions
+								.car-parts-data
+									p Grill &emsp;
+										span Operational
+									p Head Light
+										span Excellent
+									p Hood
+										span Excellent
+									p Front Bumber
+										span Excellent
+									p Left Fender
+										span Excellent
+									p Right Fender
+										span Excellent
+									p Right Quarter
+										span Excellent
+									p Left Quarter
+										span Excellent
+									p Front Windshield
+										span Excellent
+									p Right Front Door
+										span Excellent
+									p Left Front Door
+										span Excellent
+									p Right Rear Door
+										span Excellent
+									p Left Rear Door
+										span Excellent
+									p Roof
+										span Excellent
+									p Rear Windshield
+										span Excellent
+									p Rear Tail Light
+										span Excellent
+									p Rear Bumber
+										span Excellent
+									p Body Paints
+										span Excellent
+									p Deck LID
+										span Excellent
+							.car-parts-section
+								span.header Interior Conditions
+								.car-parts-data-full-width
+									p Dash Board Conditions &emsp;
+										span No Warning Lights ON
+									p Dash Board Warning Lights & Gauges
+										span No Warning Lights ON
+									p Front Left Seat
+										span Satisfactory
+									p Front Right Seat
+										span Satisfactory
+									p Rear Seat
+										span Average
+									p 3Rd Row Seat Cond'S
+										span Average
+									p Trunk Cargo
+										span Average
+									p Air Bag
+										span Average
+									p Carpets & Floor Mats
+										span Average
+									p Power Windows
+										span Average
+							.col-md-12
+								.car-parts-section
+									span.header Tyre Conditions
+									.car-parts-data-full-width
+										p No Of Tyres
+											span 4
+										p Front Right Wheel
+											span Rim
+										p Front Left Wheel
+											span Rim
+										p Back Right Wheel
+											span Rim
+										p Back Left Wheel
+											span Rim
+										p Spare Wheel
+											span Rim
+										p Front Right Tyres
+											span Need Attentions
+										p Front Left Tyres
+											span Need Attentions
+										p Back Right Tyres
+											span Need Attentions
+										p Back Left Tyres
+											span Need Attentions
+										p Spare Tyres
+											span Need Attentions
+										p Front Right Tyres
+											span 30
+										p Front Left Tyres
+											span 30
+										p Back Right Tyres
+											span 30
+										p Back Left Tyres
+											span 30
+								.car-parts-section
+									span.header Mechanical Functions
+									.car-parts-data-full-width
+										p Engine Conditions
+											span Good
+										p Engine Running
+											span Yes
+										p Engine Oil Level
+											span Acceptable
+										p Engine Oil Functions
+											span Acceptable
+										.col-md-12 &emsp;
+										.col-md-12 &emsp;
+										p Transmission  / Gear Box Conditions
+											span Good
+										p Transmission Working
+											span Acceptable
+										p Gear Shift
+											span Acceptable
+								.car-parts-section(style="margin-top: 30px;!important")
+									span.header Suspension
+									.car-parts-data-full-width
+										p Front Suspension
+											span Average Conditions consistent with the age and Kms 
+										p Rear Suspension
+											span Average Conditions consistent with the age and Kms
+							.col-md-12
+								.car-parts-section
+									span.header Documents
+									.car-parts-data
+										p Reg. Month / Year
+											span 22/12/2019
+										p RC Book
+											span Yes
+										p Insurance
+											span Yes
+										p Insurance Dt.
+											span 22/12/2019
+										p HPA Status
+											span Available
+										p HPA Bank
+											span Hindustan Mahendra kotak bank of india
+								.car-parts-section
+									span.header Stearing Functions
+									.car-parts-data-full-width
+										p Streering Play
+											span No Play
+										p Power Streering
+											span Working
+										p Steering
+											span Power
+										p Streaing Conditions
+											span Very Poor
+							.col-md-12
+								.car-parts-section
+									span.header Electrical Functions
+									.car-parts-data-full-width
+										p Electrical Conditions
+											span Good
+										p Battery Conditions
+											span Good
+										p A/C Cooling
+											span Good
+										p Power Windows
+											span Good
+								.car-parts-section
+									span.header Paint Depth
+									.car-parts-data
+										p Left Fender
+											span Good
+										p Right Fender
+											span Good
+										p Left Quarter
+											span Good
+										p Right Quarter
+											span Good
+										p Roof
+											span Good
+										p Right Front Door
+											span Good
+										p Left Front Door
+											span Good
+										p Right Rear Door
+											span Good
+										p Left Rear Door
+											span Good
+						section.col-md-12
+							.pad0.car-graph-section
+								span.header Market Comparison Price Tool
+								.col-md-12.pad0
+									.title(style= "width: 970px; float: left;  position: relative;margin-left:100px;")
+										.col-md-7.pad0
+											p How this HYUNDAI XCENT CRDI 2017 compares to the market at the date of this report.
+										.col-md-2.pad0.right.bg-light-sky-blue
+											.col-md-2.pad0
+												p.diamond.orange-diamond
+												span.mg-lt-20 This Vehicle 2017
+											.col-md-2.pad0.mg-tp-15
+												p.diamond.blue-diamond 
+												span.bg-blue.pd5.pd-lt-20.pd-rt-20.mg-lt-20 2017
+									.chartimage.pad0(style= "width: 1140px; float: left;  position: relative;")
+										figure.highcharts-figure
+											#container
+						section.col-md-12
+							.col-md-12.pad0.car-remark-section
+								.col-md-1.pad0 
+									p.pd-tp-10.font-wt-6 Remarks : 
+								.col-md-10.pad0 
+									p.g-blue-clr.pd-tp-10 The inspection is VISIBLE and non-TECHNICAL report only and OTOGRADE VIR DATA TECHNOLOGIES PVT LTD Inspect will not be responsible for any defects that are latent discovered which were not possibly visible during the inspection. The inspection will asses the vehicle’s exterior, interior, engine compartment, tyres and wheels, brakes and under body where possible. The inspection will precisely not pinpoint all defects within the vehicle. You must take in account of age and condition of the vehicle at the time of inspection and any Report should be reviewed in this context. This inspection report of OTOGRADE VIR DATA TECHNOLOGIES PVT LTD generated on (current date) is not responsible for representation regarding the nature, reliability, accuracy of price or completeness of any information contained in the Report or the fitness of the information contained in the Report for any purpose intended by you that are not identified or identifiable with an inspection of this kind.
+									p.g-blue-clr.pd-tp-10 *  The odometer reading might vary in real , the mentioned reading was observed during inspection.
+									p.g-blue-clr.pd-tp-10 A vehicle is rated to be accidental if it has under gone a crash of any type and have impact on Chassis , structural panels with body dimensions changed and thus effecting the safety & functioning of a vehicle.
+						section.col-md-12
+							.col-md-12.pad0.car-remark-section
+								h4.pd-tp-10.font-wt-6 Additional Photos
+								each clientValue, clientKey in data.reportimages
+									.additional-images
+										img(src='#{process.env.API_DOMAIN}/#{clientValue.file_path}')
+										p.imagename-title #{clientValue.label}
+							.col-md-12.pad0.align-left(style="clear:both")
+								.col-md-2.pad0.right.mg-rt-30
+									h4.pd-tp-10.font-wt-6 Approved By
+									img(src='http://localhost:3000/public/images/verified_icon.png', width="50%" alt='AdminLTE Logo')
+									p.font-wt-6.font-16 C.Anand Kumar
+									p Head Digital Inspection
+						section.col-md-12.mg-tp-15.mg-bt-30
 							.col-md-12.pad0
-								p.col-md-6 Grill &emsp;
-									span Operational
-								p.col-md-6 Head Light
-									span Excellent
-								p.col-md-6 Hood
-									span Excellent
-								p.col-md-6 Front Bumber
-									span Excellent
-								p.col-md-6 Left Fender
-									span Excellent
-								p.col-md-6 Right Fender
-									span Excellent
-								p.col-md-6 Right Quarter
-									span Excellent
-								p.col-md-6 Left Quarter
-									span Excellent
-								p.col-md-6 Front Windshield
-									span Excellent
-								p.col-md-6 Right Front Door
-									span Excellent
-								p.col-md-6 Left Front Door
-									span Excellent
-								p.col-md-6 Right Rear Door
-									span Excellent
-								p.col-md-6 Left Rear Door
-									span Excellent
-								p.col-md-6 Roof
-									span Excellent
-								p.col-md-6 Rear Windshield
-									span Excellent
-								p.col-md-6 Rear Tail Light
-									span Excellent
-								p.col-md-6 Rear Bumber
-									span Excellent
-								p.col-md-6 Body Paints
-									span Excellent
-								p.col-md-6 Deck LID
-									span Excellent
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Interior Conditions
-							.col-md-12.pad0
-								p.col-md-12 Dash Board Conditions &emsp;
-									span No Warning Lights ON
-								p.col-md-12 Dash Board Warning Lights & Gauges
-									span No Warning Lights ON
-								p.col-md-12 Front Left Seat
-									span Satisfactory
-								p.col-md-12 Front Right Seat
-									span Satisfactory
-								p.col-md-12 Rear Seat
-									span Average
-								p.col-md-12 3Rd Row Seat Cond'S
-									span Average
-								p.col-md-12 Trunk Cargo
-									span Average
-								p.col-md-12 Air Bag
-									span Average
-								p.col-md-12 Carpets & Floor Mats
-									span Average
-								p.col-md-12 Power Windows
-									span Average
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Tyre Conditions
-							.col-md-12.pad0
-								p.col-md-12 No Of Tyres
-									span 4
-								p.col-md-12 Front Right Wheel
-									span Rim
-								p.col-md-12 Front Left Wheel
-									span Rim
-								p.col-md-12 Back Right Wheel
-									span Rim
-								p.col-md-12 Back Left Wheel
-									span Rim
-								p.col-md-12 Spare Wheel
-									span Rim
-								p.col-md-12 Front Right Tyres
-									span Need Attentions
-								p.col-md-12 Front Left Tyres
-									span Need Attentions
-								p.col-md-12 Back Right Tyres
-									span Need Attentions
-								p.col-md-12 Back Left Tyres
-									span Need Attentions
-								p.col-md-12 Spare Tyres
-									span Need Attentions
-								p.col-md-12 Front Right Tyres
-									span 30
-								p.col-md-12 Front Left Tyres
-									span 30
-								p.col-md-12 Back Right Tyres
-									span 30
-								p.col-md-12 Back Left Tyres
-									span 30
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Mechanical Functions
-							.col-md-12.pad0
-								p.col-md-12 Engine Conditions
-									span Good
-								p.col-md-12 Engine Running
-									span Yes
-								p.col-md-12 Engine Oil Level
-									span Acceptable
-								p.col-md-12 Engine Oil Functions
-									span Acceptable
-								.col-md-12 &emsp;
-								.col-md-12 &emsp;
-								p.col-md-12 Transmission  / Gear Box Conditions
-									span Good
-								p.col-md-12 Transmission Working
-									span Acceptable
-								p.col-md-12 Gear Shift
-									span Acceptable
-						.col-md-12.pad0.car-parts-section
-							span.header Suspension
-							.col-md-12.pad0
-								p.col-md-12 Front Suspension
-									span Average Conditions consistent with the age and Kms 
-								p.col-md-12 Rear Suspension
-									span Average Conditions consistent with the age and Kms
-					.col-md-12
-						.col-md-12.pad0.car-parts-section
-							span.header Documents
-							.col-md-12.pad0
-								.col-md-6.pad0
-									p.col-md-12 Reg. Month / Year
-										span 22/12/2019
-									p.col-md-12 RC Book
-										span Yes
-									p.col-md-12 Insurance
-										span Yes
-								.col-md-6.pad0
-									p.col-md-12 Insurance Dt.
-										span 22/12/2019
-									p.col-md-12 HPA Status
-										span Available
-									p.col-md-12 HPA Bank
-										span Hindustan Mahendra kotak bank of india
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Stearing Functions
-							.col-md-12.pad0
-								p.col-md-12 Streering Play
-									span No Play
-								p.col-md-12 Power Streering
-									span Working
-								p.col-md-12 Steering
-									span Power
-								p.col-md-12 Streaing Conditions
-									span Very Poor
-					.col-md-6
-						.col-md-12.pad0.car-parts-section
-							span.header Electrical Functions
-							.col-md-12.pad0
-								p.col-md-12 Electrical Conditions
-									span Good
-								p.col-md-12 Battery Conditions
-									span Good
-								p.col-md-12 A/C Cooling
-									span Good
-								p.col-md-12 Power Windows
-									span Good
-					.col-md-12
-						.col-md-12.pad0.car-parts-section
-							span.header Paint Depth
-							.col-md-12.pad0
-								.col-md-6.pad0
-									p.col-md-12 Left Fender
-										span Good
-									p.col-md-12 Right Fender
-										span Good
-									p.col-md-12 Left Quarter
-										span Good
-									p.col-md-12 Right Quarter
-										span Good
-									p.col-md-12 Roof
-										span Good
-								.col-md-6.pad0
-									p.col-md-12 Right Front Door
-										span Good
-									p.col-md-12 Left Front Door
-										span Good
-									p.col-md-12 Right Rear Door
-										span Good
-									p.col-md-12 Left Rear Door
-										span Good
-				section.col-md-12
-					.col-md-12.pad0.car-graph-section
-						span.header Market Comparison Price Tool
-						.col-md-12.pad0
-							.col-md-12.pad0.title
-								.col-md-7.pad0
-									p How this HYUNDAI XCENT CRDI 2017 compares to the market at the date of this report.
-								.col-md-2.pad0.right.bg-light-sky-blue
-									.col-md-12.pad0
-										p.diamond.orange-diamond
-										span.mg-lt-20 This Vehicle 2017
-									.col-md-12.pad0.mg-tp-15
-										p.diamond.blue-diamond 
-										span.bg-blue.pd5.pd-lt-20.pd-rt-20.mg-lt-20 2017
-							.col-md-12.pad0
-								figure.highcharts-figure
-									#container
-				section.col-md-12
-					.col-md-12.pad0.car-remark-section
-						.col-md-1.pad0 
-							p.pd-tp-10.font-wt-6 Remarks : 
-						.col-md-11.pad0 
-							p.g-blue-clr.pd-tp-10 The inspection is VISIBLE and non-TECHNICAL report only and OTOGRADE VIR DATA TECHNOLOGIES PVT LTD Inspect will not be responsible for any defects that are latent discovered which were not possibly visible during the inspection. The inspection will asses the vehicle’s exterior, interior, engine compartment, tyres and wheels, brakes and under body where possible. The inspection will precisely not pinpoint all defects within the vehicle. You must take in account of age and condition of the vehicle at the time of inspection and any Report should be reviewed in this context. This inspection report of OTOGRADE VIR DATA TECHNOLOGIES PVT LTD generated on (current date) is not responsible for representation regarding the nature, reliability, accuracy of price or completeness of any information contained in the Report or the fitness of the information contained in the Report for any purpose intended by you that are not identified or identifiable with an inspection of this kind.
-							p.g-blue-clr.pd-tp-10 *  The odometer reading might vary in real , the mentioned reading was observed during inspection.
-							p.g-blue-clr.pd-tp-10 A vehicle is rated to be accidental if it has under gone a crash of any type and have impact on Chassis , structural panels with body dimensions changed and thus effecting the safety & functioning of a vehicle.
-				section.col-md-12
-					.col-md-12.pad0.car-remark-section
-						h4.pd-tp-10.font-wt-6 Additional Photos
-						.col-md-12.pad0
-							.col-md-12.pad0.align-center
-								img(src='/images/number-plate.png', width="70%" alt='AdminLTE Logo')
-						.col-md-12.pad0
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image1.png', width="100%" alt='AdminLTE Logo')
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image2.png', width="100%" alt='AdminLTE Logo')
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image3.png', width="100%" alt='AdminLTE Logo')
-						.col-md-12.pad0
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image1.png', width="100%" alt='AdminLTE Logo')
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image2.png', width="100%" alt='AdminLTE Logo')
-							.col-md-4.pad0.additional-images
-								img(src='/images/additional-image3.png', width="100%" alt='AdminLTE Logo')
-						.col-md-12.pad0.align-left
-							.col-md-2.pad0.right.mg-rt-30
-								h4.pd-tp-10.font-wt-6 Approved By
-								img(src='/images/verified_icon.png', width="50%" alt='AdminLTE Logo')
-								p.font-wt-6.font-16 C.Anand Kumar
-								p Head Digital Inspection
-				section.col-md-12.mg-tp-15.mg-bt-30
-					.col-md-12.pad0
-						.col-md-1.pad0 
-							p.pd-tp-10.font-wt-6 Disclaimer : 
-						.col-md-11.pad0 
-							p.g-blue-clr.pd-tp-13.font-9  Page disclaimer content will come here
-block script
-	script(src='/bundle/js/tooltip.js')
+								.col-md-1.pad0 
+									p.pd-tp-10.font-wt-6 Disclaimer : 
+								.col-md-11.pad0 
+									p.g-blue-clr.pd-tp-13.font-9  Page disclaimer content will come here
+	script.
+		Highcharts.chart('container', {
+			chart: {
+				type: 'scatter',
+				zoomType: 'xy'
+			},
+			title: {
+				text: 'KM Vs Price'
+			},
+			xAxis: {
+				title: {
+					text: 'Price'
+				},
+				startOnTick: true,
+				endOnTick: true,
+				showLastLabel: true
+			},
+			yAxis: {
+				title: {
+					text: 'KMs'
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'left',
+				verticalAlign: 'top',
+				x: 10000,
+				y: 1000,
+				floating: true,
+				backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
+				borderWidth: 1
+			},
+			plotOptions: {
+				scatter: {
+					marker: {
+						states: {
+							hover: {
+								enabled: true,
+								lineColor: 'rgb(100,100,100)'
+							}
+						}
+					},
+					states: {
+						hover: {
+							marker: {
+								enabled: false
+							}
+						}
+					},
+					tooltip: {
+						headerFormat: '<b>{series.name}</b><br>',
+						pointFormat: '{point.x}, {point.y}'
+					}
+				}
+			},
+			series: [
+			{
+				name: 'This Vehicle 2017',
+				color: 'orange',
+				data: [[1700, 50000]]
+
+			}, {
+				name: '2017',
+				color: '#25356f',
+				data: [[8000, 54000]]
+			}]
+		});
+		$(".highcharts-exporting-group").remove();

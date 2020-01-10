@@ -16,6 +16,7 @@ const express = require('express'),
     FileStore = require('session-file-store')(session);
     dotenvExpand = require('dotenv-expand');
 
+require('express-group-routes');
 const app = express(),
     env = process.env.NODE_ENV;
 
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.set('trust proxy', 1) // trust first proxy
+app.use("/public", express.static(path.join(__dirname, 'public')));
 app.use(session({
   store: new FileStore({}),
   secret: process.env.SESSION_SECRET,
@@ -53,37 +55,43 @@ app.use((req, res, next) => {
     next();
 });
 app.use('/', users);
-app.use('/', middleware.auth, index);
-app.use('/lead', middleware.auth, lead);
+app.use('/', index);
+app.use('/lead', lead);
 
-console.log("coming here");
-app.post('/ajax/leadcreate',
-    middleware.verifyAjaxRequest,
-    ajax.leadCreation
-);
-app.get('/ajax/lead/edit/:id',
-    middleware.verifyAjaxRequest,
-    ajax.leadEditPage
-);
-app.post('/ajax/imageUpload',
-    middleware.verifyAjaxRequest,
-    ajax.imageUpload
-);
+app.group('/ajax', router => {
+  router.post('/leadcreate',
+      middleware.verifyAjaxRequest,
+      ajax.leadCreation
+  );
+  router.get('/lead/edit/:id',
+      middleware.verifyAjaxRequest,
+      ajax.leadEditPage
+  );
+  router.post('/imageUpload',
+      middleware.verifyAjaxRequest,
+      ajax.imageUpload
+  );
 
-app.post('/ajax/report/saveall',
-    middleware.verifyAjaxRequest,
-    ajax.reportSaveAll
-);
+  router.post('/saveAnswers',
+      middleware.verifyAjaxRequest,
+      ajax.saveAnswers
+  );
+  
+  router.post('/saveAllAnswers',
+      middleware.verifyAjaxRequest,
+      ajax.saveAllAnswers
+  );
 
-app.post('/ajax/get/report/:tabname',
-    middleware.verifyAjaxRequest,
-    ajax.getReportTabData
-);
+  router.post('/get/report/:tabname',
+      middleware.verifyAjaxRequest,
+      ajax.getReportTabData
+  );
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  return next(err);
 });
 
 // error handler
@@ -94,7 +102,18 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  /*res.status(200).render('error', {
+        message: err.message,
+        error: err
+    }, (err, html) => {
+      res.send(html);
+  });*/
+  return;
+});
+
+// logging unhandled promise rejection
+process.on('unhandledRejection', (reason, p) => {
+  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
 });
 
 module.exports = app;

@@ -1,29 +1,32 @@
 form#validator_reviews_form.col-md-12.p-0(role='form', class="form-horizontal")
 	input(type='hidden', name='form_type', value='reviews')
 	.col-md-12.p-0
-		if (data.question && data.question.rating && data.question.rating.reviews)
-			each inputValue, inputKey in data.question.rating.reviews
+		if (data.questions)
+			each inputValue, inputKey in data.questions
 				.border-question(class = '#{inputValue.class}')
 					label.col-form-label(for='#{inputKey}') #{inputValue.label ? inputValue.label : inputValue}
 					if (inputValue.type === "radio")
 						.form-group.rating-checkbox-group
-							each value, key in inputValue.values
+							each value, key in inputValue.options
 								span
-									input.rating-checkbox(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', checked = value.default === true, required)
+									input.rating-checkbox.answer-field(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', checked =  data.answers[inputKey] === key, required)
 									label.rating-checkbox-label(for='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}') #{value.label ? value.label : value }
 							span.col-sm-12.error.error-block
 					else if (inputValue.type === "select")
 						.form-group
-							select.form-control.select2(style='width: 100%;',  data-placeholder="#{inputValue.placeholder}", name="#{inputKey}", required)
+							select.form-control.select2.answer-field(style='width: 100%;',  data-placeholder="#{inputValue.placeholder}", name="#{inputKey}", required)
 								option
 								if (inputValue.isIteration)
 									- for (var ownerNum = inputValue.start; ownerNum < inputValue.end; ++ownerNum) {
-										option(value='#{ownerNum}', selected = ownerNum == data.formData.numberOfOwners) #{ownerNum}
+										if (data.answers[inputKey])
+											option(value = '#{ownerNum}' , selected = data.answers[inputKey] === ownerNum) #{ownerNum}
+										else
+											option(value = '#{ownerNum}') #ownerNum}
 									- }
 							span.col-sm-12.error.error-block
 					else if (inputValue.type === "text")
 						.form-group
-							input.form-control(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '', required)
+							input.form-control.answer-field(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.answers[inputKey] ? '#{data.answers[inputKey]}' : '', required)
 							span.col-sm-12.error.error-block
 	.col-md-12.mg-tp-20.p-0
 		.col-md-3.col-xs-6.p-0

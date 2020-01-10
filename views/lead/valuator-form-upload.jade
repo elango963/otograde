@@ -1,28 +1,38 @@
-- var imageUploadQues = {"front_img":"Front Image","right_side_img":"Right Side","rear_img":"Rear Image","left_side_img":"Left Side","dashboard_img":"Dashboard","seats_img":"Seats","odo_meter_img":"ODO Meter","engine_room_img":"Engine Room","engine_reg_plate_img":"Engine Reg.Plate","chassis_imp_img":"Chassis IMP","chassis_number_img":"Chassis Number","rc_book_front_img":"RC Book Front","rc_book_back_img":"RC Book Back","tyre_img_1":"TYRE 1","tyre_img_2":"TYRE 2","tyre_img_3":"TYRE 3","tyre_img_4":"TYRE 4","selfie_img":"Selfie Image","damage_img_1":"Damage 1 (Optional)","damage_img_2":"Damage 2 (Optional)","damage_img_3":"Damage 3 (Optional)","damage_img_4":"Damage 4 (Optional)"}
 form#validator_image_upload_form.col-md-12.p-0(role='form', class="form-horizontal", enctype="multipart/form-data")
-	.col-md-12.p-0
+	if (data && data.questions)
 		.col-md-12.p-0
-			.col-md-12.image-block.p-0
-				- var initialShow = 2;
-				input.uploadObject(type="hidden", data-value = '#{JSON.stringify(imageUploadQues)}')
-				each value, key in imageUploadQues
-					- var addClass = initialShow > 3 ? "hide" : ""; 
+			.col-md-12.image-block
+				- var count = 1;
+				- var showCount = 4;
+				input.uploadObject(type="hidden", data-value = '#{JSON.stringify(data.questions)}')
+				each value, key in data.questions
+					- var addClass = count > showCount ? "hide" : "";
+					if (data.answers[key])
+						- addClass = ""
 					.col-sm-4.image-preview-section.pl-0.mg-tp-10(class='#{addClass}')
-						input.imageElement(type="hidden", name='#{key}', data-label='#{value}' value="")
+						input.imageElement(type="hidden", name='#{key}', data-label='#{value}' value='#{data.answers[key] ? data.answers[key].file_path : ""}')
 						.col-md-12.image-preview-block
-							img.image-preview.hide
-							.col-md-12.image-show-block.image-display-hint.p-0
-								h5.mg-tp-10 Image Preview section
+							if (data.answers[key])
+								img.image-preview(src='#{process.env.API_DOMAIN}/#{data.answers[key].file_path}')
+							else
+								img.image-preview.newupload.hide
+								- count++;
+							if (!data.answers[key])
+								.col-md-12.image-show-block.image-display-hint.p-0
+									h5.mg-tp-10 Image Preview section
 						.col-md-12.p-0
-							p.col-sm-12.col-xs-12.image_name
+							p.col-sm-12.col-xs-12.image_name &emsp; #{data.answers[key] ? data.answers[key].file_name : '' }
 						.col-md-12.p-0
 							.form-group
-								select.form-control.select2.imageUpload(style='width: 100%;',  data-placeholder="Choose Image Type", name='select_#{key}')
-									option
-									each clientValue, clientKey in imageUploadQues
-										option(value='#{clientKey}' , selected = key ===clientKey) #{clientValue}
+								if (data.answers[key])
+									input.form-control(type='text', placeholder='#{data.answers[key].label}', disabled)
+								else
+									select.form-control.select2.imageUpload(style='width: 100%;',  data-placeholder="Choose Image Type", name='select_#{key}', class = '#{data.answers[key] ? "disabled" : ""}')
+										option
+										each clientValue, clientKey in data.questions
+											option(value='#{clientKey}', selected = key === clientKey) #{clientValue}
 								span.col-sm-12.error.error-block
-					- initialShow++;
+					
 			.col-md-12.p-0
 				.form-group.pl-0.col-sm-4.col-xs-12
 					.upload-block
@@ -31,6 +41,6 @@ form#validator_image_upload_form.col-md-12.p-0(role='form', class="form-horizont
 			.col-md-12
 				.col-sm-4.col-xs-12
 					span.uploadImageErrorMsg.error.error-block
-		.col-md-12
-			.col-md-3.mg-tp-20
-				input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_upload_submit_btn(type="submit", value= "Save")
+			.col-md-12
+				.col-md-3.mg-tp-20
+					input.btn.btn-block.btn-default.btn-flat.btn-create.btn-orange.js_valuator_upload_submit_btn(type="submit", value= "Save")

@@ -1,4 +1,4 @@
-export const initAjax = () => {
+const initAjax = () => {
 	$.ajaxSetup({
 		cache: true,
 		headers: {
@@ -7,26 +7,54 @@ export const initAjax = () => {
 	});
 }
 
-export const ajax = (url, method, data, successCallBack = () => {}, errorCallBack = () => {}) => {
+const ajax = (url, method="GET", json={}, cb) => {
 	$.ajax({
 		url: url,
-		data: method.toLowerCase() == 'post' ? JSON.stringify(data) : data,
 		method: method,
-		dataType: "json",
-		contentType: "application/json",
-		success: (response) => {
-			successCallBack(response);
+		data: json,
+		success: response => {
+			if (typeof cb === "function")
+				cb(response);
 		},
-		error: (error) => {
-			errorCallBack(error);
-		}
-	})
+		error: err => {
+			if (err.responseJSON && err.responseJSON.reload === true)
+				window.location.reload();
+			else if (typeof cb === "function")
+				cb({ status: "error" });
+		},
+	});
 };
 
+const ajaxUpload = (url, formData, cb) => {
+	$.ajax({
+		url: url,
+		method: "POST",
+		data: formData,
+		contentType: false,
+		processData: false,
+		success: response => {
+			if (typeof cb === "function")
+				cb(response);
+		},
+		error: err => {
+			if (err.responseJSON && err.responseJSON.reload === true)
+				window.location.reload();
+			else if (typeof cb === "function")
+				cb({ status: "error" });  
+		},
+	});
+};
 
-export const snakeToCamel = (str) => str.replace(
+const snakeToCamel = (str) => str.replace(
     /([-_][a-z])/g,
     (group) => group.toUpperCase()
                     .replace('-', '')
                     .replace('_', '')
 );
+
+export {
+	initAjax,
+	ajax,
+	ajaxUpload,
+	snakeToCamel
+};

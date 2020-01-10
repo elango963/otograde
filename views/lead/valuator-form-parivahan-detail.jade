@@ -1,21 +1,21 @@
 form#validator_parivahan_detail_form.col-md-12.p-0(role='form', class="form-horizontal")
 	input(type='hidden', name='form_type', value='parivahan_detail')
 	.col-md-12.p-0
-		if (data.question && data.question.rating && data.question.rating.parivahan_details)
-			each inputValue, inputKey in data.question.rating.parivahan_details
+		if (data.questions)
+			each inputValue, inputKey in data.questions
 				.border-question.col-sm-6.col-xs-12
 					label.col-form-label(for='#{inputKey}') #{inputValue.label ? inputValue.label : inputValue}
 					if (inputValue.type === "text")
 						.form-group
-							input.form-control(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.formData.customer.customerName ? '#{data.formData.customer.customerName}' : '', class = '#{inputValue.class}', required)
+							input.form-control.answer-field(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", value = data.answers[inputKey] ? '#{data.answers[inputKey]}' : '', class = '#{inputValue.class}', required)
 							span.col-sm-12.error.error-block
 					else if (inputValue.type === "date")
 						.form-group
-							input.datepicker.form-control(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", class = '#{inputValue.class}', required)
+							input.datepicker.form-control.answer-field(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", class = '#{inputValue.class}', value = data.answers[inputKey] ? '#{data.answers[inputKey]}' : '', required)
 							span.col-sm-12.error.error-block
 					else if (inputValue.type === "year")
 						.form-group
-							input.datepicker.form-control.js-yearmask(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", class = '#{inputValue.class}', required)
+							input.datepicker.form-control.js-yearmask.answer-field(type='text', placeholder='#{inputValue.placeholder}', name="#{inputKey}", class = '#{inputValue.class}', value = data.answers[inputKey] ? '#{data.answers[inputKey]}' : '', required)
 							span.col-sm-12.error.error-block
 		.col-md-12.mg-tp-20.p-0
 			.col-md-3.col-xs-6.p-0

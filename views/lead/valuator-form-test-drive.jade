@@ -1,15 +1,15 @@
 form#validator_test_drive_form.col-md-12.p-0(role='form', class="form-horizontal")
 	input(type='hidden', name='form_type', value='test_drive')
 	.col-md-12.p-0
-		if (data.question && data.question.rating && data.question.rating.testDrive)
-			each inputValue, inputKey in data.question.rating.testDrive
+		if (data.questions)
+			each inputValue, inputKey in data.questions
 				.border-question(class = '#{inputValue.class}')
 					label.col-form-label(for='#{inputKey}') #{inputValue.label ? inputValue.label : inputValue}
 					if (inputValue.type === "radio")
 						.form-group.rating-checkbox-group
-							each value, key in inputValue.values
+							each value, key in inputValue.options
 								span
-									input.rating-checkbox(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', required)
+									input.rating-checkbox.answer-field(type='radio', name='#{inputKey}', value='#{key}', id='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}', checked =  data.answers[inputKey] === key, required)
 									label.rating-checkbox-label(for='#{inputKey}_#{key}', class= '#{value.class ? value.class : ""}') #{value.label ? value.label : value }
 							span.col-sm-12.error.error-block
 	.col-md-12.mg-tp-20.p-0

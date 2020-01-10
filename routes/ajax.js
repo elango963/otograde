@@ -5,11 +5,16 @@ const request = require('request'),
 	merge = require('merge'),
 	path = require('path'),
 	multiparty = require('multiparty'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	multer = require("multer");
 
 var data = {}
 var menu = fs.readFileSync('config/left_side_menu.json');
 data.menu = JSON.parse(menu);
+const upload = multer({
+  dest: "./public/reports/"
+  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+});
 
 const leadCreation = (req, res) => {
 	req.checkBody('client_name', 'type is required').notEmpty();
@@ -59,16 +64,38 @@ const leadCreation = (req, res) => {
 		}
 	});
 };
-
-const reportSaveAll = (req, res) => {
-	req.checkBody('form_type', 'type is required').notEmpty();
-	console.log(JSON.stringify(req.body));
+const saveAnswers = (req, res) => {
+	req.checkBody('form', 'form is required').notEmpty();
+	req.checkBody('leadId', 'leadId is required').notEmpty();
+	req.checkBody('questionSlug', 'questionSlug is required').notEmpty();
+	req.checkBody('answer', 'answer is required').notEmpty();
 	req.getValidationResult().then(error => {
 		if (error.isEmpty() === false) res.status(422).send({ status: "error" });
 		else {
-			console.log(JSON.stringify(req.body));
 			request({
-				uri: process.env.REPORT_SAVE_ALL_API,
+				uri: process.env.SAVE_ANSWER_API,
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST',
+				body: JSON.stringify(req.body),
+			}, (err, response, body) => {
+				if (!err && response.statusCode == 200) {
+					res.status(200).send({ status: "success" });
+				} else {
+					res.status(500).send({ status: "error" });
+				}
+			});
+		}
+	});
+};
+const saveAllAnswers = (req, res) => {
+	req.checkBody('form_type', 'type is required').notEmpty();
+	req.getValidationResult().then(error => {
+		if (error.isEmpty() === false) res.status(422).send({ status: "error" });
+		else {
+			request({
+				uri: process.env.SAVEALL_ANSWER_API,
 				headers: {
 					'Content-Type': 'application/json'
 				},
@@ -86,24 +113,35 @@ const reportSaveAll = (req, res) => {
 };
 
 const getReportTabData = (req, res) => {
-	req.checkBody('lead_id', 'lead details is required').notEmpty();
-	console.log(JSON.stringify(req.params.tabname));
+	req.checkBody('leadId', 'lead details is required').notEmpty();
 	req.getValidationResult().then(error => {
 		if (error.isEmpty() === false) res.status(422).send({ status: "error" });
 		else {
-			console.log(`${process.env.REPORT_TAB_DETAIL_API}/${req.body.lead_id}/${req.params.tabname}`);
 			request({
-				uri: `${process.env.REPORT_TAB_DETAIL_API}/${req.body.lead_id}/${req.params.tabname}`,
+				uri: `${process.env.REPORT_TAB_DETAIL_API}/${req.body.leadId}/${req.params.tabname}`,
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				method: 'POST',
-				body: JSON.stringify(req.body),
+				method: 'GET',
+				body: JSON.stringify({
+					ip: req.clientIp
+				}),
 			}, (err, response, body) => {
-				if (!err && response.statusCode == 200) {
-					res.status(200).send({ status: "success" });
+				console.log(err);
+				if (err || response.statusCode !== 200) {
+					res.status(200).send({ status: "error", data: 'Oops something went wrong! Please try again later.' });
 				} else {
-					res.status(500).send({ status: "error" });
+					body = JSON.parse(body);
+					var fileName = "lead/valuator-form-" + body.tabname;
+					res.render(fileName, {
+						data: body.data
+					}, (err, html) => {
+						console.log(err);
+						if (err)
+							res.status(200).send({ status: "error", data: err });
+
+						res.status(200).send({ status: "success", data: html });
+					});
 				}
 			});
 		}
@@ -136,7 +174,7 @@ const leadEditPage = (req, res) => {
 			}, (err, html) => {
 				if (err)
 					return next(createError(err));
-				res.send(html);
+				res.status(200).send({ status: body.status, data: body.data });
 			});
 		}
 	});
@@ -147,17 +185,17 @@ const imageUpload = (req, res, next) => {
      	if (formData[0] && formData[0].originalFileName) {
      		formData[0].originalFilename = formData[0].originalFileName;
      	}
-
+    	
     	var requestData = {
 			slug: formData[0].slug && formData[0].slug[0] ? formData[0].slug[0] : "",
 			originalFileName: formData[0].originalFilename && formData[0].originalFilename[0] ? formData[0].originalFilename[0] : formData[1].file[0].originalFilename,
 			file: formData[1].file && formData[1].file[0] && formData[1].file[0].path ? fs.createReadStream(formData[1].file[0].path) : "",
-			reportId: req.session && req.session.user && req.session.user.reportId ? req.session.user.reportId : 1234567
+			leadId: formData[0].lead_id && formData[0].lead_id[0] ? formData[0].lead_id[0] : ""
 		};
-
+		
 		if (formData[1].file && formData[1].file[0].path)
 			fs.unlinkSync(formData[1]["file"][0].path);
-		console.log(requestData);
+		// console.log(requestData);
 		request({
 			uri: process.env.IMAGE_UPLOAD_API,
 			headers: {
@@ -196,7 +234,8 @@ module.exports = () => {
 		leadCreation: leadCreation,
 		leadEditPage: leadEditPage,
 		imageUpload: imageUpload,
-		reportSaveAll: reportSaveAll,
+		saveAnswers: saveAnswers,
+		saveAllAnswers: saveAllAnswers,
 		getReportTabData: getReportTabData,
 		getFiles: getFiles
 	};

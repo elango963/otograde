@@ -1,13 +1,16 @@
 .reports-gallery-body.col-md-12
 	.image-slider-group
 		ul.lightgallery.list-unstyled
-			li(data-responsive='http://localhost:8088/api/otograde-api/public/valuator-images/1/1.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/2.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/4.jpg', data-src='http://localhost:8088/api/otograde-api/public/valuator-images/1/1.jpg', data-sub-html='<h4>Ist Image</h4>')
-				a(href='')
-					img.img-responsive.hide(src='http://localhost:8088/api/otograde-api/public/valuator-images/1/1.jpg') 
-					button.btn.btn-primary.viewImgs.btn-orange.pull-left(type='button') View images
-			li(data-responsive='http://localhost:8088/api/otograde-api/public/valuator-images/1/1.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/2.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/4.jpg', data-src='http://localhost:8088/api/otograde-api/public/valuator-images/1/2.jpg', data-sub-html="<h4>2st Image</h4>")
-				a(href='')
-					img.img-responsive.hide(src='http://localhost:8088/api/otograde-api/public/valuator-images/1/2.jpg')
-			li(data-responsive='http://localhost:8088/api/otograde-api/public/valuator-images/1/1.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/2.jpg, http://localhost:8088/api/otograde-api/public/valuator-images/1/4.jpg', data-src='http://localhost:8088/api/otograde-api/public/valuator-images/1/4.jpg', data-sub-html="<h4>Bowness Bay</h4><p>A beautiful Sunrise this morning taken En-route to Keswick not one as planned but I'm extremely happy I was passing the right place at the right time....</p>")
-				a(href='')
-					img.img-responsive.hide(src='http://localhost:8088/api/otograde-api/public/valuator-images/1/4.jpg')
+			if (data.reportimages)
+				- var imageStr = ''
+				- var count = 0;
+				each value, key in data.reportimages
+					- imageStr += `${process.env.API_DOMAIN}/${value.file_path}, `
+				- imageStr = imageStr.substring(0, imageStr.length-2);
+				each clientValue, clientKey in data.reportimages
+					- count++;
+					li(data-responsive='#{imageStr}', data-src='#{process.env.API_DOMAIN}/#{clientValue.file_path}', data-sub-html='<h4>#{clientValue.label}</h4>')
+						a(href='')
+							img.img-responsive.hide(src='#{process.env.API_DOMAIN}/#{clientValue.file_path}')
+							if (count === 1)
+								button.btn.btn-primary.viewImgs.btn-orange.pull-left(type='button') View images

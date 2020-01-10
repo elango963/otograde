@@ -1,3 +1,4 @@
+var http = require('http');
 var express = require('express');
 var router = express.Router();
 request = require('request');
@@ -5,7 +6,7 @@ const fs = require('fs');
 var data = {}
 var menu = fs.readFileSync('config/left_side_menu.json');
 data.menu = JSON.parse(menu);
-var wkhtmltopdf = require('wkhtmltopdf');
+var pdf = require('html-pdf');
 
 router.get('/create', function(req, res, next) {
 	data.active = 'create';
@@ -123,21 +124,105 @@ router.get('/valuation/:id', function(req, res, next) {
 
 router.get('/report/preview/:id', function(req, res, next) {
 	data.active = 're-assigned';
-	res.render('lead/report-preview', { data: data });
+	request({
+		uri: process.env.REPORT_PREVIEW_API,
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
+		},
+		method: 'GET',
+		body: JSON.stringify({
+			ip: req.clientIp
+		}),
+	}, (err, response, body) => {
+		if (err || response.statusCode !== 200) {
+			req.flash('flashMessage', 'Oops something went wrong! Please try again later.');
+			res.redirect('/');
+		} else {
+			body = JSON.parse(body);
+			var newData = Object.assign(body.data, data);
+			newData.API_DOMAIN = process.env.API_DOMAIN;
+
+			res.render('lead/report-pdf', { data: newData });
+		}
+	});
 });
 
-router.get('/report/preview/:id/pdf', function(req, res, next) {
+router.get('/report/preview-old/:id', function(req, res, next) {
 	data.active = 're-assigned';
-	res.render('lead/report-preview', { data: data }, (err, html) => {
-		wkhtmltopdf(html, {
-			viewportSize: "1680x1024",
-			marginBottom: 1,
-			marginTop: 1,
-			marginLeft: 1,
-			marginRight: 1,
-			pageSize: "Letter"
-		})
-  		.pipe(res);
+	request({
+		uri: process.env.REPORT_PREVIEW_API,
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
+		},
+		method: 'GET',
+		body: JSON.stringify({
+			ip: req.clientIp
+		}),
+	}, (err, response, body) => {
+		if (err || response.statusCode !== 200) {
+			req.flash('flashMessage', 'Oops something went wrong! Please try again later.');
+			res.redirect('/');
+		} else {
+			body = JSON.parse(body);
+			var newData = Object.assign(body.data, data);
+			
+			res.render('lead/report-preview', { data: data });
+		}
+	});
+});
+router.get('/report/pdf/:id', function(req, res, next) {
+	data.active = 're-assigned';
+	var options = { 
+		"format": 'Legal',
+		"orientation": "portrait",
+		"header": {
+			"height": "33mm",
+			"contents": '<div style="text-align: center;">Vehicle Report</div>'
+		},
+		  "footer": {
+		    "height": "40mm",
+		    "contents": {
+		      "default": '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>'
+		    }
+		}
+	};
+	request({
+		uri: process.env.REPORT_PREVIEW_API,
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': "Bearer ya29.c.Kl6bBzrFChMW4xC-RFI7CZcmKicSl_9KxmqV51p92oX9RVAt0trnOjlnBc6NdxulVDjroa16gJAcCfIjgqk-VH8yW7i_PEMwK87KPXc53fx_lJUkZXdTGBGAG2PfcC33"
+		},
+		method: 'GET',
+		body: JSON.stringify({
+			ip: req.clientIp
+		}),
+	}, (err, response, body) => {
+		if (err || response.statusCode !== 200) {
+			req.flash('flashMessage', 'Oops something went wrong! Please try again later.');
+			res.redirect('/');
+		} else {
+			body = JSON.parse(body);
+			var newData = Object.assign(body.data, data);
+			newData.API_DOMAIN = process.env.API_DOMAIN;
+
+			res.render('lead/report-pdf', { data: newData }, (err, html) => {
+				pdf.create(html, options).toFile('./public/report/report.pdf', function(err, resp) {
+				  if (err) return console.log(err);
+				  	// const file = fs.createWriteStream("./public/report/report.pdf");
+					/*const request = http.get("http://localhost:3000/public/report/report.pdf", function(response) {
+						response.pipe(file);
+					});*/
+					var file = fs.createReadStream('./public/report/report.pdf');
+				    var stat = fs.statSync('./public/report/report.pdf');
+				    res.setHeader('Content-Length', stat.size);
+				    res.setHeader('Content-Type', 'application/pdf');
+				    res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+				    file.pipe(res);
+				});
+			});
+		}
 	});
 	
 });
