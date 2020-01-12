@@ -217,7 +217,7 @@ html
 		h3 { font-size: 24px; margin: 7px 0; }
 		h4 { font-size: 18px; margin: 7px 0; }
 		h5 { font-size: 14px; margin: 7px 0; }
-		.process-notok h4 { margin: 0px; }
+		.process-notok h4 { margin: 7px; }
 		.number-plate-image, .number-plate-image img {
 			width: 900px;
 			text-align: center;
@@ -384,21 +384,30 @@ html
 			background-color: #fff;
 			color: #e60606;
 		    border: none;
-		    padding: 5px;
+			padding: 6px 3px;
 		    text-align: center;
 		    display: inline-block;
 		    font-size: 20px;
 		    border-radius: 50%;
 		    position: relative;
 		    width: 24px;
-		    top: 3px;
+		    bottom: 3px;
+			font-size: 15px;
 		}
 		.tickicon {
-			border: 1px solid #fff;
-			border-radius: 15px;
-			padding: 4px 5px;
 			background-color: #fff;
 			color: #09a523;
+			border: none;
+			padding: 6px 3px;
+			text-align: center;
+			display: inline-block;
+			font-size: 20px;
+			border-radius: 50%;
+			position: relative;
+			width: 24px;
+			bottom: 3px;
+			font-size: 15px;
+
 		}
 		.rating-image-section {
 			padding: 20px 0px;
@@ -410,7 +419,7 @@ html
 			color : #25356f;
 		}
 		.rating-image-section img {
-			width: 105px;
+			width: 90px;
 		}
 		.rating-image-section .title p {
 			font-size: 13px;
@@ -576,9 +585,6 @@ html
 			float: right;
 			color: #32b6ea;
 		}
-		.a-gear {
-			height: 100%;
-		}
 		.rating-details {
 			position: relative;
 			bottom: 105px;
@@ -587,12 +593,9 @@ html
 		.height-130 {
 			height: 130px;
 		}
-		.height-100 {
-			height: 100%;
-		}
 		.g-h5 {
-			font-size: 26px;
-			line-height: 32px;
+			font-size: 20px;
+			line-height: 20px;
 		}
 		.p5 {
 			font-size: 10px;
@@ -604,8 +607,8 @@ html
 		}
 		.a-unit {
 			position: relative;
-			top: 35px;
-			left: 2px;
+			top: 42px;
+			left: 0px;
 		}
 		.good, .excellent {
 			color: green;
@@ -704,7 +707,7 @@ html
 			fill: rgb(244, 225, 146);
 		}
 		.percentage-icon {
-			width:115px;
+			width:95px;
 			float: left;
 		}
 		.parivahan-detail-header-h3 {
@@ -725,7 +728,8 @@ html
 			font-size: 18px;
 		}
 	body
-		- var not_available = "<< NULL >>"
+		- var not_available = "Not Found"
+		- var not_listed = "Not listed"
 		.col-md-12.col-xs-12.wrapper
 			.row.mg-0
 				.col-md-12
@@ -840,118 +844,39 @@ html
 										p Diesel
 									.icon-image
 										img(src='http://localhost:3000/public/images/car-paint.jfif', alt='AdminLTE Logo')
-										p Color : Silver
+										p Color : #{data.colours ? data.colours : not_available}
 								table.col-md-7(cellspacing="0", cellpadding="0", style="border: none")
 									tbody
 										tr
 											td.pd-5.g-blue-clr Overall Conditions &emsp; : &emsp;
-											td.pd-5 10,00,000/-
+											td.pd-5 #{data.valuation_price ? data.valuation_price : not_listed}
 										tr
 											td.pd-5.g-blue-clr Valuation Price &emsp; : &emsp;
-											td.pd-5 10,00,000/-
+											td.pd-5 #{data.valuation_price ? data.valuation_price : not_listed}
 										tr
 											td.pd-5.g-blue-clr Ex Show Room Price &emsp; : &emsp;
-											td.pd-5 5,00,000/- 
+											td.pd-5 #{data.ex_show_room_price ? data.ex_show_room_price : not_listed} 
 												span.g-blue-clr @ 
-												| 20/12/2019
+												| #{data.ex_show_room_date ? data.ex_show_room_date : not_listed}
 										tr
-											td.pd-5.g-blue-clr Police Reocrd &emsp; : &emsp;
+											td.pd-5.g-blue-clr Police Record &emsp; : &emsp;
 											td.pd-5.process-notok
-												span.clr-red Not Found&emsp;
+												span.clr-red #{data.police_record ? data.police_record : not_listed}&emsp;
 												span.deleteicon
 													i.fas.fa-times
 						section.col-md-12
 							.col-md-12.rating-image-section.pad0.mg-tp-10
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-1.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 1.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Interior
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-1.5.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 1.5
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Exterior
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-2.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 2.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 AC/Cooling
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-2.5.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 2.5
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Document
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-3.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 3.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Vehicle Condition
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-3.5.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 3.5
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Test Drive
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-4.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 4.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Tyre
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Electric Functions
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Electric Functions
-								.percentage-icon
-									.a-gear
-										img(src='http://localhost:3000/public/images/gear-5.0.png', alt='Image')
-									.rating-details
-										p.a-unit.mg-tp-10.g-h5.font-wt-6 5.0
-										p.a-unit.p5.font-wt-4 Max
-										p.a-unit.p5.font-wt-5 5.0
-									.title
-										p.p4.font-wt-4 Electric Functions
+								if (data.grade)
+									each gradeValue, gradeKey in data.grade
+										.percentage-icon
+											.a-gear
+												img(src='http://localhost:3000/public/images/gear-#{gradeValue}.png', alt='Image')
+											.rating-details
+												p.a-unit.mg-tp-10.g-h5.font-wt-6 #{gradeValue}
+												p.a-unit.p5.font-wt-4 Max
+												p.a-unit.p5.font-wt-5 5.0
+											.title
+												p.p4.font-wt-4 #{gradeKey}
 								.col-md-12.align-left.pd-tp-10
 									p.pd-lt-30
 										span.excellent Excellent : 5
@@ -977,22 +902,22 @@ html
 									tbody
 										tr
 											td  Year Purchased
-											td  2011
+											td  #{data.purchased_year ? data.purchased_year : not_available}
 											td  No Data
 											td  No Data
 										tr
 											td  Type of Owner
-											td  Private
+											td  #{data.owner_type ? data.owner_type : not_listed}
 											td  No Data
 											td  No Data
 										tr
 											td  Estimated years of Ownership
-											td   08 Years
+											td  #{data.purchase_deivery_date ? data.purchase_deivery_date : not_available}
 											td  No Data
 											td  No Data
 										tr
 											td  Hypotheciation Bank Name
-											td  Private
+											td  #{data.hpa_bank ? data.hpa_bank : not_available}
 											td  No Data
 											td  No Data
 						section.col-md-12.mg-tp-10
@@ -1000,7 +925,7 @@ html
 								.col-md-12.parivahan-detail-header.pad0
 									.col-md-9.parivahan-detail-header-h3.pad0
 										h3 PARIVAHAN details
-									.col-md-3.process-ok.align-right
+									.col-md-3.process-ok.align-center
 										h4
 											span Data Found&emsp;
 											span.tickicon
@@ -1014,62 +939,62 @@ html
 													tr
 														td.g-blue-clr Owner Name
 														td.g-blue-clr :
-														td SUGUNA SEELA RAO K
+														td #{data.owner_name ? data.owner_name : not_available}
 													tr
 														td.g-blue-clr Purchase Deivery Date
 														td.g-blue-clr :
-														td 6/21/2011
+														td #{data.purchased_year ? data.purchased_year : not_available}
 													tr
 														td.g-blue-clr Maker
 														td.g-blue-clr :
-														td MARUTI
+														td #{data.maker ? data.maker : not_available}
 													tr
 														td.g-blue-clr Maker Model
 														td.g-blue-clr :
-														td ALTO LXI
+														td #{data.maker_model ? data.maker_model : not_available}
 													tr
 														td.g-blue-clr Laden Weight (kG)
 														td.g-blue-clr :
-														td 0
+														td #{data.laden_weight ? data.laden_weight : not_available}
 													tr
 														td.g-blue-clr Sleeper Capacity
 														td.g-blue-clr :
-														td - 
+														td #{data.sleeper_capacity ? data.sleeper_capacity : not_available}
 													tr
 														td.g-blue-clr Registrations Date
 														td.g-blue-clr :
-														td 6/21/2011
+														td #{data.registration_date ? data.registration_date : not_available}
 										.col-md-6.pad0
 											table.col-md-6
 												tbody
 													tr
 														td.g-blue-clr Engine NO
 														td.g-blue-clr :
-														td SUGUNA SEELA RAO K
+														td #{data.engine_number ? data.engine_number : not_available}
 													tr
 														td.g-blue-clr Body Type
 														td.g-blue-clr :
-														td -
+														td #{data.body_type ? data.body_type : not_available}
 													tr
 														td.g-blue-clr Unladen Weight
 														td.g-blue-clr :
-														td 0
+														td #{data.unladen_weight ? data.unladen_weight : not_available}
 													tr
 														td.g-blue-clr Mfg Year
 														td.g-blue-clr :
-														td 6/20/2016
+														td #{data.mfg_year ? data.mfg_year : not_available}
 													tr
 														td.g-blue-clr Chassis NO
 														td.g-blue-clr :
-														td 12
+														td #{data.chassis_number ? data.chassis_number : not_available}
 													tr
 														td.g-blue-clr Vehicle  Category
 														td.g-blue-clr :
-														td CAR 
+														td #{data.vehicle_category && data.vehicle_category.category ? data.vehicle_category.category : not_available} 
 													tr
 														td.g-blue-clr Fitness Valid upto
 														td.g-blue-clr :
-														td 6/20/2028
+														td #{data.fitness_valid_upto ? data.fitness_valid_upto : not_available}
 						section.col-md-12.mg-tp-10
 							.col-md-12.parivahan-detail-header.pad0
 								.col-md-9.parivahan-detail-header-h3.pad0
@@ -1087,30 +1012,30 @@ html
 												tr
 													td.g-blue-clr Insurance Type
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurance_type ? data.insurance_type : not_available}
 												tr
 													td.g-blue-clr Insurance From
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurance_from ? data.insurance_from : not_available}
 												tr
 													td.g-blue-clr Policy NO
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.policy_number ? data.policy_number : not_available}
 									.col-md-6.pad0
 										table.col-md-6
 											tbody
 												tr
 													td.g-blue-clr Insurance Company Name
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurer_name ? data.insurer_name : not_available}
 												tr
 													td.g-blue-clr Insurance UPTO
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurance_to ? data.insurance_to : not_available}
 												tr
 													td.g-blue-clr Insurance Declared Value
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurance_value ? data.insurance_value : not_available}
 						section.col-md-12.mg-tp-10
 							.col-md-12.parivahan-detail-header.pad0
 								.col-md-9.parivahan-detail-header-h3.pad0
@@ -1128,30 +1053,30 @@ html
 												tr
 													td.g-blue-clr Tax Paid Dt
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.tax_paid_date ? data.tax_paid_date : not_available}
 												tr
 													td.g-blue-clr Amount
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.amount ? data.amount : not_available}
 												tr
 													td.g-blue-clr Tax Clear Upto
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.tax_clear_upto ? data.tax_clear_upto : not_available}
 									.col-md-6.pad0
 										table.col-md-6
 											tbody
 												tr
 													td.g-blue-clr Receipt Date
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.receipt_date ? data.receipt_date : not_available}
 												tr
 													td.g-blue-clr FC Issue dt.
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.fc_issue_date ? data.fc_issue_date : not_available}
 												tr
 													td.g-blue-clr FC Valid up To
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.fc_valid_upto ? data.fc_valid_upto : not_available}
 						section.col-md-12.mg-tp-10
 							.col-md-12.parivahan-detail-header.pad0
 								.col-md-9.parivahan-detail-header-h3.pad0
@@ -1169,30 +1094,30 @@ html
 												tr
 													td.g-blue-clr Permit Type
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.permit_type ? data.permit_type : not_available}
 												tr
 													td.g-blue-clr Permit Category
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.permit_category ? data.permit_category : not_available}
 												tr
 													td.g-blue-clr Service Type
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.service_type ? data.service_type : not_available}
 									.col-md-6.pad0
 										table.col-md-6
 											tbody
 												tr
 													td.g-blue-clr Route Length
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.route_length ? data.route_length : not_available}
 												tr
 													td.g-blue-clr No of Trips
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.number_of_trips ? data.number_of_trips : not_available}
 												tr
 													td.g-blue-clr Permit Domain
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.permit_domain ? data.permit_domain : not_available}
 						section.col-md-12.mg-tp-10
 							.col-md-12.parivahan-detail-header.pad0
 								.col-md-9.parivahan-detail-header-h3.pad0
@@ -1209,30 +1134,30 @@ html
 												tr
 													td.g-blue-clr Insurer name
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.insurer_name ? data.insurer_name : not_available}
 												tr
 													td.g-blue-clr Registration No
 													td  :
-													td  Data Not Found
+													td #{data.registration_number ? data.registration_number : not_available}
 												tr
 													td.g-blue-clr Accident Loss Dt
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.accident_loss_date ? data.accident_loss_date : not_available}
 									.col-md-6.pad0
 										table.col-md-6
 											tbody
 												tr
 													td.g-blue-clr Total Claim Amt
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.total_claim_amount ? data.total_claim_amount : not_available}
 												tr
 													td.g-blue-clr Claim Intimation Dt
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.claim_intimation_date ? data.claim_intimation_date : not_available}
 												tr
 													td.g-blue-clr Expense Paid
 													td.g-blue-clr :
-													td  Data Not Found
+													td #{data.expense_paid ? data.expense_paid : not_available}
 						section.col-md-12.mg-tp-10
 							.col-md-12.car-image-section.pad0
 								.col-md-4
@@ -1257,186 +1182,188 @@ html
 								span.header Exterior Conditions
 								.car-parts-data
 									p Grill &emsp;
-										span Operational
+										span #{data.gril ? data.gril : not_available}
 									p Head Light
-										span Excellent
+										span #{data.headLight ? data.headLight : not_available}
 									p Hood
-										span Excellent
+										span #{data.hood ? data.hood : not_available}
 									p Front Bumber
-										span Excellent
+										span #{data.front_bumber ? data.front_bumber : not_available}
 									p Left Fender
-										span Excellent
+										span #{data.left_fender ? data.left_fender : not_available}
 									p Right Fender
-										span Excellent
+										span #{data.right_fender ? data.right_fender : not_available}
 									p Right Quarter
-										span Excellent
+										span #{data.right_quarter ? data.right_quarter : not_available}
 									p Left Quarter
-										span Excellent
+										span #{data.left_quarter ? data.left_quarter : not_available}
 									p Front Windshield
-										span Excellent
+										span #{data.front_windshield ? data.front_windshield : not_available}
 									p Right Front Door
-										span Excellent
+										span #{data.right_front_door ? data.right_front_door : not_available}
 									p Left Front Door
-										span Excellent
+										span #{data.left_front_door ? data.left_front_door : not_available}
 									p Right Rear Door
-										span Excellent
+										span #{data.right_rear_door ? data.right_rear_door : not_available}
 									p Left Rear Door
-										span Excellent
+										span #{data.left_rear_door ? data.left_rear_door : not_available}
 									p Roof
-										span Excellent
+										span #{data.roof ? data.roof : not_available}
 									p Rear Windshield
-										span Excellent
+										span #{data.rear_windshield ? data.rear_windshield : not_available}
 									p Rear Tail Light
-										span Excellent
+										span #{data.rear_tail_light ? data.rear_tail_light : not_available}
 									p Rear Bumber
-										span Excellent
+										span #{data.rear_bumber ? data.rear_bumber : not_available}
 									p Body Paints
-										span Excellent
+										span #{data.body_paints ? data.body_paints : not_available}
 									p Deck LID
-										span Excellent
+										span #{data.deck_lid ? data.deck_lid : not_available}
 							.car-parts-section
 								span.header Interior Conditions
 								.car-parts-data-full-width
 									p Dash Board Conditions &emsp;
-										span No Warning Lights ON
+										span #{data.dashboard_condition ? data.dashboard_condition : not_available}
 									p Dash Board Warning Lights & Gauges
-										span No Warning Lights ON
+										span #{data.dashboard_warning_lights_and_gauges ? data.dashboard_warning_lights_and_gauges : not_available}
 									p Front Left Seat
-										span Satisfactory
+										span #{data.front_left_seat ? data.front_left_seat : not_available}
 									p Front Right Seat
-										span Satisfactory
-									p Rear Seat
-										span Average
+										span #{data.front_right_seat ? data.front_right_seat : not_available}
+									p Rear Left Seat
+										span #{data.rear_left_seat ? data.rear_left_seat : not_available}
+									p Rear Right Seat
+										span #{data.rear_right_seat ? data.rear_right_seat : not_available}
 									p 3Rd Row Seat Cond'S
-										span Average
+										span #{data.third_row_seat_condition ? data.third_row_seat_condition : not_available}
 									p Trunk Cargo
-										span Average
+										span #{data.trunk_cargo ? data.trunk_cargo : not_available}
 									p Air Bag
-										span Average
+										span #{data.air_bag ? data.air_bag : not_available}
 									p Carpets & Floor Mats
-										span Average
+										span #{data.carpets_and_floor_mats ? data.carpets_and_floor_mats : not_available}
 									p Power Windows
-										span Average
+										span #{data.power_windows ? data.power_windows : not_available}
 							.col-md-12
 								.car-parts-section
 									span.header Tyre Conditions
 									.car-parts-data-full-width
 										p No Of Tyres
-											span 4
+											span #{data.number_of_tires ? data.number_of_tires : not_available}
 										p Front Right Wheel
-											span Rim
+											span #{data.front_right_wheel ? data.front_right_wheel : not_available}
 										p Front Left Wheel
-											span Rim
+											span #{data.front_left_wheel ? data.front_left_wheel : not_available}
 										p Back Right Wheel
-											span Rim
+											span #{data.back_right_wheel ? data.back_right_wheel : not_available}
 										p Back Left Wheel
-											span Rim
+											span #{data.back_left_wheel ? data.back_left_wheel : not_available}
 										p Spare Wheel
-											span Rim
+											span #{data.spare_wheel ? data.spare_wheel : not_available}
 										p Front Right Tyres
-											span Need Attentions
+											span #{data.front_right_tyres ? data.front_right_tyres : not_available}
 										p Front Left Tyres
-											span Need Attentions
+											span #{data.front_left_tyres ? data.front_left_tyres : not_available}
 										p Back Right Tyres
-											span Need Attentions
+											span #{data.back_right_tyres ? data.back_right_tyres : not_available}
 										p Back Left Tyres
-											span Need Attentions
+											span #{data.back_left_tyres ? data.back_left_tyres : not_available}
 										p Spare Tyres
-											span Need Attentions
-										p Front Right Tyres
-											span 30
-										p Front Left Tyres
-											span 30
-										p Back Right Tyres
-											span 30
-										p Back Left Tyres
-											span 30
+											span  #{data.spare_tyres ? data.spare_tyres : not_available}
+										p Front Right Tyre Units
+											span #{data.front_right_tyre_units ? data.front_right_tyre_units : not_available}
+										p Front Left Tyre Units
+											span #{data.front_left_tyre_units ? data.front_left_tyre_units : not_available}
+										p Back Right Tyre Units
+											span #{data.back_right_tyre_units ? data.back_right_tyre_units : not_available}
+										p Back Left Tyre Units
+											span #{data.back_left_tyre_units ? data.back_left_tyre_units : not_available}
 								.car-parts-section
 									span.header Mechanical Functions
 									.car-parts-data-full-width
 										p Engine Conditions
-											span Good
+											span #{data.engine_condition ? data.engine_condition : not_available}
 										p Engine Running
-											span Yes
+											span #{data.engine_running ? data.engine_running : not_available}
 										p Engine Oil Level
-											span Acceptable
+											span #{data.engine_oil_level ? data.engine_oil_level : not_available}
 										p Engine Oil Functions
-											span Acceptable
+											span #{data.engine_oil_functions ? data.engine_oil_functions : not_available}
 										.col-md-12 &emsp;
 										.col-md-12 &emsp;
 										p Transmission  / Gear Box Conditions
-											span Good
+											span #{data.transmission_gear_box_conditions ? data.transmission_gear_box_conditions : not_available}
 										p Transmission Working
-											span Acceptable
+											span #{data.transmission_working_conditions ? data.transmission_working_conditions : not_available}
 										p Gear Shift
-											span Acceptable
+											span #{data.gear_shift_conditions ? data.gear_shift_conditions : not_available}
 								.car-parts-section(style="margin-top: 30px;!important")
 									span.header Suspension
 									.car-parts-data-full-width
 										p Front Suspension
-											span Average Conditions consistent with the age and Kms 
+											span #{data.front_suspension_conditions ? data.front_suspension_conditions : not_available}
 										p Rear Suspension
-											span Average Conditions consistent with the age and Kms
+											span #{data.rear_suspension_conditions ? data.rear_suspension_conditions : not_available}
 							.col-md-12
 								.car-parts-section
 									span.header Documents
 									.car-parts-data
 										p Reg. Month / Year
-											span 22/12/2019
+											span #{data.registration_date ? data.registration_date : not_available}
 										p RC Book
-											span Yes
+											span #{data.rc_book_status ? data.rc_book_status : not_available}
 										p Insurance
-											span Yes
+											span #{data.insurance_status ? data.insurance_status : not_available}
 										p Insurance Dt.
-											span 22/12/2019
+											span #{data.insurance_from ? data.insurance_from : not_available}
 										p HPA Status
-											span Available
+											span #{data.hpa_status ? data.hpa_status : not_available}
 										p HPA Bank
-											span Hindustan Mahendra kotak bank of india
+											span #{data.hpa_bank ? data.hpa_bank : not_available}
 								.car-parts-section
 									span.header Stearing Functions
 									.car-parts-data-full-width
 										p Streering Play
-											span No Play
+											span #{data.steering_play ? data.steering_play : not_available}
 										p Power Streering
-											span Working
+											span #{data.power_steering ? data.power_steering : not_available}
 										p Steering
-											span Power
+											span #{data.steering ? data.steering : not_available}
 										p Streaing Conditions
-											span Very Poor
+											span #{data.steering_condition ? data.steering_condition : not_available}
 							.col-md-12
 								.car-parts-section
 									span.header Electrical Functions
 									.car-parts-data-full-width
 										p Electrical Conditions
-											span Good
+											span #{data.electrical_condition ? data.electrical_condition : not_available}
 										p Battery Conditions
-											span Good
+											span #{data.battery_condition ? data.battery_condition : not_available}
 										p A/C Cooling
-											span Good
+											span #{data.ac_cooling_condition ? data.ac_cooling_condition : not_available}
 										p Power Windows
-											span Good
+											span #{data.power_windows ? data.power_windows : not_available}
 								.car-parts-section
 									span.header Paint Depth
 									.car-parts-data
 										p Left Fender
-											span Good
+											span #{data.left_fender ? data.left_fender : not_available}
 										p Right Fender
-											span Good
+											span #{data.right_fender ? data.right_fender : not_available}
 										p Left Quarter
-											span Good
+											span #{data.left_quarter ? data.left_quarter : not_available}
 										p Right Quarter
-											span Good
+											span #{data.right_quarter ? data.right_quarter : not_available}
 										p Roof
-											span Good
+											span #{data.roof ? data.roof : not_available}
 										p Right Front Door
-											span Good
+											span #{data.right_front_door ? data.right_front_door : not_available}
 										p Left Front Door
-											span Good
+											span #{data.left_front_door ? data.left_front_door : not_available}
 										p Right Rear Door
-											span Good
+											span #{data.right_rear_door ? data.right_rear_door : not_available}
 										p Left Rear Door
-											span Good
+											span #{data.left_rear_door ? data.left_rear_door : not_available}
 						section.col-md-12
 							.pad0.car-graph-section
 								span.header Market Comparison Price Tool
@@ -1465,10 +1392,11 @@ html
 						section.col-md-12
 							.col-md-12.pad0.car-remark-section
 								h4.pd-tp-10.font-wt-6 Additional Photos
-								each clientValue, clientKey in data.reportimages
-									.additional-images
-										img(src='#{process.env.API_DOMAIN}/#{clientValue.file_path}')
-										p.imagename-title #{clientValue.label}
+								if (data.reportimages)
+									each clientValue, clientKey in data.reportimages
+										.additional-images
+											img(src='#{process.env.API_DOMAIN}/#{clientValue.file_path}')
+											p.imagename-title #{clientValue.label}
 							.col-md-12.pad0.align-left(style="clear:both")
 								.col-md-2.pad0.right.mg-rt-30
 									h4.pd-tp-10.font-wt-6 Approved By

@@ -1,4 +1,4 @@
-import { ajaxCall, snakeToCamel, initAjax, ajaxUpload } from "./common/utils";
+import { ajax, snakeToCamel, initAjax, ajaxUpload } from "./common/utils";
 
 const intialize = () => {
 	var uploadedImage = []
